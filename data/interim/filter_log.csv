@@ -1,0 +1,872 @@
+app_id,title,genre,decision,reason
+com.fastbanking,Kissht: Instant Personal Loans,Finance,keep,keep
+com.balancehero.truebalance,True Balance - Loan App & UPI,Finance,keep,keep
+com.pocketly,Pocketly Instant Personal Loan,Finance,keep,keep
+com.branch_international.branch.branch_demo_android,Branch Instant Personal Loan,Finance,keep,keep
+org.altruist.BajajExperia,Bajaj Finance : UPI & Loan App,Finance,keep,keep
+in.hanafintech,PayRupik Instant Personal Loan,Finance,keep,keep
+com.earlysalary.android,Fibe: Instant Personal Loan,Finance,keep,keep
+com.ideopay.user,RING by Kissht: Personal Loan,Finance,keep,keep
+com.rupeeredee.app,RupeeRedee - Personal Loan App,Finance,keep,keep
+com.kreditbee.android,"KreditBee: Personal Loans, UPI",Finance,keep,keep
+com.whizdm.moneyview.loans,"Moneyview: UPI, Personal Loans",Finance,keep,keep
+com.citrus.citruspay,LazyPay: Loan App & Pay Later,Finance,keep,keep
+in.rebase.app,Olyv: Loans & Credit Score,Finance,keep,keep
+io.attabot.app.paymeindia,PayMe: Instant Loans Fast Cash,Finance,keep,keep
+com.innofinsolutions.instamoney,Instant Loan App - InstaMoney,Finance,keep,keep
+co.tslc.cashe.android,CASHe: Quick Personal Loan App,Finance,keep,keep
+com.mpokket.app,mPokket: Instant Loan App,Finance,keep,keep
+com.fatakpay,FatakPay: Loans & Insurance,Finance,keep,keep
+in.loanfront.android,LoanFront - Personal Loan App,Finance,keep,keep
+com.incred.customer,Instant Personal Loan : InCred,Finance,keep,keep
+com.portal.hcin,Home Credit: Personal Loan App,Finance,keep,keep
+com.finnable.customer,Finnable: Loan & Credit Score,Finance,keep,keep
+com.ltfs.d2c,L&T Finance : PLANET Loan App,Finance,keep,keep
+money.gocredit.ai,GoCredit Instant Personal Loan,Finance,keep,keep
+com.stashfin.android,"Stashfin UPI, Pay Bills, Loans",Finance,keep,keep
+com.phonepe.app,"PhonePe UPI Payments, Loan App",Finance,keep,keep
+com.buddyloan.vls,Buddy Loan - Personal Loan App,Finance,keep,keep
+com.hdbfs.myportal,HDB OnTheGo: Personal Loan App,Finance,keep,keep
+com.naviapp,"Navi: UPI, Payments, Insurance",Finance,keep,keep
+com.mobikwik_new,"MobiKwik: Loans, UPI & Wallet",Finance,keep,keep
+net.one97.paytm,Paytm: Secure UPI Payments,Finance,keep,keep
+com.myairtelapp,"Airtel: Recharge, Bank & Loans",Finance,keep,keep
+indwin.c3.shareapp,slice: UPI credit card & bank,Finance,keep,keep
+com.snapmint.customerapp,0% EMI Shopping App,Finance,keep,keep
+com.csam.icici.bank.imobile,"iMobile: Loan, Cards & Banking",Finance,keep,keep
+com.quickcash.earnmoney,QuickCash: Earn Money Online,Entertainment,drop,genre:Entertainment
+com.saiindia.quickcash,Quick Cash - SAI INDIA GYPSUM,Business,drop,genre:Business
+com.zapcash.loan,ZapCash - Quick Loans,Finance,keep,keep
+com.capitalnowapp.mobile,Capital Now: Quick Loan App,Finance,keep,keep
+io.cash.crypto,Qwik Cash,Finance,keep,keep
+in.kubiz.app,"Kubiz: Loan App, Instant Cash",Finance,keep,keep
+com.rapid_money,RapidMoney – Digital loans,Finance,keep,keep
+com.unionota.accounting.credit,Quick Cash Ledger,Tools,drop,genre:Tools
+slots.casino.classic.vegas.quick.cash,Quick Cash Classic Slots,Casino,drop,genre:Casino
+com.quickmon,Quick Money: Recharge App,Business,drop,genre:Business
+rapidrupee.app,RapidRupee - Personal Loan App,Finance,keep,keep
+com.quickcash.mpesa,QuickCash: Mobile Loan Guide,Finance,keep,keep
+com.zype.mobile,Zype Instant Personal Loan App,Finance,keep,keep
+com.pocket.rupee.deal,PocketRupee-Fast Loan,Finance,keep,keep
+com.revolving.line.market,RevoLine: Quick Credit Line,Finance,keep,keep
+com.noxinfotech.finbudpay,Finbud Pay - Credit Line,Finance,keep,keep
+com.manyajew.vishwas,VishwasLoan - Credit Line App,Finance,keep,keep
+com.rupeeloop.credit,RupeeLoop Loan-Line of credit,Finance,keep,keep
+com.credi.meteor.taplend.line.india,CrediMeteor-Quick Credit Line,Finance,keep,keep
+com.creditrange.digital.line.records.fin,Credit Range - Line of Credit,Finance,keep,keep
+com.mycash.moneytap.app,MoneyTap -Credit Loan Payments,Finance,keep,keep
+in.epaylater.android.retailer.generic,ePayLater - Get Instant Credit,Finance,keep,keep
+com.nextgensolutions.furtila.lite,Furtila Rupee-Smart Credit,Finance,keep,keep
+com.tk.zy.easylend,EasyLend-Revolving Credit,Finance,keep,keep
+com.pixeltechnology.flexrup,FlexeRupee:Credit Line,Finance,keep,keep
+com.jify.mobile,Jify: Loans and Salary Advance,Finance,keep,keep
+com.kksv.salarynowapp,Salary Now - Instant Loans,Finance,keep,keep
+com.phocket,Instant Personal Salary Loan,Finance,keep,keep
+com.flexsalary,FlexSalary Instant Loan App,Finance,keep,keep
+com.setlary.asapsetlary,Advance Salary Admin Panel,Finance,keep,keep
+com.craft.mySalary,MySalary Now,Finance,keep,keep
+com.salaryontime.salaryontime,SalaryOnTime:Personal Loan App,Finance,keep,keep
+com.salarytopup.salarytopup,SalaryTopUp,Finance,keep,keep
+com.advancepay.dealerapp,Advance Pay - Auto EMI collect,Finance,keep,keep
+com.ewa.pro,Salary 365,Finance,drop,no_lending_terms
+com.salaryse.android,"SalarySe: UPI, Credit, Rewards",Finance,keep,keep
+com.goodkredit.myapplication.paydaytoday,Payday Today,Finance,drop,no_lending_terms
+com.gfpls.personalloan,30daysloan,Finance,keep,keep
+com.Payday.payday,PAYDAY,Productivity,drop,genre:Productivity
+com.merusphere.salary247.borrower,Salary24x7 – Instant Loans,Finance,keep,keep
+com.ctl.salarytaps,Salarytap: Instant Salary,Finance,keep,keep
+com.tinytechapps.salarycalculator,Salary Calculator – Wage Calc,Finance,drop,no_lending_terms
+nic.hp.esalary,eSalary,Finance,drop,no_lending_terms
+in.co.refyne.android,Refyne,Finance,keep,keep
+com.salary.flow,Salary Flow,Finance,keep,keep
+com.kksv.salarynowloan,SN Insta Personal Advance Loan,Finance,keep,keep
+com.gopaysense.android.boost,PaySense: Personal Loan App,Finance,keep,keep
+com.fintech.lenditt,Lenditt: Personal Loan App,Finance,keep,keep
+com.suburban.emergency_paisa,EmergencyPaisa,Finance,keep,keep
+yuva.loan.app,Yuva - Personal Loan App,Finance,keep,keep
+com.vmoney.app,Vmoney - Instant personal loan,Finance,keep,keep
+com.devaashishcapitals.rot,Rupeeontime – Instant Loan,Finance,keep,keep
+com.taplend.india,Taplend: Personal Loan App,Finance,keep,keep
+com.vivamoney,Viva Money: 0% Interest Loan,Finance,keep,keep
+instantloanindia.finance.app,Personal Loan App: Urgent Cash,Finance,keep,keep
+in.paisa247,Paisa247 – Personal Loan App,Finance,keep,keep
+com.paizo,Paizo - Instant Personal Loan,Finance,keep,keep
+trustpaisa.app,Trustpaisa: Personal loan app,Finance,keep,keep
+com.nirafinance.customer,NIRA Instant Personal Loan App,Finance,keep,keep
+com.paisabazaar,Paisabazaar: Credit Score App,Finance,keep,keep
+com.mywish.wishfin.view,Wishfin: CIBIL Score Check App,Finance,keep,keep
+com.ruloanss.b2c,Ruloans - Loans & Cibil Score,Finance,keep,keep
+com.tuci.cibilindia,CIBIL® Score & Report,Finance,keep,keep
+com.lendingplate,lendingplate Personal Loan App,Finance,keep,keep
+com.indialends.android,"IndiaLends-Loans, Credit Score",Finance,keep,keep
+com.kapiital.getitnow,GetItNow: Instant Loan App,Finance,keep,keep
+com.rufilo.user,Small Business Loan: Tradofina,Finance,keep,keep
+com.piramal.app.pchf,Piramal Finance - Loans & More,Finance,keep,keep
+in.zestmoney.android.zestlife,ZestMoney - Shop on easy EMIs,Finance,keep,keep
+com.freeman.moneymanager,Money Tracker-Expense & Budget,Finance,keep,keep
+com.raha.app.mymoney.free,MyMoney—Track Expense & Budget,Finance,keep,keep
+com.droid4you.application.wallet,Wallet: Budget Expense Tracker,Finance,drop,no_lending_terms
+com.daamitt.walnut.app,axio: Expense Tracker & Budget,Finance,keep,keep
+com.realbyteapps.moneymanagerfree,Money Manager Expense & Budget,Finance,keep,keep
+com.analytics.finance.manager.money.app,Daily Loan - Money Tracker,Finance,keep,keep
+com.budget.tracker.loanmanager.aimanager.app,Budget Tracker:Expense Manager,Productivity,drop,genre:Productivity
+com.amitm29.am.dailyexpensesmanager,Gist Money: Expense Tracker,Finance,keep,keep
+com.sortedsystems.myexpense,My Expense - Budget Tracker,Finance,keep,keep
+cashbook.cashbook,Cash Book- daily expenses,Business,drop,genre:Business
+money.fold.marble,Fold: Expense Tracker & Budget,Finance,keep,keep
+sstech.com.singleexpense,Daily Expense Tracker & Budget,Finance,keep,keep
+com.budget.tracker_app,Cashew—Expense Budget Tracker,Finance,keep,keep
+com.blodhgard.easybudget,Fast Budget - Expense Manager,Finance,keep,keep
+com.ackbiz.emi_calculator,EMI Calculator Loan & Interest,Finance,keep,keep
+com.arbapps.loanemicalc,EMI Calculator - Loan Planner/,Finance,keep,keep
+com.grtech.emiloancalc,"Loan EMI Calculator - SIP,FD",Finance,keep,keep
+com.mytyger,My Tyger – Loan & EMI App,Finance,keep,keep
+com.mayur.emicalculator,EMI Calculator – Loan & SIP,Finance,keep,keep
+com.easyloan.cashloan.loan.instantloan.loanEMIcalculator,CashLoan – EMI Loan Calculator,Finance,keep,keep
+in.dmifinance.app,DMI Finance: Personal Loan App,Finance,keep,keep
+com.finance.loan.emicalculator,EMI Calculator: Loan Interest,Finance,keep,keep
+cashloan.easy.emi.loan.instantloan.loancalculator,CashLoan – EMI Loan Calculator,Finance,keep,keep
+co.futurewatch.emicalculator,Loan & EMI Calculator,Finance,keep,keep
+in.bajajfinservmarkets.app,Bajaj Markets: Loan & Finance,Finance,keep,keep
+com.emicalculator.loantracker,EMI Calculator: Loan Tracker,Finance,keep,keep
+com.newsmedislists.loan_calculator,"Loan Calculator: EMI, Mortgage",Finance,keep,keep
+in.groww.dash,Groww Credit: Instant Loan App,Finance,keep,keep
+com.kreon.stucred,StuCred - Student Loan App,Finance,keep,keep
+com.kuhoo.kuhoo_student_app,Kuhoo: Education Loan App,Finance,keep,keep
+in.pocketmitra,PocketMitra Personal Loan App,Finance,keep,keep
+com.fusionapp.studentloancalculator,Student Loan Calculator,Finance,keep,keep
+in.junio,Junio: NCMC card for students,Finance,drop,no_lending_terms
+com.phonepe.app.business,"PhonePe Business UPI, Loan App",Finance,keep,keep
+com.flexiloan,FlexiLoans: Business Loans,Finance,keep,keep
+com.snapwork.tcl,Tata Capital Loan App & Wealth,Finance,keep,keep
+com.iifl.mobile.hfc,IIFL Finance: Gold & MSME Loan,Finance,keep,keep
+com.bfl.merchant,Bajaj Finance for Business,Finance,keep,keep
+com.bharatpe.app,BharatPe for Business,Finance,keep,keep
+com.riviera.indifi.app,Indifi Unsecured Business Loan,Finance,keep,keep
+com.privo.creditsaison,Credit Saison India: Loan App,Finance,keep,keep
+com.paytm.business,Paytm for Business,Finance,keep,keep
+com.slice.nesfb.merchant,slice zero fee current account,Finance,keep,keep
+com.google.android.apps.nbu.paisa.merchant,Google Pay for Business,Finance,keep,keep
+co.tide.tideplatform.in,Tide Business India App,Finance,keep,keep
+com.mgc.ogl,Manappuram Gold Loan OGL Lite,Finance,keep,keep
+com.rupeek.customer,Online Gold Loan : Rupeek,Finance,keep,keep
+com.capriloans.consumer,Capri Loans,Finance,keep,keep
+com.muthootfincorpone.superapp,Muthoot FinCorp ONE,Finance,keep,keep
+com.muthootfinance.imuthoot,iMuthoot Muthoot Finance Loans,Finance,keep,keep
+co.indiagold.gold.buy.loan,indiagold Gold loans,Finance,keep,keep
+in.orocorp.customer,Oro Money | Gold Loans at home,Finance,keep,keep
+com.iflGoldLoan,IFL Gold Loan,Finance,keep,keep
+money2me.in,Money2Me - Gold Loan App,Finance,keep,keep
+com.SMCGoldMoney,SMC Gold Loan,Finance,keep,keep
+com.js.interest_calculator,Girvi Calculator : Gold Loan,Finance,keep,keep
+com.shriram.one,"Shriram One: FD, UPI, Loans",Finance,keep,keep
+com.asirvadogl,Asirvad OGL,Finance,keep,keep
+com.muthootfinance.imuthootmoney,Muthoot Money: Loans,Finance,keep,keep
+com.fedbank.customerapp,Fedfina Loans,Finance,keep,keep
+com.jar.app,Jar:Save Money in Digital Gold,Finance,keep,keep
+com.manappuram.ogl,Manappuram OGL,Finance,keep,keep
+com.technedia.gold_loan_interest_calculator,Gold loan interest calculator,Tools,drop,genre:Tools
+com.iifl.hfc_loans,IIFL One Home,Finance,keep,keep
+com.unigoldfinance,My Unigold,Finance,keep,keep
+com.technicul.girvi,Girvi (गिरवी) Manage Gold Loan,Productivity,drop,genre:Productivity
+com.spare8,Spare8: Digital Gold Invest,Finance,drop,no_lending_terms
+com.mycompany.oglmahofin,OGL MAHOFIN,Finance,keep,keep
+com.inditab.inditab,"EaseMyDeal: Credit Card, Loans",Finance,keep,keep
+com.dreamplug.androidapp,"CRED: Credit Cards, Bills, UPI",Finance,keep,keep
+com.creditcard.onecard,OneCard: Credit Card & UPI,Finance,keep,keep
+com.idfcfirstbank.optimus,IDFC FIRST Bank: MobileBanking,Finance,keep,keep
+com.usfb.roarbank,Roarbank: Credit Card & UPI,Finance,keep,keep
+cards.uni.app.credit,Uni: GoldX & UPI Credit Card,Finance,keep,keep
+com.ge.capital.konysbiapp,SBI Card: Manage Credit Card,Finance,keep,keep
+in.magnetapp,ZET: Credit Score App,Finance,keep,keep
+com.kreditpe.android.app,Kredit.Pe: Credit Cards & UPI,Finance,keep,keep
+com.tvscs.tvscreditapp,TVS Credit Saathi,Finance,keep,keep
+com.paylaterapp.paylater,PayLater: Split Your Payments,Finance,keep,keep
+com.shopse.merchant,"ShopSe, Pay Later for Business",Finance,keep,keep
+com.myklarnamobile,Klarna: Smarter everyday money,Finance,keep,keep
+com.deema.bnpl.app,"deema | Live Now, Pay Later",Business,drop,genre:Business
+com.alif_finance.pk,"Alif Shop: Buy now, pay later",Finance,keep,keep
+com.letitgrownepal.puryaideu,UdhaarQR - Buy Now Pay Later,Shopping,drop,genre:Shopping
+com.madabnpl,Mada | Buy Now Pay Later,Finance,keep,keep
+com.rolarite.app,Rolarite: Buy Now Pay Later,Shopping,drop,genre:Shopping
+com.slideit,Slideit - Shop Now Pay Later,Finance,keep,keep
+com.aadhar.pe.instant.apply.loan.calculator,Aadhar Loan : EMI Calculator,Finance,keep,keep
+in.gov.uidai.pehchaan,Aadhaar,Productivity,drop,genre:Productivity
+com.aadhar.pe.instant.loan.calculator,Aadhar Pe EMI Loan Calculator,Finance,keep,keep
+com.app.adharmoney,Adhaar Money,Business,drop,genre:Business
+com.ahfl.customerapp,Aadhar Housing Finance Lite,Finance,keep,keep
+com.classic.avenue.aadharpe.emi.calculator,Aadhar pe EMI Loan Calculator,Finance,keep,keep
+com.loaneasy.emiloan.easyusefull,Aadhar Pe EMI Loan Calculator,Finance,keep,keep
+com.bnb.paynearby,"PayNearby - Aadhaar ATM, DMT",Finance,keep,keep
+com.instantmudra,Instant Mudra : Personal Loan,Finance,keep,keep
+com.loanplanner.maxfinance.financeemicalculator.loancalctrading,Aadhar Pe EMI Loan Calculator,Finance,keep,keep
+in.udhaari.app,Udhaari - Loan & EMI Tracker,Finance,keep,keep
+com.chinmay.io,Chinmay - Personal Loan App,Finance,keep,keep
+in.india.upi.flexpay,FlexPay: Personal Loan App,Finance,keep,keep
+com.atdmoney.quick,ATD Money - Personal Loan App,Finance,keep,keep
+com.snaptravel.core,"Super.com Cash Advance, Travel",Finance,keep,keep
+com.ApolloApp,Apollo Cash: Personal Loan App,Finance,keep,keep
+com.ibl.money.instantloan,IBL Money : Instant Loan App,Finance,keep,keep
+rushfunds.cash.advance.payday.personal.loan,RushFunds - Cash Advance & Pay,Finance,keep,keep
+com.oto.android.app,OTO: Buy Bikes at lowest price,Auto & Vehicles,drop,genre:Auto & Vehicles
+com.customer.herofincorp,Hero FinCorp - Customer App,Finance,keep,keep
+com.herofincorp.diyjourneys,Hero Digital Lending & UPI App,Finance,keep,keep
+com.loanmo.loan,Loanmo - two wheeler loan,Finance,keep,keep
+com.indigo.hdfcloans,Loan Assist - Quick Bank Loans,Finance,keep,keep
+application.lichfl.online,HOMY - LIC HFL Home Loan,Finance,keep,keep
+com.poonawallafincorp.loan.emi.payment.card.upi.mf,Poonawalla Fincorp,Finance,keep,keep
+com.droidpublshing.motorcycleemi.calculator,Bike EMI Loan Calculator,Finance,keep,keep
+io.ionic.d2c,Chola One: Digital Lending App,Finance,keep,keep
+com.app.hdfc,HDFC Bank Home Loans,Finance,keep,keep
+com.bhfl,Bajaj Housing Finance,Finance,keep,keep
+com.hhfl.mobileapp,Hero Home Loan,Finance,keep,keep
+com.icicihfc.mbcs,ICICI Home Finance,Finance,keep,keep
+com.easyhomefinance.customers,Easy Home Finance - Loan App,Finance,keep,keep
+com.bendigobank.qantas,Qantas Money Home Loans,Finance,keep,keep
+com.mf.app,Mahindra Finance: Loans & FD,Finance,keep,keep
+com.aavas.homeloan,Aavas Loan - Home & MSME Loan,Finance,keep,keep
+in.voltmoney,Volt Money: Mutual Fund Loan,Finance,keep,keep
+in.yenmo,Yenmo- Mutual Funds Loan App,Finance,keep,keep
+com.nucleus.mirae.finance,MAFS: Mutual Fund Loan & PL,Finance,keep,keep
+com.smallcase.android.credit,creditcase: Mutual Fund Loans,Finance,keep,keep
+com.tatacapital.moneyfy,"Moneyfy Mutual Fund, SIP, Loan",Finance,keep,keep
+com.indcredit.indcredit,INDcredit Loan on Mutual Funds,Finance,keep,keep
+com.dhanlap.ark_neo,DhanLAP- Loans on Mutual Funds,Finance,keep,keep
+com.fiftyfin.app,50Fin: Loan against Securities,Finance,keep,keep
+com.godbtech.reliancemf,Nippon India Mutual Fund,Finance,keep,keep
+com.utimutualfunds.utimutualfund,UTI Mutual Fund Invest Online,Finance,keep,keep
+com.larkfinserv.lark,Lark Money - Mutual Fund Loans,Finance,keep,keep
+com.msf.angelmobile,"Angel One: Stocks, Mutual Fund",Finance,keep,keep
+com.smallcase.android,smallcase - Save & Invest,Finance,keep,keep
+com.gooogle.android.kuvera.app,Kuvera by CRED: MF & US Stocks,Finance,drop,no_lending_terms
+rs.latin.com,InvestMart Stock & Mutual Fund,Finance,keep,keep
+com.nextgenmf.investor,Tata Mutual Fund - SIP & Track,Finance,drop,no_lending_terms
+com.hdfcfund.investor,"HDFC Mutual Fund: Invest, SIP",Finance,drop,no_lending_terms
+com.smartspends,"ET Money Mutual Fund, SIF, SIP",Finance,keep,keep
+com.voltmoney.partner,Volt Money Partner App,Finance,keep,keep
+com.sbi.mf,SBI Mutual Fund - InvesTap Nxt,Finance,drop,no_lending_terms
+com.rupicard.score,GoodScore: Credit Score App,Finance,keep,keep
+tech.fplabs.score,OneScore: Credit Score App,Finance,keep,keep
+app.oolka.com,Oolka AI: Check Credit Score,Finance,keep,keep
+com.bankbazaar.app,Credit Score & Credit Cards,Finance,keep,keep
+com.htmintmoney,"Mint Money: Loan, Credit Score",Finance,keep,keep
+com.zoodel.kz,"ZOOD: Buy Now, Pay Later",Shopping,drop,genre:Shopping
+app.tabby.client,"Tabby: Send, spend and save",Finance,keep,keep
+com.sa.app.madfuser,"MADFU | Shop Today, Pay Later",Shopping,drop,genre:Shopping
+com.popclub.android,POP: Shop & Pay Later on UPI,Finance,keep,keep
+money.super.payments,super.money - UPI by Flipkart,Finance,keep,keep
+com.postpe.app,"BharatPe UPI Payment, Loan App",Finance,keep,keep
+com.hdfcbank.payzapp,"PayZapp UPI Wallet, Pixel Card",Finance,keep,keep
+in.benow.emilife,"EMILife - Shop now, Pay later",Shopping,drop,genre:Shopping
+com.supplya.shop,Supplya - BNPL for SMEs,Shopping,drop,genre:Shopping
+com.paypal.android.p2pmobile,"PayPal - Pay, Send, Save",Finance,keep,keep
+com.google.android.apps.nbu.paisa.user,Google Pay: Secure UPI payment,Finance,keep,keep
+com.podynetwork.podyfinance,Pody: Device financing & BNPL,Finance,keep,keep
+com.shopse.consumer,ShopSe Digital Finance,Finance,keep,keep
+com.wabimicroloan.awash,Meri Micro Loan,Finance,keep,keep
+com.geniustechnoindia.ukmicrofinance,UK Micro Finance,Finance,keep,keep
+com.kosh,Kosh Loan App,Finance,keep,keep
+com.customermobapp.avanse,Avanse Financial Services,Finance,keep,keep
+kredit.rupee,Kredit Rupee Personal Loan App,Finance,keep,keep
+com.anytimerupee,Anytime Rupee,Finance,keep,keep
+com.vrindafinlease.rupee112,Rupee112: Personal Loan App,Finance,keep,keep
+org.olive.cbdcloan,PM Vidyalaxmi Digital Rupee,Finance,keep,keep
+com.soumbilmultiservice.fastbet.app,FastCash,Finance,drop,no_lending_terms
+com.mudrafast.cashloan,MudraFast Cash-Personal Loan,Finance,keep,keep
+com.cashfast.playtoearn,CashFast : Play to Earn,Trivia,drop,genre:Trivia
+com.fastcashhousesolution.android,Fast Cash House Solutions,Business,drop,genre:Business
+com.freecash.app2,Freecash: Earn Money,Finance,drop,no_lending_terms
+com.fin.do,Fin.do: Instant Money Anywhere,Finance,drop,no_lending_terms
+in.okcredit.merchant,"OkCredit: Ledger, UPI, Billing",Finance,keep,keep
+com.finexmoney.wallet,Finex Money,Finance,keep,keep
+com.innofinsolutions.lendenclub.lender,LenDenClub Grow Your Portfolio,Finance,keep,keep
+dev.hemanths.paisa,Spending Tracker - Paisa,Finance,keep,keep
+com.vibhunorby.totalpaisa,Total Paisa-Cash Denomination,Finance,keep,keep
+com.appmoneypay.appmoneypay,MONEYPAY,Business,drop,genre:Business
+com.gspl.mpaisa,mPaisa - Games & Earn Money,Entertainment,drop,genre:Entertainment
+com.instapop.inu,Earn Cash & Rewards : Instapop,Finance,drop,no_lending_terms
+com.shriiaarya.earnmoney,ONLINE PAISE KAISE KAMAYE,Education,drop,genre:Education
+com.paytmmoney,"Paytm Money Stocks, MF, IPO",Finance,keep,keep
+in.spicemudra,Spice Money -Banking Agent App,Finance,keep,keep
+com.starmoneyapp,"Star Money - Aadhaar ATM, DMT",Finance,keep,keep
+com.digitalkhabar24.Online_Paise_Kamayen,Online Paise Kaise Kamaye,Education,drop,genre:Education
+com.app.bonusbuddy,Bonus Buddy: Earn Money Online,Entertainment,drop,genre:Entertainment
+proxima.easymoney.android,Money App – Earn Easy Cash App,Lifestyle,drop,genre:Lifestyle
+com.paisa.expense_manager,Paisa Budget & Expense Tracker,Finance,keep,keep
+com.solution.rupenetpaymentbox,"PayRupe - AEPS,DMT,UPI etc",Finance,drop,no_lending_terms
+com.mony.app,Mony: UPI for Tourists & NRIs,Finance,keep,keep
+com.bharatpayaeps,BharatDigiCash | M-ATM | DMT,Finance,keep,keep
+com.sikka.freemoney,Money Earning App online Sikka,Entertainment,drop,genre:Entertainment
+com.canarabhim.upiapp.mobility,Canara ai1Pe UPI - Payment App,Finance,keep,keep
+com.paisawalk.step.pedometer.reward,PaisaWalk:Step & Earn Cash,Health & Fitness,drop,genre:Health & Fitness
+com.app.banksathi,BankSathi: Referral App,Finance,keep,keep
+com.goodtimegames.ludoloyalty,Ludo Cash - Win Real Rewards,Board,drop,genre:Board
+com.incash.money.earning,Earn money online In Cash app,Entertainment,drop,genre:Entertainment
+com.paisawapas.app,PaisaWapas: Cashback & Coupons,Shopping,drop,genre:Shopping
+com.rupiyo.realmoney.rewardsapp,Earn money online cash Rupiyo,Entertainment,drop,genre:Entertainment
+com.gameeapp.android.app,GAMEE Prizes Online Money Game,Casino,drop,genre:Casino
+com.alamrida350.Driving_Licence,Mobile Se Paise Kaise Kamaye,Education,drop,genre:Education
+com.epicrealmentertainment.creatorsai,Online Paisa Kamao,Productivity,drop,genre:Productivity
+com.master.learn.ai,Master : Watch Reels & Learn,Education,drop,genre:Education
+com.cashkaro,CashKaro - Cashback & Coupons,Shopping,drop,genre:Shopping
+com.pokkt.app.pocketmoney,Pocket Money: Rewards Everyday,Entertainment,drop,genre:Entertainment
+com.doublefun.moneyflow,Idle Bank - Money Games,Simulation,drop,genre:Simulation
+com.winning.jackpot.slots.casino.mania.slotmachines.free,Winning Jackpot Slots Casino,Casino,drop,genre:Casino
+com.prefr.credit,Prefr: Online Loan App India,Finance,keep,keep
+com.moneytap.bnpl.app,"Freo - UPI, Insurance, Loans",Finance,keep,keep
+com.hapiapps.lending_paisa,Lending Paisa,Finance,keep,keep
+app.paisa108.com,Paisa 108 : Personal Loan App,Finance,keep,keep
+com.dhiapps.udharbook,Udhaar Book: Digi Khata App,Business,drop,genre:Business
+com.pccomputer.udhar_khata_book,Udhar Khata Book Credit Debit,Business,drop,genre:Business
+jain.software.udhar_pay,Udhaar App,Business,drop,genre:Business
+com.offlinekhata.app,Offline Khata - Udhaar Book,Business,drop,genre:Business
+com.udharkhata.akhil,UdharGuru: Udhar Khata Book,Finance,keep,keep
+com.doneapp.cpma,Done - Smart Udhaar Khata App,Productivity,drop,genre:Productivity
+com.sonu.creditbook,CreditBook: Udhaar Khata,Finance,keep,keep
+com.myudhaardiary,My Udhaar Diary,Productivity,drop,genre:Productivity
+com.maisha.udhaar,UDHAR,Business,drop,genre:Business
+com.hisabonline.app,Hisab Online: Khata Udhaar App,Business,drop,genre:Business
+com.udharbook.ai,Udharbook AI-Ledger Khata Book,Business,drop,genre:Business
+com.aicampsis.udharkhata,Udhar Khata,Finance,keep,keep
+com.andt,Udhar Capital,Finance,keep,keep
+com.dilabs.udharbook,Udharbook: Credit Khatabook,Business,drop,genre:Business
+com.dreamboxstudio.udhaarrecover,Udhaar Recover,Business,drop,genre:Business
+com.udharbook.app,Udhar Book Pro: Digital Khata,Business,drop,genre:Business
+com.udhar.book,Udhar Book : Digital Hisab,Finance,keep,keep
+co.appdev.udharmaster,Udhar Master,Business,drop,genre:Business
+com.wasoolo.app,Wasoolo: Udhaar Khata Book,Business,drop,genre:Business
+com.samsoftix.udhaarmanager,Udhaar Manager,Tools,drop,genre:Tools
+com.udharo.app.nepal,Udharo,Finance,keep,keep
+com.nishantsaluja.apnakhata,Apna Khata - Udhaar Ledger,Finance,keep,keep
+com.novabyts.udhaarix,UdhaariX — Digital Udhar Khata,Business,drop,genre:Business
+com.smartkhata,SmartKhata: Udhar Bill & Stock,Business,drop,genre:Business
+com.rspl.instavyapaar,UdhaarSaathi Merchant Loan App,Finance,keep,keep
+com.sangaminfoanalytics.memoria,Memoria: Udhaar Bahi Khata,Finance,keep,keep
+in.com.tala,Tala: Fast & Secure Loan App,Finance,keep,keep
+com.tezcredit.app,TezCredit: Instant Loan App,Finance,keep,keep
+com.digilocker.android,DigiLocker,Productivity,drop,genre:Productivity
+com.fivepaisa.trade,"5paisa: Demat, Stocks & IPO",Finance,keep,keep
+com.rapido.rider,Rapido Captain: Drive & Earn,Maps & Navigation,drop,genre:Maps & Navigation
+com.tatadigital.tcp,"Tata Neu: UPI, Cards, Rewards",Finance,keep,keep
+in.gov.umang.negd.g2c,UMANG,Productivity,drop,genre:Productivity
+com.cityfurnish,Cityfurnish - Rent Furniture,Lifestyle,drop,genre:Lifestyle
+com.creditaccessgrameen.mahi,Grameen MAHI by GrameenKoota,Finance,keep,keep
+com.folio3.cattlytics,Cattlytics Beef: Cattle App,Productivity,drop,genre:Productivity
+org.ketto.sip,Ketto,Social,drop,genre:Social
+com.alrajhiretailapp,alrajhi bank,Finance,keep,keep
+com.dxp.TawuniyaInsurance,Tawuniya | التعاونية,Business,drop,genre:Business
+com.huru,Huru: Zero Balance UAE Account,Finance,keep,keep
+com.urpay.consumer,urpay,Finance,keep,keep
+sa.gov.gosi.taminaty,GOSI,Business,drop,genre:Business
+sa.gov.nic.twkhayat,Tawakkalna,Productivity,drop,genre:Productivity
+com.axiscorporatebankapp,neo for corporates,Finance,keep,keep
+com.greytip.ghress,greytHR - the one-stop HR App,Business,drop,genre:Business
+com.mrinq.smartaccess,OptiSpaces.ai by Spintly,Business,drop,genre:Business
+co.futurewatch.pulsebp,PulseBP: Blood Pressure Log,Health & Fitness,drop,genre:Health & Fitness
+com.animalringtones.sounds.ringtone,Animal Ringtone Sounds & Tones,Personalization,drop,genre:Personalization
+com.docreader.pro,DocReader Pro - PDF & Doc View,Productivity,drop,genre:Productivity
+com.futurewatch.resetta,Resetta:Stress Burnout Tracker,Health & Fitness,drop,genre:Health & Fitness
+com.futurewatch.slimtrack,Slim Track: Weight Loss & BMI,Health & Fitness,drop,genre:Health & Fitness
+com.volume.soundbooster,Volume Booster Sound EQ,Tools,drop,genre:Tools
+com.canarabank.mobility,Canara ai1- Mobile Banking App,Finance,keep,keep
+com.getpaz.pazcare,Pazcare,Finance,drop,no_lending_terms
+com.infrasoft.uboi,Union ease - Mobile Banking,Finance,keep,keep
+com.reeapps.reeline,ReeLine: Small Business POS,Finance,keep,keep
+com.app.agastya,CuePilot AI,Education,drop,genre:Education
+com.finwizard.fisdom,Fisdom: Mutual Funds & SIPs,Finance,drop,no_lending_terms
+com.app.mindhouse,Mindhouse,Health & Fitness,drop,genre:Health & Fitness
+com.finance.expanager,Expanager : Expense Manager,Finance,keep,keep
+com.paybyapis,EG Payment - Recharge Cashback,Finance,drop,no_lending_terms
+com.runtime.englishfromhindi.learnenglish,Learn English From Hindi,Education,drop,genre:Education
+com.volkai.io,Volkai,Tools,drop,genre:Tools
+com.gettimely.timely,Timely – Bookings & payments,Business,drop,genre:Business
+com.littlesoldiers.kriyoschool,Kriyo: Preschool & Daycare App,Education,drop,genre:Education
+com.themoneytool.app,MoneyTool – Budget Tracker,Finance,drop,no_lending_terms
+vn.teko.memogo,MemoGo - Split Bills & Travel,Finance,drop,no_lending_terms
+app.edelweissinsurance.com,Zuno General Insurance,Finance,keep,keep
+com.Omnifinn.mobile.App_AAVAS,Aavas Omnifin,Business,drop,genre:Business
+com.aavas.lms.aavaslms,Aavas Nirman,Finance,drop,no_lending_terms
+com.aavas.mobscanner,Aavas Scanner,Finance,drop,no_lending_terms
+com.aavas.nirmanplus,Aavas Nirman Plus,Finance,drop,no_lending_terms
+com.aavas.partner,Aavas Referral App,Finance,keep,keep
+com.aavas.referralsetu,Aavas Setu,Finance,keep,keep
+com.iPruAMC,ICICI Pru Mutual Fund i-Invest,Finance,drop,no_lending_terms
+com.valueresearch.advisor,Value Research Advisor,Finance,drop,no_lending_terms
+in.stockedge.app,StockEdge: Stock Market App,Finance,drop,no_lending_terms
+com.ackbiz.chess,Chess,Board,drop,genre:Board
+com.ackbiz.khetihisab,Kheti Hisab: Farm Khata Book,Finance,keep,keep
+com.ackbiz.number_match,Number Match - Number Games,Puzzle,drop,genre:Puzzle
+com.ackbiz.one_line_fill,One Line Fill,Puzzle,drop,genre:Puzzle
+com.ackbiz.voxi,Voxi: Voice Changer & Recorder,Entertainment,drop,genre:Entertainment
+com.nobias.analyst.india,Nobias Artha,Finance,keep,keep
+com.walkack,WalkACK: Walk & Get Rewards,Health & Fitness,drop,genre:Health & Fitness
+com.wordpress.kuoyhuot.keepr,Keepr: Money & Budget Tracker,Finance,keep,keep
+com.youneedabudget.evergreen.app,YNAB,Finance,keep,keep
+org.pixelrush.moneyiq,1Money: expense tracker budget,Finance,drop,no_lending_terms
+cim.ahfl.ionic,Aadhar Go Collect,Business,drop,genre:Business
+com.ahflconnect,AHFL Connect,Productivity,drop,genre:Productivity
+com.app.ahfl.goftr,AHFL On The Go,Finance,keep,keep
+com.fzb,FundzBazar,Finance,keep,keep
+com.leadsquared.nextgen,LeadSquared CRM,Business,drop,genre:Business
+com.tataaig.android,TATA AIG Insurance App,Finance,keep,keep
+com.blockabc.cctip,Cwallet - Secure Crypto Wallet,Finance,keep,keep
+com.qwipo.b2b,Qwipo DigiDukaan,Shopping,drop,genre:Shopping
+com.redotpay,RedotPay: Crypto Card & Pay,Finance,keep,keep
+incomeexpense.incomeexpense,Income Expense- daily expenses,Finance,keep,keep
+com.DMGames.MyCash,My Cash: Play to Earn Money,Entertainment,drop,genre:Entertainment
+com.astropaycard.android,AstroPay,Finance,keep,keep
+com.currency.conversion.rate.calculator,Globe Currency - Rate Exchange,Travel & Local,drop,genre:Travel & Local
+com.loan.calculator.emi.payment.tracker,EMI Calculator: Loan Finance,Finance,keep,keep
+com.location.tracker.phone.number.tracker.pro,GPS Locator & Quick Tracker,Tools,drop,genre:Tools
+com.soft.znich.FlowmoPro,Money Flow: Spending Tracker,Finance,drop,no_lending_terms
+moneytracker.expensetracker.budgetplanner.spendingtracker,Money Tracker Expense Tracker,Finance,drop,no_lending_terms
+com.angleyouthapp,Fixible,House & Home,drop,genre:House & Home
+com.ecorationwala.decorationwala,Decoration Wala,Beauty,drop,genre:Beauty
+com.studentsaarthi,Rama Dairy,Education,drop,genre:Education
+com.unicorn_development.ramadairyapplication,Book Your Mehndi,Art & Design,drop,genre:Art & Design
+com.zyppy,Zyppy,Food & Drink,drop,genre:Food & Drink
+com.narendramodiapp,Narendra Modi App,News & Magazines,drop,genre:News & Magazines
+in.juspay.nammayatripartner,Namma Yatri Driver Partner,Auto & Vehicles,drop,genre:Auto & Vehicles
+club.app.scoreup,ScoreUp: Improve Credit Score,Finance,keep,keep
+com.chillar.earncoins.moneymaker,Money Earning App- Chillar,Entertainment,drop,genre:Entertainment
+in.mygov.mobile,MyGov,Social,drop,genre:Social
+com.sbi.lotusintouch,"YONO SBI: Banking, UPI & Pay",Finance,keep,keep
+com.finance.emi.calculate.paid,EMI Calculator Premium,Finance,keep,keep
+com.twansoftware.invoicemakerpro,ProBooks: Invoice Maker,Business,drop,genre:Business
+com.asirvad.ireferapp,iRefer - Asirvad,Business,drop,genre:Business
+com.asirvad.stepwell,StepWell - Asirvad,Health & Fitness,drop,genre:Health & Fitness
+com.digirealtytech.bellevie,BelleVie Premium Lifestyle App,Lifestyle,drop,genre:Lifestyle
+com.gotruein.one,Truein User: Time & Attendance,Productivity,drop,genre:Productivity
+com.macom.asiravadln,My Asirvad,Finance,keep,keep
+com.manappuram.asirvad,ASIRVAD AUCTION,Finance,drop,no_lending_terms
+com.rs.shoonya,SHOONYA by Finvasia,Finance,keep,keep
+com.apollo.patientapp,Apollo 247 - Health & Medicine,Medical,drop,genre:Medical
+com.axis.mobile,"Axis Mobile: Pay, Invest & UPI",Finance,keep,keep
+com.bendigobank.afg,AFG Home Loans Alpha,Finance,keep,keep
+com.bendigobank.aussie,Aussie Elevate,Finance,keep,keep
+com.bendigobank.connective,Connective Select,Finance,keep,keep
+com.bendigobank.mobile,Bendigo Bank,Finance,drop,no_lending_terms
+com.bendigobank.nrma,NRMA Home Loans,Finance,keep,keep
+com.bendigobank.tiimely,Tiimely Home,Finance,keep,keep
+com.bajaj.creatr,CreatR,Business,drop,genre:Business
+com.zoho.tables,Zoho Tables - Plan & Track,Productivity,drop,genre:Productivity
+com.bharatpe.captain,BharatPe Captain,Business,drop,genre:Business
+com.twelve.club,Invest BharatPe: Gold & Silver,Finance,keep,keep
+in.org.npci.upiapp,BHIM Bharat's Own Payments App,Finance,keep,keep
+com.adtran.intellifi,Intellifi by Adtran®,House & Home,drop,genre:House & Home
+com.hsl.investright,HDFC Securities InvestRight,Finance,keep,keep
+com.msf.bfsltrade,Bajaj Broking: Demat & Trading,Finance,keep,keep
+com.pic.master,PicMaster - AI Photo Editor,Photography,drop,genre:Photography
+com.komorebi.kakeibo,MoneyNote: Expense & Budget,Finance,keep,keep
+com.bnb.paynearby.swanari,PayNearby Digital Naari,Finance,keep,keep
+com.payments.paynearby,NeoDukaan: Manage Shop & Ecom,Business,drop,genre:Business
+com.paynearby.distributor,PayNearby Distributor,Finance,keep,keep
+com.paynearby.saathi,"Saathi by PayNearby:UPI,Saving",Finance,keep,keep
+com.pnb.associate,PayNearby Associate,Finance,drop,no_lending_terms
+com.policybazaar,Policybazaar - Buy Insurance,Finance,keep,keep
+com.acnh.catalog_scanner,Catalog Scanner (for ACNH),Tools,drop,genre:Tools
+com.acnh.pocket_guide,ACNH Pocket Guide,Tools,drop,genre:Tools
+com.atharva.expensetracker,Spendable: Your Money Manager,Finance,keep,keep
+com.budget.allowance,Allowance,Finance,drop,no_lending_terms
+com.ivy.wallet,Ivy Wallet: money manager,Finance,drop,no_lending_terms
+com.subdial.expend,eXpend: Make Budgeting a Habit,Finance,keep,keep
+com.canara.candigital,Canara CanDigital,Finance,drop,no_lending_terms
+com.canarabank.candimerchant,Canara ai1 - Merchant App,Finance,drop,no_lending_terms
+com.freecharge.android,Freecharge UPI & Bill Payments,Finance,keep,keep
+com.jio.web,JioSphere: Web Browser,Communication,drop,genre:Communication
+com.mobile.canaraepassbook,Canara e-Passbook,Finance,keep,keep
+com.ofss.canarabank,Canara ai1-Corporate,Finance,keep,keep
+org.npci.erupeeCANARA,CANARA DIGITAL RUPEE,Finance,drop,no_lending_terms
+com.choiceequitybroking.jiffy,Choice FinX: Demat Account App,Finance,keep,keep
+com.dhan.live,Dhan: Stock Market Trading App,Finance,keep,keep
+com.homerun.app,HomeRun: Materials in 60 mins,Shopping,drop,genre:Shopping
+com.capri.techxpress.cgcl,Daedalus(CGCL),Business,drop,genre:Business
+com.capricare,Capri Care,Business,drop,genre:Business
+com.cgcl.dsa.mobile,Capri Business Partner App,Finance,keep,keep
+com.jpl.jiomart,JioMart Online Shopping App,Shopping,drop,genre:Shopping
+com.classic.avenue.tamilnadu.bustimings,TN Bus Timings App - TNSTC,Travel & Local,drop,genre:Travel & Local
+com.classic.avenue.upbhulekh.khatuni.khasra,UP Bhulekh Khasra Khatauni App,Tools,drop,genre:Tools
+com.classicavenue.cash.loop.limit.estimator,Cash Loop Loan Assistant,Finance,keep,keep
+com.classicavenue.lpgbooking,"LPG Gas Booking App-HP, Indane",Productivity,drop,genre:Productivity
+com.classicavenue.lpghub,LPG Gas Cylinder Booking App,Tools,drop,genre:Tools
+com.classicavenue.videocallsimulation.bluebirds,Ladki se baat karne wala apps,Entertainment,drop,genre:Entertainment
+com.craftsilicon.brac_mobile,Brac Uganda Bank Mobile App,Finance,drop,no_lending_terms
+com.craftsilicon.ebo,EBO Mobile Sente,Finance,drop,no_lending_terms
+com.craftsilicon.imarishatap,Imarisha Tap,Finance,keep,keep
+com.elmacentemobile,CenteMobile,Business,drop,genre:Business
+com.elmacentemobile.dentab,Dentab Centenary,Finance,drop,no_lending_terms
+com.little.littlepay,Tourist Tap,Travel & Local,drop,genre:Travel & Local
+ai.wizely.android,Wizely: Save in FDs & Gold,Finance,drop,no_lending_terms
+com.icici.digitalrupee,Digital Rupee By ICICI Bank,Finance,drop,no_lending_terms
+com.icicibank.careers,iUniverse by ICICI Bank,Business,drop,genre:Business
+com.icicibank.iMcanada,ICICI Bank Canada iMobile,Finance,drop,no_lending_terms
+com.icicibank.ibizz,InstaBIZ by ICICI Bank,Finance,keep,keep
+com.icicibank.imbinternational,iMobile Global,Finance,keep,keep
+com.icicibank.pockets,Pockets by ICICI Bank,Finance,keep,keep
+com.kotak811mobilebankingapp.instantsavingsupiscanandpayrecharge,Kotak Bank: 811 Mobile App,Finance,keep,keep
+co.shopney.zoukazjnmapp,"Zouk - Bags, Wallets & Luggage",Shopping,drop,genre:Shopping
+com.herofincorp.anuvekshan,Hero Collect,Business,drop,genre:Business
+com.herofincorp.bridge,Hero FinCorp - The Bridge,Finance,keep,keep
+com.users.herofincorp,Hero FinCorp - Sales App,Finance,keep,keep
+com.kvb.mobilebanking,KVB - DLite & Mobile Banking,Finance,keep,keep
+com.beyondbudget,Beyond Budget - Budget Planner,Finance,keep,keep
+com.kittysplit,Kittysplit: Bills & cost split,Finance,drop,no_lending_terms
+com.sidelinehd.app,sidelineHD,Sports,drop,genre:Sports
+club.cred.merchantapp,CRED for Partner,Finance,drop,no_lending_terms
+com.dreamplug.circle,Circle by CRED,Lifestyle,drop,genre:Lifestyle
+com.dreamplug.circle.residents,Circle Residents,Lifestyle,drop,genre:Lifestyle
+com.dreamplug.kyoto.android,Cash by CRED Personal Loan App,Finance,keep,keep
+com.budget.cloud,Daily Expense — My Budget,Finance,keep,keep
+com.budgetbakers.sharecost,ShareCost: Bill Splitter,Finance,drop,no_lending_terms
+com.droid4you.application.board,BudgetBakers Board,Business,drop,genre:Business
+com.droidpublishing.grocerylist.shoppinglist,Easy Grocery Checklist,Shopping,drop,genre:Shopping
+com.droidpublishing.motorcyclesafety.checklist,Motorcycle Pre-Ride Checklist,Auto & Vehicles,drop,genre:Auto & Vehicles
+com.droidpublishing.pledgekeeper.promisetomyself,Pledge Keeper: Promise to Self,Productivity,drop,genre:Productivity
+com.droidpublishing.pregnancytracker.formother,Pregnancy Tracker & Kick Count,Health & Fitness,drop,genre:Health & Fitness
+com.droidpublishing.splitcalc.travelapp,Split Expense Calculator,Finance,drop,no_lending_terms
+com.droidpublishing.waterreminder.dailywater,DrinkWater: Daily Hydration,Health & Fitness,drop,genre:Health & Fitness
+com.msf.sbicap.securities,SBI Securities: Stocks & SIP,Finance,keep,keep
+com.app.collection.ehfl_collection,EHFL Collection,Communication,drop,genre:Communication
+com.ehfl.approval,EHFL Approval,Finance,drop,no_lending_terms
+com.ehfl.easyloan.salesappflutter,EHFL Sales,Finance,drop,no_lending_terms
+com.ehfl.ehfl_technical,EHFL Technical,Finance,drop,no_lending_terms
+com.ehfl.leadapp,EasyLoan Connect,Finance,keep,keep
+com.ipru.distributor,i-Invest iPru Partner,Finance,keep,keep
+com.bhumi.app.bhumi_mitra,Bhumi Mitra Satbara ८अ भूनकाशा,Productivity,drop,genre:Productivity
+com.dailybajarbhav.mahaagri.app,Daily बाजारभाव - Maha Agri,Productivity,drop,genre:Productivity
+com.devotee.radhajaapa,Radha Naam - Jap counter,Lifestyle,drop,genre:Lifestyle
+com.gujarat.satbara.satbara_gujarat,"Gujrat 7/12, 8A ઉતારો- RoR",Productivity,drop,genre:Productivity
+com.marathi.birthaday.quotes,Marathi Birthday Quotes,Entertainment,drop,genre:Entertainment
+com.punjablandrecords.app.punjab_land_records,Punjab ਜਮਾਬੰਦੀ & Fard,Productivity,drop,genre:Productivity
+com.app.fedbank.gocollect,Fedfina Collect,Finance,keep,keep
+com.app.fedbank.gocollect.prod,Fed Collect Pro,Finance,keep,keep
+com.fedbank.employeeapp,Fedbank Lite - Employee App,Business,drop,genre:Business
+com.fedbank.fedbankconnectorapp,Fedfina Business Connect,Finance,drop,no_lending_terms
+com.fedbank.risk,Fed Connect,Finance,keep,keep
+com.nitara.farmer,Nitara Farmer,Business,drop,genre:Business
+com.ramp.android.app,Ramp,Finance,drop,no_lending_terms
+com.wahed.mobile,Wahed,Finance,drop,no_lending_terms
+com.kamelpay,NaqaD by Kamelpay,Finance,keep,keep
+com.smartwho.SmartAllCurrencyConverter,ALL Currency Converter,Finance,drop,no_lending_terms
+com.eroute.omnicard,"OmniCard: UPI, Card & Rewards",Finance,drop,no_lending_terms
+com.finnable.Finforce,Finforce,Business,drop,genre:Business
+com.finnable.collection,Fincollect,Finance,drop,no_lending_terms
+com.finnable.operations,VeriFi,Finance,keep,keep
+com.aaritya.sahi_trade_app,SAHI : Options & Stock Trading,Finance,keep,keep
+app.mycountrydelight.in.countrydelight,Country Delight Milk & Grocery,Food & Drink,drop,genre:Food & Drink
+com.annauniv.stucor,STUCOR - For College Students,Education,drop,genre:Education
+com.bankofbaroda.mconnect,bob World:Banking & Experience,Finance,keep,keep
+com.udyam.flex.loans,Udyam Flex Loan,Finance,keep,keep
+com.google.android.apps.paidtasks,Google Opinion Rewards,Tools,drop,genre:Tools
+com.intermiles.app,InterMiles: Get rewarded daily,Shopping,drop,genre:Shopping
+com.kowzha.surveyparty,SurveyParty - Earn Cash Fast,Lifestyle,drop,genre:Lifestyle
+com.prodege.swagbucksmobile,Swagbucks Play Games + Surveys,Lifestyle,drop,genre:Lifestyle
+com.freeman.quotes,Magic Quotes -daily motivation,Lifestyle,drop,genre:Lifestyle
+finance.investment.stocks.advisor,MarketLens: AI Stock Analysis,Finance,keep,keep
+planner.task.todolist.habit,iTask - To Do List & Planner,Health & Fitness,drop,genre:Health & Fitness
+ru.innim.my_finance,Money manager & expenses,Finance,keep,keep
+com.genioustechnology.custaffcooperative,CU Staff Co-operative Society,Finance,keep,keep
+com.genius.nbsushila,NB Sushila Finance Private Ltd,Finance,keep,keep
+com.geniustech.koshicentral,KCCCS LIMITED,Finance,drop,no_lending_terms
+com.geniustechnoindia.hatisingmari,Hatsingimari,Finance,keep,keep
+com.geniustechnoindia.sahebganjapp,Sahebganj Co-operative Society,Finance,keep,keep
+com.geniustechnology.BongojivikaNidhiMember,BNL One,Finance,keep,keep
+com.ev.live,"Guruji - Live Astro, Horoscope",Lifestyle,drop,genre:Lifestyle
+com.licious,"Licious: Chicken, Meat & More",Food & Drink,drop,genre:Food & Drink
+com.coindcx.btc,CoinDCX: Bitcoin Crypto App,Finance,keep,keep
+com.nimfdm.app,NIMF Marketing,Finance,drop,no_lending_terms
+com.reliance.businesseasy2,Nippon India Business Easy 2.0,Finance,drop,no_lending_terms
+com.rmf.simplysave,Simply Save,Finance,drop,no_lending_terms
+io.callhub.agentConsole.mobile,CallHub,Business,drop,genre:Business
+com.google.android.apps.bard,Google Gemini,Productivity,drop,genre:Productivity
+com.google.android.apps.youtube.creator,YouTube Studio,Video Players & Editors,drop,genre:Video Players & Editors
+com.google.android.apps.youtube.kids,YouTube Kids,Entertainment,drop,genre:Entertainment
+com.google.android.apps.youtube.producer,YouTube Create: Video editor,Video Players & Editors,drop,genre:Video Players & Editors
+com.google.android.youtube,YouTube,Video Players & Editors,drop,genre:Video Players & Editors
+com.google.android.apps.labs.language.tailwind,Gemini Notebook,Productivity,drop,genre:Productivity
+com.google.android.googlequicksearchbox,Google,Tools,drop,genre:Tools
+com.meesho.supply,Meesho: Online Shopping App,Shopping,drop,genre:Shopping
+com.whereismytrain.android,Where is my Train,Travel & Local,drop,genre:Travel & Local
+in.startv.hotstar,JioHotstar,Entertainment,drop,genre:Entertainment
+com.swissborg.android,"SwissBorg: Buy Bitcoin, Crypto",Finance,keep,keep
+com.zerodha.varsity,Zerodha Varsity,Education,drop,genre:Education
+com.scopex.scopexmobile,Scopex: Send Money to India,Finance,drop,no_lending_terms
+com.grtech.Eduprep,CBSE Class 10 MCQ PYQ Formula,Education,drop,genre:Education
+com.grtech.globalloancalculator,Loan & Mortgage Calculator,Finance,keep,keep
+com.grtech.granitemarblecalculator,Granite & Marble Calculator,Business,drop,genre:Business
+com.grtech.quotes,QuickQuotes,Lifestyle,drop,genre:Lifestyle
+com.grtech.quotesnew,Daily Quotes: Status & Shayari,Lifestyle,drop,genre:Lifestyle
+com.grtech.tictaclite,Tic Tac Lite,Casual,drop,genre:Casual
+com.hapiapps.kalaignar,Kalaignar Tv Remote,Tools,drop,genre:Tools
+com.hapiapps.scv.remote,SCV-Universal Remote-SetTopBox,Tools,drop,genre:Tools
+com.hapiapps.tatasky,Remote Tata Play Settop box,Tools,drop,genre:Tools
+com.hapiapps.vkdigital.remote,VK Digital Settop Box Remote,Tools,drop,genre:Tools
+hapiapps.tactv.remote,TACTV Settop Box Remote,Tools,drop,genre:Tools
+hapiapps.tccl.remote,TCCL - Remote for SetTop Box,Tools,drop,genre:Tools
+com.mypresitge,My Prestige App,Business,drop,genre:Business
+ai.engagely.hero,HomeVerse Partner,Business,drop,genre:Business
+com.herohousingfinancelimited.connector.mobileapp,Hero Humrahi,Finance,keep,keep
+com.hhfl.uat,Hero Saarthi,Finance,keep,keep
+com.homeverse.customerapp,HomeVerse Customer,Business,drop,genre:Business
+com.hindustan.hindinews,"Hindustan: Hindi News, ePaper",News & Magazines,drop,genre:News & Magazines
+com.hindustantimes.agentapp,HT Mitra,Business,drop,genre:Business
+com.ht.news,Hindustan Times: Live News App,News & Magazines,drop,genre:News & Magazines
+com.ht.ottplay,OTTplay: Watch Movies & Shows,Entertainment,drop,genre:Entertainment
+com.htlabs.ottplay,OTTplay Android TV,Entertainment,drop,genre:Entertainment
+com.htmedia.mint,Mint: Stock Market & IPO News,News & Magazines,drop,genre:News & Magazines
+app.bachatt.customer,"Bachatt: FD, Mutual Fund, Gold",Finance,keep,keep
+com.imih.innergy,Innergy:Meditation & Wellbeing,Health & Fitness,drop,genre:Health & Fitness
+com.tataaialife,Tata AIA Life Insurance,Finance,keep,keep
+in.ideopay.merchant,PayWithRING App for Merchants,Finance,drop,no_lending_terms
+com.idfc.etoll,IDFC FIRST Bank FASTag,Finance,drop,no_lending_terms
+com.idfcfirstbank.fastag,FIRSTFORWARD AGENT APP,Finance,drop,no_lending_terms
+com.intellect.bxpbusinessexp,IDFC BXP Business eXperience,Finance,drop,no_lending_terms
+org.npci.erupeeIDFC,IDFC FIRST Bank Digital Rupee,Finance,drop,no_lending_terms
+com.disprz.moneyversity,Moneyversity,Education,drop,genre:Education
+com.halal.stocks,IslamicStock - Screener India,Finance,drop,no_lending_terms
+com.iifl.channelpartner,IIFL Partner,Finance,keep,keep
+com.iifl.com.nbfc_collection,Sangrah,Business,drop,genre:Business
+com.iifl.hfc_swaraj_hybrid,Jhatpat 2.0,Finance,keep,keep
+com.iifl.leadapp,LEADer,Finance,drop,no_lending_terms
+com.indmoney.indstocks,Flash Trading App by INDstocks,Finance,keep,keep
+com.investnao.android,NAO Co-Investment,Finance,keep,keep
+in.indwealth,"INDmoney: US Stocks, F&O, IPO",Finance,keep,keep
+com.hdfc.cbx,HDFC Bank Corp Mobile banking,Finance,drop,no_lending_terms
+com.hdfc.tomobile,Trade Finance on Mobile,Finance,drop,no_lending_terms
+com.hdfcbank.android.now,HDFC Bank App: Banking & Cards,Finance,keep,keep
+com.hdfcbank.smartwealthapp,HDFC Bank SmartWealth,Finance,drop,no_lending_terms
+org.npci.token.hdfc,HDFC Bank Digital Rupee,Finance,drop,no_lending_terms
+otl.snkl.HDFCSnorkelOTP,HDFC Bank e Token,Finance,drop,no_lending_terms
+com.nopaperforms.mobile,"Meritto: Attract,Engage,Enroll",Business,drop,genre:Business
+com.rspl.instagold,NiveshGold - Buy Digital Gold,Finance,drop,no_lending_terms
+icici.lombard.ghi,IL TakeCare Insurance App,Health & Fitness,drop,genre:Health & Fitness
+com.alux,Alux: Build Wealth Faster,Education,drop,genre:Education
+com.immediatemedia.wdytyamag,Who Do You Think You Are?,News & Magazines,drop,genre:News & Magazines
+com.sat21.global.pro,Satoshi App: Get Airdrops,Tools,drop,genre:Tools
+ooo.just.justapp,JUST | Step Counter & Rewards,Health & Fitness,drop,genre:Health & Fitness
+store.ggdrop.app.com,GGDROP – Top CS2 Items!,Entertainment,drop,genre:Entertainment
+com.fampay.in,FamApp by Trio: UPI & Card,Finance,drop,no_lending_terms
+com.jar.nek,Nek: Gold & Silver Jewellery,Shopping,drop,genre:Shopping
+com.js.GirviDiary,Girvi diary,Business,drop,genre:Business
+com.js.VyapariDiary,Vyapari Diary,Business,drop,genre:Business
+com.js.jewel_rojmail,Jewel Diary: Jewellery Billing,Business,drop,genre:Business
+com.js.jewel_safar_shop,Jewel Market,Business,drop,genre:Business
+com.js.stockmanager2,Stock Manager,Business,drop,genre:Business
+in.jewelsafar.admin.twa,JS_admin,Tools,drop,genre:Tools
+com.yabimoney,Yabi Money,Finance,keep,keep
+com.bosstel.app,BossTel,Productivity,drop,genre:Productivity
+com.jazzpay.app,Jazz Pay,Food & Drink,drop,genre:Food & Drink
+com.quietmindd.quiet_mind,Quiet Mind,Social,drop,genre:Social
+com.roadhero.dkd,RoadHero,Shopping,drop,genre:Shopping
+com.videshibhaiapp,Videshi Bhai,Productivity,drop,genre:Productivity
+la.roch.com.laroch,La Roche Online Store,Shopping,drop,genre:Shopping
+com.kosh.ambiserve,Ambition,Finance,keep,keep
+com.kosh.blue,Kosh Chat - Business Chat App,Communication,drop,genre:Communication
+com.kosh.wingzman,Wingzman,Finance,keep,keep
+com.ramanbyte.lakshya,Uddipan,Education,drop,genre:Education
+com.bonusrbxx.robuxcalculator.calcrobuxapp.rbxskintool,Get RBX Calcu & Robox Counters,Tools,drop,genre:Tools
+com.fakechat.prankcall.prankvideocall.prankfriends,VidStar - Live Video Call,Entertainment,drop,genre:Entertainment
+com.videodownload.xvxhdvideodownloader.browser,XVX HD Video Downloader,Video Players & Editors,drop,genre:Video Players & Editors
+com.ltfraise.ahapp,L&T FINANCE RAISE'26,Business,drop,genre:Business
+com.ltfs.partnerplanet,Partner Planet by L&T Finance,Business,drop,genre:Business
+com.interstellarz.personalloanapp,Manappuram Personal Loan,Finance,keep,keep
+com.mafil.ploanrepay,MAFIL PL Repay,Business,drop,genre:Business
+com.manappuram.maauction,MA-Auction,Finance,keep,keep
+com.manappuram.machat,Machat,Communication,drop,genre:Communication
+com.manappuram.manappuramess,MAFIL ESS Virtual Office,Productivity,drop,genre:Productivity
+com.zinghr.app,ZingHR,Productivity,drop,genre:Productivity
+com.health.bmimate,BMI Mate,Health & Fitness,drop,genre:Health & Fitness
+com.mg.fuelcostcalculator,Fuel Expense: Mileage & Cost,Auto & Vehicles,drop,genre:Auto & Vehicles
+radheshyam.aniverse.wallpaper,AniVerse HD Wallpaper,Personalization,drop,genre:Personalization
+radheshyam.tech.krishna.wallpaper,Krishna Divine Wallpaper,Personalization,drop,genre:Personalization
+com.client.mahindra,Mahindra Finance Investments,Finance,drop,no_lending_terms
+com.dlrappmahindrafs,Mahindra Finance Dealer App,Finance,keep,keep
+com.mahindra.dhansamvaad,Dhan Samvaad,Education,drop,genre:Education
+com.mahindra.fos,M TEZZ,Finance,keep,keep
+com.moodle.mlearn,MMFSS MLearn,Education,drop,genre:Education
+com.quiklyz,Quiklyz,Auto & Vehicles,drop,genre:Auto & Vehicles
+com.zebu.mynt,MYNT,Finance,drop,no_lending_terms
+com.deltaexchangeindia,Delta Exchange: Crypto Options,Finance,keep,keep
+money.powerup.uni.invest.app,PowerUp Money: Mutual Funds,Finance,drop,no_lending_terms
+com.emsyne.muthootmfa,Muthoot MFA,Business,drop,genre:Business
+com.muthootfinance.mobistarlap,Mobistar,Finance,keep,keep
+com.muthootfinance.salesplus,Muthoot Sales Plus,Business,drop,genre:Business
+com.icmmobileapp.empanelmuthoot,Muthoot Fincorp - BizBuddy,Business,drop,genre:Business
+com.muthoot.sales360,Muthoot 360,Business,drop,genre:Business
+com.muthootfincorp.muthootpartner,Muthoot Partner,Finance,drop,no_lending_terms
+com.muthootfincorpone.bde,Vyapar Plus Saathi,Business,drop,genre:Business
+com.muthootfincorpone.loanmanager,Muthoot FinCorp GL Manager,Finance,keep,keep
+com.muthootfincorpone.vyaparplus,Muthoot FinCorp Vyapar Plus,Finance,keep,keep
+com.apbl.merchant,Airtel Payments Bank: Merchant,Finance,keep,keep
+com.bsbportal.music,Wynk Music: Hellotunes,Music & Audio,drop,genre:Music & Audio
+com.combinepromoterapp,Airtel Payments Bank: Ranger,Business,drop,genre:Business
+com.visionairtel.fwa,Xstream AirFiber,Communication,drop,genre:Communication
+tv.accedo.airtel.wynk,Airtel Xstream Play: 25+ OTTs,Entertainment,drop,genre:Entertainment
+tv.airtel.xstream.tvapp,Xstream Play - Android TV,Entertainment,drop,genre:Entertainment
+com.mahofin.team_access,MAHOFIN TEAM ACCESS,Finance,drop,no_lending_terms
+homeconnect.manappuramhomefin.com,MAHOFIN Home Connect,Productivity,drop,genre:Productivity
+co.uk.getmondo,Monzo Bank - Mobile Banking,Finance,keep,keep
+com.asos.app,ASOS - Shop Fashion Online,Shopping,drop,genre:Shopping
+com.avuscapital.trading212,"Trading 212: Stocks, ETFs, ISA",Finance,drop,no_lending_terms
+com.bunq.android,bunq,Finance,keep,keep
+com.depop,Depop - Buy & Sell Clothes,Shopping,drop,genre:Shopping
+com.dhgate.buyermob,DHgate-online wholesale stores,Shopping,drop,genre:Shopping
+com.tyger.mytra,Tyger Mytra,Finance,drop,no_lending_terms
+com.tygerden.employees,Tyger Den Employee App,Business,drop,genre:Business
+in.tyger.petro1,Petro1 by Tyger Capital,Finance,keep,keep
+com.mywish.wishfin.wishfin_home_loan,Wishfin Home Loan App,Finance,keep,keep
+com.mywish.wishfin.z1n.view,Z1N Capital,Finance,keep,keep
+com.wishfin.agent_pos_app,Profit App,Business,drop,genre:Business
+com.wishfin.dsapartners,XFin by Wishfin,Finance,keep,keep
+com.wishfin.mobile_lms,Wishfin Partner,Business,drop,genre:Business
+com.wishfin.wishfinbusinessloan,Wishfin Business Loan,Finance,keep,keep
+com.newsmedialists.deviceinfo,Phone Test: Device Info & CPU,Tools,drop,genre:Tools
+com.newsmedialists.holidaycalendar,World Public Holidays Calendar,Productivity,drop,genre:Productivity
+com.newsmedialists.qrcodescanner.barcodescanner.qrcodereader,QR Scanner & Barcode Generator,Tools,drop,genre:Tools
+com.newsmedialists.riddles_level_up_game,Riddles & Answers: Riddle Up,Education,drop,genre:Education
+com.newsmedialists.tea_coffee_cup,Coffee & Tea Recipes: Espresso,Food & Drink,drop,genre:Food & Drink
+com.newsmedislists.riddlemaster,Riddle Master: Tricky Riddles,Education,drop,genre:Education
+com.msf.emt.mobile,Nuvama: Invest in Stock Market,Finance,keep,keep
+com.zerodha.coin,Coin by Zerodha - Mutual funds,Finance,drop,no_lending_terms
+com.my.fcc,Easy Code,Education,drop,genre:Education
+com.my.jacpapers,Jharkhand Exam Guide,Education,drop,genre:Education
+online.nextgs.task,Weekly Challenge Achievers,Education,drop,genre:Education
+zebpay.Application,ZebPay: Bitcoin & Crypto App,Finance,keep,keep
+com.dailyobjects,DailyObjects,Shopping,drop,genre:Shopping
+get.lokal.localjobs,Lokal Jobs - Job search app,Business,drop,genre:Business
+com.SIBMobile,SIB Mirror+: South Indian Bank,Finance,keep,keep
+com.boss.To_Do_List,To do list,Productivity,drop,genre:Productivity
+com.boss.class10allguidemanual2081,SEE All Books & Guides 2082,Education,drop,genre:Education
+com.boss.pustakbazzar,Pustak Bazzar- Buy/Sell Books,Business,drop,genre:Business
+net.cashinator.www,Cashinator – Split Bills,Finance,keep,keep
+com.google.android.apps.photos,Google Photos,Photography,drop,genre:Photography
+com.whatsapp,WhatsApp Messenger,Communication,drop,genre:Communication
+com.whatsapp.w4b,WhatsApp Business,Communication,drop,genre:Communication
+in.sweatco.app,Sweatcoin・Walking Step Counter,Health & Fitness,drop,genre:Health & Fitness
+com.paytm.agent.connect,Paytm Force App,Business,drop,genre:Business
+com.paytm.store_attendant,Paytm Loves EMI,Finance,keep,keep
+net.one97.travel,Paytm Checkin Flight Train Bus,Travel & Local,drop,genre:Travel & Local
+com.grofers.customerapp,Blinkit: Groceries & more,Food & Drink,drop,genre:Food & Drink
+com.analyticscentralmobile,Analytics Central App,Finance,drop,no_lending_terms
+com.arya.piramal,Arya,Business,drop,genre:Business
+com.piramal.app.sc,Piramal Sales Central,Finance,keep,keep
+com.piramalwecollect,Nivaaran,Finance,drop,no_lending_terms
+net.pixelnft.app,Pixel NFT,Finance,drop,no_lending_terms
+com.algorand.android,Pera Algo Wallet,Finance,drop,no_lending_terms
+com.crypto.tradergame.market,Trading Game: Market Replay,Education,drop,genre:Education
+com.easyloan.guide.appnigeria,Loan Apps Nigeria Guide,Finance,keep,keep
+com.loan.hk.guide,快速獲得貸款審批的技巧,Finance,keep,keep
+com.pinjamantunaisegera.tips,Pinjaman Tunai Segera Tips,Finance,keep,keep
+com.prestamosonline.seguro,Préstamos Rápidos Seguro Guía,Finance,keep,keep
+com.seunome.emprestimonegativadopro,Empréstimo Negativado Pro,Finance,keep,keep
+com.cleevio.spendee,Budget Planner & App: Spendee,Finance,keep,keep
+com.raha.app.mymoney.pro,MyMoney Pro - Expense & Budget,Finance,keep,keep
+melandru.lonicera,Sprouts - Expense Manager,Finance,drop,no_lending_terms
+com.ktwapps.walletmanager,Money Manager: Expense Tracker,Finance,keep,keep
+com.rufilo.collections,Tradofina Collections-Employee,Finance,drop,no_lending_terms
+com.ruloanss,Ruconnect by Ruloans,Finance,keep,keep
+com.innoviti.link,innoviti link: payment links,Business,drop,genre:Business
+com.tenxpro.business,"10xPro: Sell Smart, Grow Fast",Health & Fitness,drop,genre:Health & Fitness
+com.habile.cloudbankin.clickmyloan,ClickMyLoan.,Finance,keep,keep
+com.app.mitra,SBI MF Mitra,Business,drop,genre:Business
+com.sbimf.academy,SBI Funds Academy,Finance,drop,no_lending_terms
+com.sbimf.darpan,SBI MF Darpan,Business,drop,genre:Business
+com.sbimf.distributor,SBI MF Partner,Finance,keep,keep
+com.sbimf.investeasy,InvestEasy,Finance,drop,no_lending_terms
+com.wealthspectrum.app.sbifunds,SBI FUNDS PMS,Finance,drop,no_lending_terms
+com.shopse.sales,Sales Support,Finance,keep,keep
+com.shopsepartner,ShopSe Instant Premium Finance,Finance,keep,keep
+com.androidfin.sflbooks,SFL Books,Business,drop,genre:Business
+com.androidfin.zmslbooks,ZMSL Books,Business,drop,genre:Business
+com.hrms.sfl,SFL HRMS,Business,drop,genre:Business
+com.powerallysfl.mobile,PowerallySFL,Finance,drop,no_lending_terms
+com.sfl.fip,SFL Deposit Partner,Finance,drop,no_lending_terms
+com.shriramone.businessandroid,Shriram one for business,Finance,keep,keep
+com.mercury.bank,Mercury,Finance,keep,keep
+com.safat.warbaib,Warba Bank,Finance,keep,keep
+com.swapcard.apps.android,Swapcard - Smart Event App,Business,drop,genre:Business
+io.pemo.app,Pemo,Finance,drop,no_lending_terms
+com.smallcase.partner,CASE Partner,Business,drop,genre:Business
+in.crowdware.one,FrontPage: Paper Trading App,Finance,keep,keep
+in.tickertape,Tickertape: India & US Stocks,Finance,keep,keep
+io.assetplus,AssetPlus - Mutual Funds & SIP,Finance,keep,keep
+com.flipkart.android,Flipkart Online Shopping App,Shopping,drop,genre:Shopping
+com.flipkart.shopsy,Shopsy Shopping App - Flipkart,Shopping,drop,genre:Shopping
+com.europelanguagejobs.goplaces,GoPlaces - Job Search Abroad,Productivity,drop,genre:Productivity
+com.gener8ads.wallet,Gener8 - Earn From Your Data,Tools,drop,genre:Tools
+com.trivago,trivago: Compare hotel prices,Travel & Local,drop,genre:Travel & Local
+com.customerone,TMF - Customer One,Finance,keep,keep
+com.mysalesforce.mycommunity.C00DNy0000000QLtMAM.A0OTNy00000067GYOAY,LoanXpress,Business,drop,genre:Business
+com.tatacapital.bridgeapp,LoanXpressBridge,Productivity,drop,genre:Productivity
+com.tatacapital.csfd,Tata Capital–Commercial & SME,Finance,keep,keep
+com.tmf.channel,Tata Capital - Partner Connect,Finance,keep,keep
+com.rupenet.finx_gold,FinxGold,Finance,drop,no_lending_terms
+com.rupenet.finx_gold_employee,FinxConnect,Business,drop,genre:Business
+com.rupenet.finxhrmx,FinxGo,Business,drop,genre:Business
+com.rupenet.payrupe,PayRupi,Finance,keep,keep
+com.rupenet.paywithus,PaywithUs,Finance,keep,keep
+cn.zhihuiji.space.international,Ailit: inventory&invoice,Productivity,drop,genre:Productivity
+com.foodycraft.mobile,Nurish Life,Entertainment,drop,genre:Entertainment
+in.android.vyapar,Vyapar Invoice GST Billing App,Business,drop,genre:Business
+app.fastream.tv,Fastream,Entertainment,drop,genre:Entertainment
+com.tenbo.app,TENBO,Tools,drop,genre:Tools
+org.linkpost.app,LinkPost,Social,drop,genre:Social
+org.sourcedeauvive.mipr,Apôtre Dala,Lifestyle,drop,genre:Lifestyle
+com.dailyraven.portal_app,Trade Brains Portal,Finance,keep,keep
+com.tykr,Tykr: Confident Investing,Finance,keep,keep
+com.landeed,Landeed: Instant Land Records,Tools,drop,genre:Tools
+in.wealthy.android.wealthy,Wealthy: Stocks & Mutual Funds,Finance,keep,keep
+com.cashmate.app,CashMate: Cash Counter,Finance,drop,no_lending_terms
+com.number.match,Number Merge Puzzle,Casual,drop,genre:Casual
+com.picpixl.app,PicPixl – Marketing Images,Photography,drop,genre:Photography
+com.anubhabi.dagadi,Dagadi,Productivity,drop,genre:Productivity
+com.itwlabs.restroops,Restroops,Business,drop,genre:Business
+com.kayobadger.tabflux,Tabflux,Education,drop,genre:Education
+com.np.wonderlust,WonderLust,Travel & Local,drop,genre:Travel & Local
+np.com.amitkumarjoshi.first_project,DigitalCard,Personalization,drop,genre:Personalization
+com.utimutualfunds.utibuddy,UTI Buddy,Finance,drop,no_lending_terms
+gk.currentaffairs.india,GK & Current Affairs 2026,Education,drop,genre:Education
+com.crypter.cryptocyrrency,The Crypto App: News & Alerts,Finance,keep,keep
+com.loan.interest.rate.calculator.simple,Easy Interest Calculator,Finance,keep,keep
+com.xinran.finch,"Finch: Expense Tracker, Budget",Finance,keep,keep
+com.awash.saccos,Awash SACCO,Finance,keep,keep
+com.dib.app,DIB alt mobile banking app,Finance,keep,keep
+com.sc.awashpay,AwashBIRR Pro,Finance,keep,keep
+com.sc.awashremit,Awash Remit,Finance,keep,keep
+pegasus.project.awash.mobile.android.bundle.mobilebank,Awash-Online,Finance,keep,keep
+code.name.monkey.retromusic,Retro Music Player,Music & Audio,drop,genre:Music & Audio
+dev.hemanths.pomodoro,Kuma - Pomodoro & Focus Timer,Productivity,drop,genre:Productivity
+com.groww.trade915,"915: Pro Trading, F&O Scalping",Finance,keep,keep
+com.growwwealth.tech,W: MF & Wealth Management,Finance,keep,keep
+com.nextbillion.groww,"Groww Stocks, Mutual Fund, IPO",Finance,keep,keep
+in.magnetgild,Magnet,Finance,keep,keep
+in.myteams.app,My Teams,Finance,keep,keep
+com.encodemx.gastosdiarios4,Daily Expenses 4,Finance,keep,keep
+vivekagarwal.playwithdb,Table Notes - Mobile Excel,Productivity,drop,genre:Productivity
+com.sales.track,Spice Money – IMPACT App,Productivity,drop,genre:Productivity
+com.upi.spicepay,Spice Pay,Finance,drop,no_lending_terms
+sm.academy,Spice money Academy,Education,drop,genre:Education
+in.yenmo.wealth,Yenmo Wealth Advisors,Finance,keep,keep
+balkon.kraftwerk,Balkonkraftwerk Rechner,Personalization,drop,genre:Personalization
+com.weekaway.app,Minibreak: Weekend City Breaks,Travel & Local,drop,genre:Travel & Local
+fullmoonparty.thai,Full Moon Party Koh Phangan,Travel & Local,drop,genre:Travel & Local
+com.chola.faceauthhelper,Chola - Face Auth Inteface,Tools,drop,genre:Tools
+com.chola.mycompass,Chola MyCompass,Education,drop,genre:Education
+com.chola.ssa,Chola Smart Sales,Finance,keep,keep
+com.cholaconnect,Chola Connect,Communication,drop,genre:Communication
+com.gb.gaadibazaar,Gaadi Bazaar-Buy&Sell vehicles,Finance,keep,keep
+com.lapcon.chola.murugappa.com,Chola Connector- Refer & Earn,Finance,keep,keep
+com.aadhaar.life,JeevanPramaan,Tools,drop,genre:Tools
+com.nic.mparivahan,NextGen mParivahan,Productivity,drop,genre:Productivity
+com.nic.onenationonecard,Mera Ration App,Productivity,drop,genre:Productivity
+com.nic.project.pmkisan,PMKISAN GoI,Tools,drop,genre:Tools
+in.gov.ecourts.eCourtsServices,eCourts Services,Tools,drop,genre:Tools
+in.gov.scholarships.nspotr,NSP OTR,Education,drop,genre:Education
+com.reglobe.cashify,Cashify: Sell & Buy Old Phones,Shopping,drop,genre:Shopping
+com.alkapps.subx,SubX - Subscription Manager,Finance,keep,keep
+com.sstech.driver007,Driver007 - Driver App,Maps & Navigation,drop,genre:Maps & Navigation
+com.sstech.driver007user,Driver007 Retailer,Maps & Navigation,drop,genre:Maps & Navigation
+com.sstech.nutrilens,NutriLens AI: Calorie Counter,Health & Fitness,drop,genre:Health & Fitness
+com.sstech.quickchat,QuickChat,Communication,drop,genre:Communication
+com.sstechsystem.homefitpro,Workout for Women: HomeFitPro,Health & Fitness,drop,genre:Health & Fitness
+sstech.com.smartspend,SmartSpend - Expense Manager,Finance,keep,keep

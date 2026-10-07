@@ -1,0 +1,90 @@
+seed: 42
+
+paths:
+  raw: data/raw
+  interim: data/interim
+  processed: data/processed
+  results: results
+
+scrape:
+  lang: en
+  country: in
+  sleep_min: 1.0          # seconds between requests
+  sleep_jitter: 1.0       # extra uniform(0, jitter) seconds
+  max_retries: 4
+  backoff_base: 4         # seconds; doubles each retry
+  search_hits: 250        # max results requested per search term
+
+search_terms:
+  - instant loan
+  - personal loan
+  - loan app
+  - quick cash
+  - credit line
+  - salary advance
+  - emergency loan
+  - paisa loan
+  - loan without cibil
+  - small loan
+  - expense tracker loan
+  - emi loan
+  - instant cash loan
+  - online loan
+  - student loan app
+  - business loan
+  - gold loan
+  - credit card loan
+  - pay later
+  - mobile loan
+  - aadhaar loan
+  - low cibil loan
+  - loan without documents
+  - 5 minute loan
+  - payday loan
+  - cash advance app
+  - two wheeler loan
+  - home loan app
+  - loan against mutual funds
+  - nbfc loan
+  - credit score loan
+  - buy now pay later
+  - salary loan
+  - instant credit
+  - micro loan
+  - loan for students
+  - loan for self employed
+  - rupee loan
+  - fast cash
+  - quick loan app india
+  - instant personal loan online
+  - easy loan
+  - 10000 loan
+  - 50000 loan
+  - credit app
+  - borrow money
+  - money lending app
+  - turant loan
+  - paise chahiye
+  - loan chahiye
+  - turant paisa
+  - udhaar app
+  - लोन
+  - तुरंत लोन
+  - पर्सनल लोन
+
+filter:
+  genres: [Finance]
+  lending_terms: [loan, credit, emi, borrow, disburs, lend, "pay later", advance, लोन, ऋण, udhaar]
+
+reviews:
+  count: 200              # newest N reviews per app (lang=en)
+  hi_pass_threshold: 50   # run a lang=hi pass if fewer than this many en reviews
+
+labels:
+  verified_min: 92
+  review_min: 80
+
+splits:
+  n_folds: 5
+  temporal_cutoff: null   # set in Phase 4 to give ~75/25
+  early_days: 14

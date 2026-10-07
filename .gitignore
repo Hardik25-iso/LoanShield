@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.egg-info/
+.env
+.pytest_cache/
+*.tmp
+# raw scrape caches are large and re-creatable; keep the small curated inputs
+data/raw/play_apps/
+data/raw/play_reviews/
+data/raw/play_permissions/
+data/raw/play_search/
+data/raw/play_similar/
+data/interim/*.parquet
+results/models/

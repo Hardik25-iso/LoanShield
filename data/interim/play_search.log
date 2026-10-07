@@ -1,0 +1,71 @@
+11:28:10 INFO play_search: search instant loan              -> 25 hits
+11:28:14 INFO play_search: search personal loan             -> 21 hits
+11:28:37 INFO play_search: search loan app                  -> 25 hits
+11:28:43 INFO play_search: search quick cash                -> 30 hits
+11:29:00 INFO play_search: search credit line               -> 12 hits
+11:29:12 INFO play_search: search salary advance            -> 30 hits
+11:29:17 INFO play_search: search emergency loan            -> 30 hits
+11:30:07 INFO play_search: search paisa loan                -> 12 hits
+11:30:45 INFO play_search: search loan without cibil        -> 30 hits
+11:30:49 INFO play_search: search small loan                -> 30 hits
+11:30:52 INFO play_search: search expense tracker loan      -> 14 hits
+11:30:55 INFO play_search: search emi loan                  -> 30 hits
+11:30:59 INFO play_search: search instant cash loan         -> 30 hits
+11:31:15 INFO play_search: search online loan               -> 24 hits
+11:31:19 INFO play_search: search student loan app          -> 18 hits
+11:32:17 INFO play_search: search business loan             -> 21 hits
+11:32:53 INFO play_search: search gold loan                 -> 28 hits
+11:33:16 INFO play_search: search credit card loan          -> 30 hits
+11:33:20 INFO play_search: search pay later                 -> 12 hits
+11:33:25 INFO play_search: search mobile loan               -> 30 hits
+11:39:14 WARNING play_search: search('aadhaar loan') failed (IncompleteRead: IncompleteRead(559566 bytes read)); retry 1 in 4s
+11:39:18 WARNING play_search: search('aadhaar loan') failed (URLError: <urlopen error [Errno 11001] getaddrinfo failed>); retry 2 in 8s
+15:38:19 WARNING play_search: search('aadhaar loan') failed (URLError: <urlopen error [Errno 11001] getaddrinfo failed>); retry 3 in 16s
+22:23:31 INFO play_search: search aadhaar loan              -> 30 hits
+22:23:32 INFO play_search: search low cibil loan            -> 30 hits
+22:23:34 INFO play_search: search loan without documents    -> 30 hits
+22:23:36 INFO play_search: search 5 minute loan             -> 30 hits
+22:23:38 INFO play_search: search payday loan               -> 30 hits
+22:23:40 INFO play_search: search cash advance app          -> 30 hits
+22:23:42 INFO play_search: search two wheeler loan          -> 30 hits
+22:23:44 INFO play_search: search home loan app             -> 30 hits
+22:23:47 INFO play_search: search loan against mutual funds -> 30 hits
+22:23:49 INFO play_search: search nbfc loan                 -> 30 hits
+22:23:51 INFO play_search: search credit score loan         -> 30 hits
+22:23:53 INFO play_search: search buy now pay later         -> 30 hits
+22:23:55 INFO play_search: search salary loan               -> 30 hits
+22:23:57 INFO play_search: search instant credit            -> 30 hits
+22:23:59 INFO play_search: search micro loan                -> 30 hits
+22:24:01 INFO play_search: search loan for students         -> 30 hits
+22:24:02 INFO play_search: search loan for self employed    -> 30 hits
+22:24:04 INFO play_search: search rupee loan                -> 29 hits
+22:24:06 INFO play_search: search fast cash                 -> 30 hits
+22:24:09 INFO play_search: search quick loan app india      -> 30 hits
+22:24:10 INFO play_search: search instant personal loan online -> 30 hits
+22:24:12 INFO play_search: search easy loan                 -> 30 hits
+22:24:14 INFO play_search: search 10000 loan                -> 30 hits
+22:24:16 INFO play_search: search 50000 loan                -> 30 hits
+22:24:18 INFO play_search: search credit app                -> 22 hits
+22:24:20 INFO play_search: search borrow money              -> 30 hits
+22:24:22 INFO play_search: search money lending app         -> 24 hits
+22:24:24 INFO play_search: search turant loan               -> 30 hits
+22:24:26 INFO play_search: search paise chahiye             -> 50 hits
+22:24:28 INFO play_search: search loan chahiye              -> 50 hits
+22:24:30 INFO play_search: search turant paisa              -> 13 hits
+22:24:31 INFO play_search: search udhaar app                -> 26 hits
+22:24:33 INFO play_search: search \u0932\u094b\u0928                       -> 21 hits
+22:24:35 INFO play_search: search \u0924\u0941\u0930\u0902\u0924 \u0932\u094b\u0928                 -> 50 hits
+22:24:37 INFO play_search: search \u092a\u0930\u094d\u0938\u0928\u0932 \u0932\u094b\u0928                -> 30 hits
+22:24:39 INFO play_search: snowball: 286 Finance seed apps
+22:25:36 INFO play_search: snowball 25/286
+22:26:35 INFO play_search: snowball 50/286
+22:27:30 INFO play_search: snowball 75/286
+22:28:28 INFO play_search: snowball 100/286
+22:29:26 INFO play_search: snowball 125/286
+22:30:24 INFO play_search: snowball 150/286
+22:31:27 INFO play_search: snowball 175/286
+22:32:29 INFO play_search: snowball 200/286
+22:33:27 INFO play_search: snowball 225/286
+22:34:21 INFO play_search: snowball 250/286
+22:35:11 INFO play_search: snowball 275/286
+22:35:34 INFO play_search: candidates: 871 unique apps ({'similar': 526, 'search': 345}) -> C:\Users\HARDIK\Desktop\New folder\loanshield\data\interim\candidates.csv
