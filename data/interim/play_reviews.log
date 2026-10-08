@@ -1,9 +1,13 @@
-23:17:52 INFO play_reviews: 50/439 apps
-23:19:38 INFO play_reviews: 100/439 apps
-23:21:30 INFO play_reviews: 150/439 apps
-23:23:20 INFO play_reviews: 200/439 apps
-23:25:04 INFO play_reviews: 250/439 apps
-23:27:02 INFO play_reviews: 300/439 apps
-23:29:01 INFO play_reviews: 350/439 apps
-23:31:18 INFO play_reviews: 400/439 apps
-23:32:53 INFO play_reviews: 62248 reviews for 403 apps (36 apps with none)
+23:24:43 INFO play_reviews: 50/627 apps
+23:24:43 INFO play_reviews: 100/627 apps
+23:24:43 INFO play_reviews: 150/627 apps
+23:24:44 INFO play_reviews: 200/627 apps
+23:24:44 INFO play_reviews: 250/627 apps
+23:24:45 INFO play_reviews: 300/627 apps
+23:24:45 INFO play_reviews: 350/627 apps
+23:24:46 INFO play_reviews: 400/627 apps
+23:25:16 INFO play_reviews: 450/627 apps
+23:27:21 INFO play_reviews: 500/627 apps
+23:29:20 INFO play_reviews: 550/627 apps
+23:31:31 INFO play_reviews: 600/627 apps
+23:32:42 INFO play_reviews: 86271 reviews for 580 apps (47 apps with none)

@@ -3,17 +3,21 @@
 The list is published at rbi.org.in -> Citizen's Corner -> "DLA's deployed by
 Regulated Entities", which opens a SAP BusinessObjects OpenDocument report on
 data.rbi.org.in. That viewer is JavaScript-driven and has proven unreliable for
-automated access (HTTP 500 / login redirect), so the supported path is:
+plain HTTP access (HTTP 500 / logon redirect). Two supported inputs:
 
-  1. Open the link in a browser, export the report (Excel or CSV).
-  2. Save it as data/raw/rbi_dla_manual_<YYYY-MM-DD>.<xlsx|xls|csv|html>.
-  3. Run: python -m loanshield.collect.rbi_directory
+  a. data/raw/rbi_dla_extract_<YYYY-MM-DD>.json - rows read from the rendered
+     WebI table in a browser session (all pages; grievance-officer contact
+     columns dropped). Format: {"header": [...], "rows": [[...], ...]}.
+  b. data/raw/rbi_dla_manual_<YYYY-MM-DD>.<xlsx|xls|csv|html> - a manual export.
 
-The newest manual file is normalised to data/raw/rbi_dla_<date>.csv with
-columns dla_name, re_name, re_type (+ play_url / package_id if present).
+Run: python -m loanshield.collect.rbi_directory
+
+The newest input is normalised to data/raw/rbi_dla_<date>.csv with columns
+dla_name, re_name, re_type, dla_owner, re_website, available_on, play_url, package_id.
 """
 from __future__ import annotations
 
+import json
 import re
 import sys
 from pathlib import Path
@@ -30,12 +34,18 @@ COLUMN_HINTS = {
     "dla_name": ["dla name", "name of dla", "app name", "name of the app", "dla"],
     "re_name": ["re name", "name of re", "regulated entity", "name of the re", "entity name"],
     "re_type": ["re type", "type of re", "category", "entity type"],
-    "play_url": ["play store", "link", "url", "android"],
+    "play_url": ["link to dla", "play store", "link", "android"],
+    "dla_owner": ["owner"],
+    "re_website": ["website of re"],
+    "available_on": ["available on"],
 }
 
 
 def read_any(f: Path) -> pd.DataFrame:
     suf = f.suffix.lower()
+    if suf == ".json":
+        d = json.loads(f.read_text(encoding="utf-8"))
+        return pd.DataFrame(d["rows"], columns=d["header"])
     if suf == ".csv":
         return pd.read_csv(f)
     if suf in (".xlsx", ".xls"):
@@ -80,10 +90,10 @@ def map_columns(df: pd.DataFrame) -> pd.DataFrame:
 
 def norm_re_type(s: str) -> str:
     s = str(s).lower()
-    if "bank" in s:
-        return "bank"
     if "housing" in s or "hfc" in s:
         return "HFC"
+    if "bank" in s:
+        return "bank"
     if "nbfc" in s or "non-banking" in s or "non banking" in s:
         return "NBFC"
     return "other" if s and s != "nan" else ""
@@ -91,12 +101,12 @@ def norm_re_type(s: str) -> str:
 
 def main() -> None:
     raw = path("raw")
-    manual = sorted(raw.glob("rbi_dla_manual_*.*"))
-    if not manual:
-        log.error("No manual RBI file found. Download the DLA list (see module docstring) and save "
-                  "it as data/raw/rbi_dla_manual_<YYYY-MM-DD>.xlsx. Not generating any data.")
+    inputs = list(raw.glob("rbi_dla_manual_*.*")) + list(raw.glob("rbi_dla_extract_*.json"))
+    if not inputs:
+        log.error("No RBI input found (see module docstring). Not generating any data.")
         sys.exit(1)
-    f = manual[-1]
+    f = max(inputs, key=lambda x: re.search(r"\d{4}-\d{2}-\d{2}", x.name).group(0)
+            if re.search(r"\d{4}-\d{2}-\d{2}", x.name) else "")
     snap = re.search(r"(\d{4}-\d{2}-\d{2})", f.name)
     snap = snap.group(1) if snap else "undated"
     df = map_columns(find_header(read_any(f)))
@@ -106,7 +116,8 @@ def main() -> None:
     df["re_type"] = df["re_type"].map(norm_re_type) if "re_type" in df else ""
     if "play_url" in df:
         df["package_id"] = df["play_url"].astype(str).str.extract(PKG_RE, expand=False)
-    keep = [c for c in ["dla_name", "re_name", "re_type", "play_url", "package_id"] if c in df]
+    keep = [c for c in ["dla_name", "re_name", "re_type", "dla_owner", "re_website",
+                        "available_on", "play_url", "package_id"] if c in df]
     out = raw / f"rbi_dla_{snap}.csv"
     df[keep].drop_duplicates().to_csv(out, index=False)
     log.info("%d DLA rows (%d unique REs) from %s -> %s", len(df), df["re_name"].nunique(), f.name, out)

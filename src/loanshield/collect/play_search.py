@@ -88,6 +88,21 @@ def run_snowball(seed_rows: list[dict]) -> list[dict]:
     return rows
 
 
+def rbi_list_rows() -> list[dict]:
+    """Play package IDs linked from the RBI DLA list (newest snapshot), if loaded.
+
+    These are listed after search/similar so dedup keeps the organic source when
+    an app was found both ways; `source` lets us test for discovery bias later.
+    """
+    snaps = sorted(path("raw").glob("rbi_dla_2*.csv"))
+    if not snaps:
+        return []
+    pk = pd.read_csv(snaps[-1])["package_id"].dropna().unique()
+    log.info("RBI list: %d Play package IDs from %s", len(pk), snaps[-1].name)
+    return [{"app_id": p, "title": None, "genre": None, "source": "rbi_list",
+             "first_term": snaps[-1].name} for p in pk]
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--snowball", action="store_true", help="expand one hop via Similar apps")
@@ -96,6 +111,7 @@ def main() -> None:
     rows = run_search()
     if a.snowball:
         rows += run_snowball(rows)
+    rows += rbi_list_rows()
     df = pd.DataFrame(rows).drop_duplicates("app_id", keep="first")
     out = path("interim", "candidates.csv")
     out.parent.mkdir(parents=True, exist_ok=True)

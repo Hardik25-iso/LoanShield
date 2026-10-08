@@ -1,23 +1,29 @@
-22:38:48 INFO play_details: 50/871 processed
-22:41:37 INFO play_details: 100/871 processed
-22:44:34 INFO play_details: 150/871 processed
-22:47:13 INFO play_details: 200/871 processed
-22:50:19 INFO play_details: 250/871 processed
-22:52:49 INFO play_details: 300/871 processed
-22:54:51 INFO play_details: 350/871 processed
-22:56:56 INFO play_details: 400/871 processed
-22:59:00 INFO play_details: 450/871 processed
-23:01:09 INFO play_details: 500/871 processed
-23:03:15 INFO play_details: 550/871 processed
-23:05:12 INFO play_details: 600/871 processed
-23:07:02 INFO play_details: 650/871 processed
-23:08:55 INFO play_details: 700/871 processed
-23:10:49 INFO play_details: 750/871 processed
-23:13:01 INFO play_details: 800/871 processed
-23:15:10 INFO play_details: 850/871 processed
-23:15:55 INFO play_details: filter reasons:
+23:05:21 INFO play_details: 50/1149 processed
+23:05:22 INFO play_details: 100/1149 processed
+23:05:23 INFO play_details: 150/1149 processed
+23:05:24 INFO play_details: 200/1149 processed
+23:05:25 INFO play_details: 250/1149 processed
+23:05:26 INFO play_details: 300/1149 processed
+23:05:27 INFO play_details: 350/1149 processed
+23:05:28 INFO play_details: 400/1149 processed
+23:05:28 INFO play_details: 450/1149 processed
+23:05:29 INFO play_details: 500/1149 processed
+23:05:30 INFO play_details: 550/1149 processed
+23:05:31 INFO play_details: 600/1149 processed
+23:05:32 INFO play_details: 650/1149 processed
+23:05:32 INFO play_details: 700/1149 processed
+23:05:33 INFO play_details: 750/1149 processed
+23:05:34 INFO play_details: 800/1149 processed
+23:05:35 INFO play_details: 850/1149 processed
+23:07:56 INFO play_details: 900/1149 processed
+23:11:23 INFO play_details: 950/1149 processed
+23:14:47 INFO play_details: 1000/1149 processed
+23:18:04 INFO play_details: 1050/1149 processed
+23:21:33 INFO play_details: 1100/1149 processed
+23:24:35 INFO play_details: filter reasons:
 reason
-keep                   439
-genre:<non-finance>    332
-no_lending_terms       100
-23:16:06 INFO play_details: kept 439 / 871 apps -> data/interim/apps.csv
+keep                   627
+genre:<non-finance>    355
+no_lending_terms       109
+not_found_on_play       58
+23:24:39 INFO play_details: kept 627 / 1149 apps -> data/interim/apps.csv
