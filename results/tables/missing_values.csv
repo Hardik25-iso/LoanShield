@@ -1,0 +1,13 @@
+feature,group,missing_pct,reason
+days_since_update,metadata,25.68,Play page did not expose the update date (see update_missing)
+score,metadata,12.28,app has too few ratings for Play to show a score
+share_5star,metadata,12.28,no rating histogram (no ratings)
+share_1star,metadata,12.28,no rating histogram (no ratings)
+polarisation,metadata,12.28,no rating histogram (no ratings)
+rev_mean_score,review_text,7.5,app has no reviews (see has_reviews)
+rev_share_1star,review_text,7.5,app has no reviews (see has_reviews)
+rev_share_harass,review_text,7.5,app has no reviews (see has_reviews)
+rev_share_fraud,review_text,7.5,app has no reviews (see has_reviews)
+rev_share_fee,review_text,7.5,app has no reviews (see has_reviews)
+rev_mean_len,review_text,7.5,app has no reviews (see has_reviews)
+app_age_days,metadata,1.75,release date not shown on Play

@@ -1,4 +1,5 @@
 seed: 42
+snapshot_date: 2026-10-07   # Play collection date; ages are measured from here
 
 paths:
   raw: data/raw
