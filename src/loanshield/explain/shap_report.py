@@ -34,11 +34,14 @@ import matplotlib.pyplot as plt  # noqa: E402
 import numpy as np  # noqa: E402
 import pandas as pd  # noqa: E402
 import shap  # noqa: E402
+from scipy.special import logit  # noqa: E402
+from sklearn.linear_model import LogisticRegression  # noqa: E402
+from sklearn.metrics import average_precision_score  # noqa: E402
 
 from loanshield.common import cfg, get_logger, path  # noqa: E402
 from loanshield.explain.plain_language import LABELS, top_signals  # noqa: E402
 from loanshield.models import tabular, text_models  # noqa: E402
-from loanshield.models.evaluate import GRID, INK, MUTED, SERIES, SURFACE  # noqa: E402
+from loanshield.models.evaluate import GRID, INK, MUTED, SERIES, SURFACE, best_f1_threshold  # noqa: E402
 from loanshield.models.splits import load_dataset  # noqa: E402
 
 log = get_logger("shap_report")
@@ -104,6 +107,30 @@ def save(fig, name: str) -> None:
     out.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(out, dpi=150, facecolor=SURFACE, bbox_inches="tight")
     plt.close(fig)
+
+
+def fit_calibrator(oof: pd.Series | None, y: pd.Series):
+    """Platt scaling fitted on out-of-fold scores (raw model score -> probability).
+
+    Fitted on held-out scores, so it corrects the forest's over/under-confidence on
+    unseen apps; the demo applies it to the final model's raw score. The verdict
+    threshold is the F1-optimal cut on the calibrated OOF probabilities.
+    """
+    if oof is None:
+        raise SystemExit("no out-of-fold scores; run `run_experiments --exp main` first")
+    s = oof.reindex(y.index)
+    ok = s.notna()
+    z = logit(s[ok].clip(1e-4, 1 - 1e-4)).to_frame("z")
+    cal = LogisticRegression(C=1e6, max_iter=1000).fit(z, y[ok])  # ~unregularised Platt
+    p = cal.predict_proba(z)[:, 1]
+    thr = best_f1_threshold(y[ok], p)
+    return cal, thr, {"calibration": "platt_on_oof", "verdict_threshold": thr,
+                      "oof_pr_auc": float(average_precision_score(y[ok], p))}
+
+
+def calibrate(cal, raw: np.ndarray) -> np.ndarray:
+    z = logit(np.clip(np.asarray(raw, dtype=float), 1e-4, 1 - 1e-4))
+    return cal.predict_proba(pd.DataFrame({"z": z}))[:, 1]
 
 
 def tabular_report(n_iter: int) -> dict:
@@ -172,10 +199,12 @@ def tabular_report(n_iter: int) -> dict:
     # 5. persist for the demo
     mdir = path("results", "models")
     mdir.mkdir(parents=True, exist_ok=True)
+    calibrator, threshold, cal_info = fit_calibrator(oof, ds.y)
     joblib.dump({"model": est, "name": name, "features": list(ds.X.columns),
-                 "transformed_features": feats}, mdir / "tabular.joblib")
+                 "transformed_features": feats, "calibrator": calibrator, "threshold": threshold},
+                mdir / "tabular.joblib")
     log.info("tabular: %s, inner AP %.3f, top features %s", name, inner_ap, list(imp.index[:5]))
-    return {"tabular_model": name, "tabular_params": {k.split("__")[-1]: str(v) for k, v in params.items()},
+    return {**cal_info, "tabular_model": name, "tabular_params": {k.split("__")[-1]: str(v) for k, v in params.items()},
             "tabular_inner_ap": inner_ap, "n_apps": len(ds.y), "n_unverified": int(ds.y.sum())}
 
 

@@ -48,8 +48,12 @@ def describe(feature: str, value) -> str:
     """One sentence about the observed value of `feature`."""
     if feature.startswith("missingindicator_"):
         base = feature.removeprefix("missingindicator_")
-        return f"No data for {LABELS.get(base, base)}" if _yes(value) else f"{LABELS.get(base, base)} is available"
+        return describe(base, float("nan")) if _yes(value) else f"{LABELS.get(base, base).capitalize()} is available"
     if _isnan(value):
+        if feature.startswith("rev_"):
+            return "No user reviews yet"  # all review aggregates are NaN together
+        if feature in {"score", "share_1star", "share_5star", "polarisation"}:
+            return "Too few ratings for Play to show a score"
         return f"No data for {LABELS.get(feature, feature)}"
 
     if feature.startswith("perm_"):
@@ -124,5 +128,14 @@ def top_signals(shap_row: dict, values: dict, k: int = 3, toward_unverified: boo
     """k features with the largest SHAP push in one direction, described in words."""
     sign = 1 if toward_unverified else -1
     ranked = sorted(((f, s) for f, s in shap_row.items() if sign * s > 0), key=lambda t: -abs(t[1]))
-    return [{"feature": f, "shap": s, "value": values.get(f), "text": describe(f, values.get(f))}
-            for f, s in ranked[:k]]
+    out, seen = [], {}
+    for f, s in ranked:  # features describing the same fact (e.g. "No user reviews yet") merge
+        t = describe(f, values.get(f))
+        if t in seen:
+            seen[t]["shap"] += s
+            continue
+        seen[t] = {"feature": f, "shap": s, "value": values.get(f), "text": t}
+        out.append(seen[t])
+        if len(out) == k:
+            break
+    return out

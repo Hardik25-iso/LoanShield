@@ -78,6 +78,16 @@ def filter_reason(d: dict, pat: re.Pattern) -> str:
     return "keep"
 
 
+def details_row(d: dict, p: dict) -> dict:
+    """One apps.csv row from app() details and permissions() payloads (shared with the demo)."""
+    row = {k: d.get(k) for k in DETAIL_FIELDS if k != "histogram"}
+    hist = d.get("histogram") or [None] * 5
+    row.update({f"hist_{i + 1}": hist[i] for i in range(5)})
+    row["permissions_missing"] = bool(p.get("_missing"))
+    row["n_permission_labels"] = 0 if p.get("_missing") else sum(len(v) for v in p.values())
+    return {"app_id": row.pop("appId"), **row}
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--ids-file", default=None,
@@ -109,17 +119,9 @@ def main() -> None:
              flog["reason"].str.replace(r"genre:.*", "genre:<non-finance>", regex=True)
              .value_counts().to_string())
 
-    kept = []
-    for aid in flog.loc[flog.decision == "keep", "app_id"]:
-        d = fetch_details(aid)
-        p = fetch_permissions(aid)
-        row = {k: d.get(k) for k in DETAIL_FIELDS if k != "histogram"}
-        hist = d.get("histogram") or [None] * 5
-        row.update({f"hist_{i + 1}": hist[i] for i in range(5)})
-        row["permissions_missing"] = bool(p.get("_missing"))
-        row["n_permission_labels"] = 0 if p.get("_missing") else sum(len(v) for v in p.values())
-        kept.append(row)
-    apps = pd.DataFrame(kept).rename(columns={"appId": "app_id"})
+    kept = [details_row(fetch_details(aid), fetch_permissions(aid))
+            for aid in flog.loc[flog.decision == "keep", "app_id"]]
+    apps = pd.DataFrame(kept)
     apps.to_csv(path("interim", "apps.csv"), index=False)
     log.info("kept %d / %d apps -> data/interim/apps.csv", len(apps), len(flog))
 
