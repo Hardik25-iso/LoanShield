@@ -30,7 +30,13 @@ GENERIC = {
     "personal", "quick", "fast", "easy", "emi", "online", "mobile", "digital", "lending", "lend",
     "the", "and", "for", "by", "of", "a", "in", "your", "my", "pay", "bank", "banking", "upi",
     "salary", "advance", "get", "now", "new", "best", "smart", "super", "plus", "pro", "lite",
+    "home", "gold", "business", "education", "finance", "capital", "wealth", "fund", "funds",
+    "bill", "bills", "card", "cards", "payment", "payments", "wallet", "line", "india", "app",
 }
+# Title starts with the full distinctive brand of an RBI entry. Same brand is not
+# the same app (the list names specific apps, and groups like Paytm/Bajaj/HDFC
+# have many unlisted siblings), so this lands in the review band, never auto-verified.
+BRAND_SCORE = 88.0
 
 
 def normalise(name: str, legal: bool = True) -> str:
@@ -66,11 +72,24 @@ def name_similarity(a: str, b: str) -> float:
     token_set_ratio (the plan's choice) scores 100 for any token subset, which
     matched "Gaadi Bazaar" to "My Money Bazaar" and "Union Bank" to "City Union
     Bank" in the dry run; token_sort_ratio penalises the unmatched tokens.
+
+    Brand-level matches score BRAND_SCORE (review band):
+      * one name starts with the other's whole distinctive brand
+        ("stashfin bills" vs "stashfin"), brand >= 4 characters;
+      * the distinctive brands are identical but the full names are not
+        ("Bajaj Finance for Business" vs "Bajaj Finance App") - a sibling app.
     """
     da, db = distinctive(a), distinctive(b)
     if not da or not db:
         return fuzz.ratio(a, b)
-    return fuzz.token_sort_ratio(da, db)
+    score = fuzz.token_sort_ratio(da, db)
+    if score == 100 and fuzz.token_sort_ratio(a, b) < 80:
+        return BRAND_SCORE
+    ta, tb = da.split(), db.split()
+    short, long_ = (ta, tb) if len(ta) <= len(tb) else (tb, ta)
+    if long_[:len(short)] == short and len(" ".join(short)) >= 4:
+        score = max(score, BRAND_SCORE)
+    return score
 
 
 def best_match(query: str, choices: list[str]) -> tuple[float, int | None]:
@@ -125,6 +144,8 @@ NON_LENDER_TITLE = [
 ]
 
 
+TITLE_LENDING = re.compile(r"\b(loans?|cash advance|salary|credit line|line of credit|lend\w*|udhaar|udhar)\b", re.I)
+
 STAFF_TITLE = re.compile(
     r"\b(sales|partner|agent|distributor|dsa|employee|staff|collection|field|merchant|bridge|connect)\b", re.I)
 
@@ -142,6 +163,8 @@ def offers_credit(title: str, summary: str, description: str) -> tuple[str, str]
     head = f"{title or ''} {summary or ''}".lower()
     n = _phrase_count(f"{head} {description or ''}")
     cue = next((c for c in NON_LENDER_TITLE if re.search(rf"\b{re.escape(c)}\b", head)), None)
+    if n == 0 and TITLE_LENDING.search(head):
+        return "unsure", "lending word in title/summary, none in description"
     if n == 0:
         return "no", "no lending phrases"
     if cue and n < 5:

@@ -17,6 +17,16 @@ def test_generic_tokens_do_not_create_false_matches():
     assert name_similarity(normalise("Gaadi Bazaar", legal=False),
                            normalise("My Money Bazaar", legal=False)) < 80
     assert name_similarity(normalise("Union Bank of India"), normalise("City Union Bank Limited")) < 92
+    assert name_similarity(normalise("Easy Home Finance - Loan App", legal=False),
+                           normalise("Home Credit: Personal Loan App", legal=False)) < 80
+
+
+def test_brand_prefix_matches_titles_with_extra_words():
+    # both were false "unverified" before the brand-prefix rule; same brand lands in
+    # the review band (80-91), not auto-verified, because sibling apps are unlisted
+    for title, dla in [("Stashfin UPI, Pay Bills, Loans", "Stashfin"),
+                       ("Wishfin Home Loan App", "Wishfin")]:
+        assert 80 <= name_similarity(normalise(title, legal=False), normalise(dla, legal=False)) < 92
 
 
 def test_distinctive():
@@ -31,3 +41,5 @@ def test_offers_credit():
     assert offers_credit("Daily Horoscope", "", "Your stars today")[0] == "no"
     assert offers_credit("Payments", "", "Pay bills. Personal loan coming soon")[0] == "unsure"
     assert offers_credit("X", "", "Celebrate April with us")[0] == "no"  # 'apr' must not match 'april'
+    # lending word only in the title: send to review, don't exclude
+    assert offers_credit("Meri Micro Loan", "", "Apni zarurat ke liye")[0] == "unsure"

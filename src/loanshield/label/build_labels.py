@@ -3,6 +3,7 @@
 Decision rule (PLAN.md section 4, plus the deviations noted in docs/deviations.md):
   1. seed-list hit                                    -> unverified  (seed)
   2. package ID linked from the RBI list              -> verified    (rbi_match)
+     offers_credit == no                              -> excluded    (not a lender)
   3. name_score >= 80 and staff/partner cue in title -> review     (not borrower-facing?)
      name_score >= 92 and dev_score >= 80             -> verified    (rbi_match)
      name_score >= 92 but developer unmatched         -> review      (possible impersonator)
@@ -56,6 +57,8 @@ def decide(r) -> tuple[str, str]:
         return "unverified", "seed"
     if r.pkg_match:
         return "verified", "rbi_match"
+    if r.offers_credit == "no":  # before name rules: a listed brand's broking/insurance app is not a DLA
+        return "excluded", f"not a lender: {r.credit_reason}"
     if r.name_score >= rv and STAFF_TITLE.search(str(r.title)):
         return "review", "staff/partner-facing app of a listed lender?"
     if r.name_score >= v:
