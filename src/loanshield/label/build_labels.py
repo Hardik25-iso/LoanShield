@@ -26,6 +26,8 @@ Run: python -m loanshield.label.build_labels
 """
 from __future__ import annotations
 
+import json
+
 import pandas as pd
 from sklearn.metrics import cohen_kappa_score
 
@@ -130,6 +132,12 @@ def main() -> None:
     log.info("auto decisions: %s", df["auto_label"].value_counts().to_dict())
     log.info("review queue: %d apps -> data/interim/label_review.csv; manual: %s", len(queue), stats)
     log.info("labels.csv: %d apps %s", len(labels), labels["label"].value_counts().to_dict())
+    path("processed", "label_stats.json").write_text(json.dumps({
+        "auto_decisions": df["auto_label"].value_counts().to_dict(),
+        "labels": labels["label"].value_counts().to_dict(),
+        "label_source": labels["label_source"].value_counts().to_dict(),
+        "review_queue": len(queue), "manual": stats,
+    }, indent=1, default=float), encoding="utf-8")
 
 
 if __name__ == "__main__":

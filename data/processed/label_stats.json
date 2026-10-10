@@ -1,0 +1,19 @@
+{
+ "auto_decisions": {
+  "verified": 351,
+  "review": 130,
+  "excluded": 119,
+  "unverified": 27
+ },
+ "labels": {
+  "verified": 351,
+  "unverified": 27
+ },
+ "label_source": {
+  "rbi_match": 378
+ },
+ "review_queue": 130,
+ "manual": {
+  "status": "pending"
+ }
+}
