@@ -13,3 +13,4 @@ data/raw/play_similar/
 data/interim/*.parquet
 results/models/
 report/_placeholders_missing.json
+data/interim/*.npz

@@ -88,6 +88,37 @@ def run_snowball(seed_rows: list[dict]) -> list[dict]:
     return rows
 
 
+def expand_rows() -> list[dict]:
+    """One similar-apps hop from apps already labelled unverified or queued for review.
+
+    The first collection found few unverified apps (most unlisted lenders were
+    removed from Play in 2026), so neighbourhoods of the ones still live are
+    searched. These apps are labelled with exactly the same rules as all others.
+    """
+    f = path("interim", "label_decisions.csv")
+    if not f.exists():
+        log.warning("--expand needs data/interim/label_decisions.csv (run build_labels first)")
+        return []
+    d = pd.read_csv(f)
+    seeds = sorted(d.loc[d["auto_label"].isin(["unverified", "review"]), "app_id"])
+    log.info("expand: %d unverified/review seed apps", len(seeds))
+    rows = []
+    for sid in seeds:
+        rows += [{"app_id": a, "title": None, "genre": None, "source": "expand",
+                  "first_term": f"expand:{sid}"} for a in similar_ids(sid)]
+    return rows
+
+
+def seed_rows() -> list[dict]:
+    """Play package IDs of flagged-app seeds (given, or resolved by seeds.py)."""
+    f = path("interim", "seeds_resolved.csv")
+    if not f.exists():
+        return []
+    s = pd.read_csv(f, dtype=str).dropna(subset=["package_id"])
+    return [{"app_id": r.package_id, "title": r.name, "genre": None, "source": "seed",
+             "first_term": f"seed:{r.name}"} for r in s.itertuples()]
+
+
 def rbi_list_rows() -> list[dict]:
     """Play package IDs linked from the RBI DLA list (newest snapshot), if loaded.
 
@@ -106,11 +137,16 @@ def rbi_list_rows() -> list[dict]:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--snowball", action="store_true", help="expand one hop via Similar apps")
+    ap.add_argument("--expand", action="store_true",
+                    help="also one hop from apps labelled unverified / in review (needs label_decisions.csv)")
     a = ap.parse_args()
 
     rows = run_search()
     if a.snowball:
         rows += run_snowball(rows)
+    if a.expand:
+        rows += expand_rows()
+    rows += seed_rows()
     rows += rbi_list_rows()
     df = pd.DataFrame(rows).drop_duplicates("app_id", keep="first")
     out = path("interim", "candidates.csv")

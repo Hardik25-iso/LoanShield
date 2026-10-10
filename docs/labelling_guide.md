@@ -34,3 +34,14 @@ The review queue is the set of apps the automatic rules could not decide. Two te
 
 - Use model outputs, review sentiment or install counts to decide. The label is about RBI listing only.
 - Change any column other than `label` (and `note`).
+
+## How the queue was actually labelled (2026-10-10)
+
+The team did not double-annotate. The queue (138 apps) was labelled once by an AI-assisted annotator (Claude) following this guide, with a `note` on every non-obvious decision (`data/interim/label_review_A.csv`). `build_labels` treats this as single-annotator labelling and reports no kappa. Decisions beyond the guide:
+
+- Apps for another country's market (e.g. Klarna, Tabby, Qatar's PayLater, Australian home-loan apps) are `not_lender`: they do not offer credit to users in India.
+- Staff, sales, partner/DSA, collection and post-disbursement servicing apps are `not_lender` (no borrower application flow).
+- Banking super-apps (Canara ai1, bob World) are `not_lender`: their lending journeys are listed separately in the RBI directory.
+- Same brand as a listed DLA but a different, unrelated developer is `unverified` (e.g. "MudraFast Cash", published by a Mexican SOFOM).
+
+A separate audit of 50 random **automatic** labels is in `data/interim/label_audit.csv` (1 error, which led to a rule fix; see `docs/deviations.md` #29).

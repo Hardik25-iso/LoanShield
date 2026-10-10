@@ -19,9 +19,9 @@ import argparse
 
 import pandas as pd
 from google_play_scraper import search
-from rapidfuzz import fuzz
 
 from loanshield.common import cfg, get_logger, path, polite_sleep, with_retries
+from loanshield.label.match import name_similarity, normalise
 
 log = get_logger("seeds")
 COLS = ["name", "package_id", "source_url", "date"]
@@ -43,15 +43,24 @@ def init_template() -> None:
 
 
 def resolve(name: str) -> tuple[str | None, str | None, float]:
+    """Best live Play app for a flagged name (same name matching as labelling).
+
+    A search-resolved package is only a *candidate*: flagged lists are often old and
+    names generic, so build_labels sends these apps to manual review.
+    """
     s = cfg()["scrape"]
-    hits = with_retries(lambda: search(name, lang=s["lang"], country=s["country"], n_hits=10),
-                        f"search({name!r})", log)
+    try:
+        hits = with_retries(lambda: search(name, lang=s["lang"], country=s["country"], n_hits=10),
+                            f"search({name!r})", log)
+    except Exception as e:  # noqa: BLE001 - the scraper raises on empty result pages
+        log.info("search(%r) found nothing usable (%s)", name, type(e).__name__)
+        hits = []
     polite_sleep()
-    best = max(hits, key=lambda h: fuzz.token_set_ratio(name.lower(), h["title"].lower()),
-               default=None)
-    if not best:
+    q = normalise(name, legal=False)
+    scored = [(name_similarity(q, normalise(h["title"], legal=False)), h) for h in hits or []]
+    if not scored:
         return None, None, 0.0
-    sc = fuzz.token_set_ratio(name.lower(), best["title"].lower())
+    sc, best = max(scored, key=lambda t: t[0])
     return (best["appId"], best["title"], sc) if sc >= MIN_SCORE else (None, best["title"], sc)
 
 

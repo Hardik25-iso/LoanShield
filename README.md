@@ -41,6 +41,9 @@ Tests: `python -m pytest`.
 | All experiments (grouped CV, temporal, ablation, early, SMOTE, leakage) | `python -m loanshield.models.run_experiments` |
 | MuRIL (Colab GPU) | `notebooks/muril_finetune.ipynb`, then re-run `--exp main` |
 | SHAP report + saved demo models | `python -m loanshield.explain.shap_report` |
+| Report Results section (Word) | `python -m loanshield.report` → `report/results_section.docx` |
+
+The Results section is generated from `report/results_template.md`, so edit the template, never the `.docx`. Every number is filled from `results/` and `data/`. Values not produced yet show as red `[key]` (or `[TBD]` in tables), and red `[AUTHOR: …]` prompts mark the interpretation the team writes. Tables and figures are numbered automatically and the figures are embedded. Body, heading and caption text use Word's built-in styles, so they adopt the report template's look when pasted in.
 
 ## Phase 6: demo
 

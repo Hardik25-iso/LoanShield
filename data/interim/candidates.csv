@@ -280,6 +280,17 @@ com.fin.do,Fin.do: Instant Money Anywhere,Finance,search,fast cash
 in.okcredit.merchant,"OkCredit: Ledger, UPI, Billing",Finance,search,credit app
 com.finexmoney.wallet,Finex Money,Finance,search,borrow money
 com.innofinsolutions.lendenclub.lender,LenDenClub Grow Your Portfolio,Finance,search,money lending app
+com.fund.credit.obsidian.happy,Credit Obsidian,Finance,search,credit line app
+com.creditsea.app,CreditSea: Personal Loan App,Finance,search,credit line app
+com.prefr.credit,Prefr: Online Loan App India,Finance,search,personal loan instant approval
+com.sunny.rupee.analytics.processor.service.app,Sunny Rupee - Personal Loan,Finance,search,rupee loan app
+com.rupeeflo.app,Rupeeflo - NRI Wealth App,Finance,search,rupee loan app
+com.sop.ravento.pro,Rupee Credit Access-Pro,Finance,search,rupee loan app
+me.nowmoney.android,NOW Money: mobile bank account,Finance,search,instant money app
+com.sensei.alpharupee,AlphaRupee - Personal Loan App,Finance,search,quick rupee loan
+com.kisga.b4salary_app,B4SALARY: Insta Personal Loans,Finance,search,salary advance app
+com.gyantech.pagarbook,PagarBook:Attendance & Payroll,Business,search,salary advance app
+com.paykey.paywage,PayWage,Finance,search,salary advance app
 dev.hemanths.paisa,Spending Tracker - Paisa,Finance,search,paise chahiye
 com.vibhunorby.totalpaisa,Total Paisa-Cash Denomination,Finance,search,paise chahiye
 com.appmoneypay.appmoneypay,MONEYPAY,Business,search,paise chahiye
@@ -312,7 +323,6 @@ com.cashkaro,CashKaro - Cashback & Coupons,Shopping,search,paise chahiye
 com.pokkt.app.pocketmoney,Pocket Money: Rewards Everyday,Entertainment,search,paise chahiye
 com.doublefun.moneyflow,Idle Bank - Money Games,Simulation,search,paise chahiye
 com.winning.jackpot.slots.casino.mania.slotmachines.free,Winning Jackpot Slots Casino,Casino,search,paise chahiye
-com.prefr.credit,Prefr: Online Loan App India,Finance,search,loan chahiye
 com.moneytap.bnpl.app,"Freo - UPI, Insurance, Loans",Finance,search,loan chahiye
 com.hapiapps.lending_paisa,Lending Paisa,Finance,search,turant paisa
 app.paisa108.com,Paisa 108 : Personal Loan App,Finance,search,turant paisa
@@ -497,6 +507,9 @@ com.elmacentemobile,,,similar,similar:com.craft.mySalary
 com.elmacentemobile.dentab,,,similar,similar:com.craft.mySalary
 com.little.littlepay,,,similar,similar:com.craft.mySalary
 ai.wizely.android,,,similar,similar:com.creditcard.onecard
+com.annauniv.stucor,,,similar,similar:com.creditsea.app
+com.reglobe.cashify,,,similar,similar:com.creditsea.app
+com.zebu.mynt,,,similar,similar:com.creditsea.app
 com.icici.digitalrupee,,,similar,similar:com.csam.icici.bank.imobile
 com.icicibank.careers,,,similar,similar:com.csam.icici.bank.imobile
 com.icicibank.iMcanada,,,similar,similar:com.csam.icici.bank.imobile
@@ -554,7 +567,6 @@ com.finnable.collection,,,similar,similar:com.finnable.customer
 com.finnable.operations,,,similar,similar:com.finnable.customer
 com.aaritya.sahi_trade_app,,,similar,similar:com.flexiloan
 app.mycountrydelight.in.countrydelight,,,similar,similar:com.flexsalary
-com.annauniv.stucor,,,similar,similar:com.flexsalary
 com.bankofbaroda.mconnect,,,similar,similar:com.flexsalary
 com.udyam.flex.loans,,,similar,similar:com.flexsalary
 com.google.android.apps.paidtasks,,,similar,similar:com.freecash.app2
@@ -685,7 +697,6 @@ com.mahindra.dhansamvaad,,,similar,similar:com.mf.app
 com.mahindra.fos,,,similar,similar:com.mf.app
 com.moodle.mlearn,,,similar,similar:com.mf.app
 com.quiklyz,,,similar,similar:com.mf.app
-com.zebu.mynt,,,similar,similar:com.mf.app
 com.deltaexchangeindia,,,similar,similar:com.msf.angelmobile
 money.powerup.uni.invest.app,,,similar,similar:com.msf.angelmobile
 com.emsyne.muthootmfa,,,similar,similar:com.muthootfinance.imuthoot
@@ -739,6 +750,9 @@ com.boss.To_Do_List,,,similar,similar:com.paisa.expense_manager
 com.boss.class10allguidemanual2081,,,similar,similar:com.paisa.expense_manager
 com.boss.pustakbazzar,,,similar,similar:com.paisa.expense_manager
 net.cashinator.www,,,similar,similar:com.paisa.expense_manager
+co.tapcart.app.id_twdM1Csk1t,,,similar,similar:com.paykey.paywage
+com.swapcard.apps.android,,,similar,similar:com.paykey.paywage
+com.workable.ats,,,similar,similar:com.paykey.paywage
 com.google.android.apps.photos,,,similar,similar:com.paypal.android.p2pmobile
 com.whatsapp,,,similar,similar:com.paypal.android.p2pmobile
 com.whatsapp.w4b,,,similar,similar:com.paypal.android.p2pmobile
@@ -784,7 +798,6 @@ com.sfl.fip,,,similar,similar:com.shriram.one
 com.shriramone.businessandroid,,,similar,similar:com.shriram.one
 com.mercury.bank,,,similar,similar:com.slideit
 com.safat.warbaib,,,similar,similar:com.slideit
-com.swapcard.apps.android,,,similar,similar:com.slideit
 io.pemo.app,,,similar,similar:com.slideit
 com.smallcase.partner,,,similar,similar:com.smallcase.android
 in.crowdware.one,,,similar,similar:com.smallcase.android
@@ -805,6 +818,10 @@ com.rupenet.finx_gold_employee,,,similar,similar:com.solution.rupenetpaymentbox
 com.rupenet.finxhrmx,,,similar,similar:com.solution.rupenetpaymentbox
 com.rupenet.payrupe,,,similar,similar:com.solution.rupenetpaymentbox
 com.rupenet.paywithus,,,similar,similar:com.solution.rupenetpaymentbox
+com.pluto.easyconvert,,,similar,similar:com.sop.ravento.pro
+com.pluto.fancycalcu,,,similar,similar:com.sop.ravento.pro
+com.rel.lovequiz,,,similar,similar:com.sop.ravento.pro
+com.relroyal.weddingplanner,,,similar,similar:com.sop.ravento.pro
 cn.zhihuiji.space.international,,,similar,similar:com.sortedsystems.myexpense
 com.foodycraft.mobile,,,similar,similar:com.sortedsystems.myexpense
 in.android.vyapar,,,similar,similar:com.sortedsystems.myexpense
@@ -856,13 +873,16 @@ com.chola.ssa,,,similar,similar:io.ionic.d2c
 com.cholaconnect,,,similar,similar:io.ionic.d2c
 com.gb.gaadibazaar,,,similar,similar:io.ionic.d2c
 com.lapcon.chola.murugappa.com,,,similar,similar:io.ionic.d2c
+com.adib.mobile,,,similar,similar:me.nowmoney.android
+com.aircash.aircash,,,similar,similar:me.nowmoney.android
+com.axonlogic.stocktrade,,,similar,similar:me.nowmoney.android
+com.emiratesnbd.android,,,similar,similar:me.nowmoney.android
 com.aadhaar.life,,,similar,similar:nic.hp.esalary
 com.nic.mparivahan,,,similar,similar:nic.hp.esalary
 com.nic.onenationonecard,,,similar,similar:nic.hp.esalary
 com.nic.project.pmkisan,,,similar,similar:nic.hp.esalary
 in.gov.ecourts.eCourtsServices,,,similar,similar:nic.hp.esalary
 in.gov.scholarships.nspotr,,,similar,similar:nic.hp.esalary
-com.reglobe.cashify,,,similar,similar:rapidrupee.app
 com.alkapps.subx,,,similar,similar:sstech.com.singleexpense
 com.sstech.driver007,,,similar,similar:sstech.com.singleexpense
 com.sstech.driver007user,,,similar,similar:sstech.com.singleexpense
@@ -870,6 +890,82 @@ com.sstech.nutrilens,,,similar,similar:sstech.com.singleexpense
 com.sstech.quickchat,,,similar,similar:sstech.com.singleexpense
 com.sstechsystem.homefitpro,,,similar,similar:sstech.com.singleexpense
 sstech.com.smartspend,,,similar,similar:sstech.com.singleexpense
+com.sbg.mobile.phone,,,expand,expand:co.uk.getmondo
+com.uphold.wallet,,,expand,expand:co.uk.getmondo
+za.co.fnb.connect.itt,,,expand,expand:co.uk.getmondo
+com.digitalwalletcorp.app.smiles,,,expand,expand:com.astropaycard.android
+com.ledger.live,,,expand,expand:com.astropaycard.android
+com.paypal.merchant.client,,,expand,expand:com.astropaycard.android
+com.wallet.crypto.trustapp,,,expand,expand:com.astropaycard.android
+de.number26.android,,,expand,expand:com.astropaycard.android
+app.pefi,,,expand,expand:com.atharva.expensetracker
+com.app.theiptv,,,expand,expand:com.atharva.expensetracker
+com.app.turthordare,,,expand,expand:com.atharva.expensetracker
+com.app.turthordarepro,,,expand,expand:com.atharva.expensetracker
+com.asapp.imageconverter,,,expand,expand:com.atharva.expensetracker
+com.atharva.notesu,,,expand,expand:com.atharva.expensetracker
+com.atharva.textStory,,,expand,expand:com.atharva.expensetracker
+com.monefy.app.lite,,,expand,expand:com.atharva.expensetracker
+co.zoala.app,,,expand,expand:com.awash.saccos
+com.enphaseenergy.myenlighten,,,expand,expand:com.awash.saccos
+com.pastest.v3.app,,,expand,expand:com.awash.saccos
+com.perfectstay,,,expand,expand:com.awash.saccos
+com.skycap.seekvisa,,,expand,expand:com.awash.saccos
+com.bankofbaroda.bobworlddmb,,,expand,expand:com.bankofbaroda.mconnect
+com.bankofbaroda.corporate,,,expand,expand:com.bankofbaroda.mconnect
+com.bankofbaroda.mconnectmar,,,expand,expand:com.bankofbaroda.mconnect
+com.bankofbaroda.mpassbookke,,,expand,expand:com.bankofbaroda.mconnect
+com.bankofbaroda.upi,,,expand,expand:com.bankofbaroda.mconnect
+org.npci.token.bob,,,expand,expand:com.bankofbaroda.mconnect
+com.travelcounsellors.mytc,,,expand,expand:com.classicavenue.cash.loop.limit.estimator
+com.apnacomplex,,,expand,expand:com.fedbank.risk
+bookipi.invoice.maker.estimate.billing,,,expand,expand:com.finance.emi.calculate.paid
+com.bens.apps.ChampCalc.free,,,expand,expand:com.finance.emi.calculate.paid
+com.finance.emi.calculate,,,expand,expand:com.finance.emi.calculate.paid
+com.gmoneytrans,,,expand,expand:com.finance.emi.calculate.paid
+com.trainerize.myaccountabilityplus,,,expand,expand:com.finance.emi.calculate.paid
+com.app.Abhivriti,,,expand,expand:com.genius.nbsushila
+com.grtech.pdftools,,,expand,expand:com.grtech.globalloancalculator
+com.redvision.advisorxapp,,,expand,expand:com.herofincorp.bridge
+com.fab.personalbanking,,,expand,expand:com.kamelpay
+com.uba.kayanhr,,,expand,expand:com.kamelpay
+parkin.ae.dev,,,expand,expand:com.kamelpay
+sa.com.stcbank,,,expand,expand:com.kamelpay
+com.kosh.greaves,,,expand,expand:com.kosh.ambiserve
+com.ktwapps.altimeter,,,expand,expand:com.ktwapps.walletmanager
+com.ktwapps.digitalcompass,,,expand,expand:com.ktwapps.walletmanager
+com.ktwapps.metronome,,,expand,expand:com.ktwapps.walletmanager
+com.ktwapps.soundmeter,,,expand,expand:com.ktwapps.walletmanager
+com.ktwapps.speedometer,,,expand,expand:com.ktwapps.walletmanager
+com.ktwapps.waterreminder.drinkwater,,,expand,expand:com.ktwapps.walletmanager
+in.usefulapp.timelybills,,,expand,expand:com.ktwapps.walletmanager
+com.subsplashconsulting.s_KHWVKZ,,,expand,expand:com.loan.calculator.emi.payment.tracker
+com.manappuram.maduapp,,,expand,expand:com.manappuram.maauction
+com.sbig.insurance,,,expand,expand:com.muthootfincorpone.vyaparplus
+pos.rcmworld.com,,,expand,expand:com.ofss.canarabank
+com.app.bookmyforex,,,expand,expand:com.paynearby.distributor
+com.butterflyinnovations.collpoll,,,expand,expand:com.paynearby.distributor
+com.cbo.moibile_reporting_new,,,expand,expand:com.paynearby.distributor
+com.getkart.android,,,expand,expand:com.shopse.sales
+com.kisankonnect.in,,,expand,expand:com.shopse.sales
+com.milkbasket.app,,,expand,expand:com.shopse.sales
+com.wotu.app,,,expand,expand:com.shopse.sales
+com.chaoran.memento,,,expand,expand:com.xinran.finch
+com.fourdesire.fortunecity,,,expand,expand:com.xinran.finch
+com.xinran.iviki,,,expand,expand:com.xinran.finch
+org.me.mobiexpensifyg,,,expand,expand:com.xinran.finch
+antivirus.anti.virus.applock.protection.vpn,,,expand,expand:ru.innim.my_finance
+antivirus.virus.cleaner.clean.vpn.booster,,,expand,expand:ru.innim.my_finance
+cleaner.antivirus.cleaner.virus.clean.vpn,,,expand,expand:ru.innim.my_finance
+com.happy.money_manager,,,expand,expand:ru.innim.my_finance
+todo.list.tasks.planner.calendar.reminder,,,expand,expand:ru.innim.my_finance
+vpn.free.orange,,,expand,expand:ru.innim.my_finance
+vpn.vpn.blue,,,expand,expand:ru.innim.my_finance
+com.treecash.easyearn,Cash Tree,,seed,seed:Cash Tree
+com.infinity.infinity,Infinity,,seed,seed:Infinity
+com.guvanch,Sunshine,,seed,seed:Sunshine
+com.tapps.idle.clicker.upgrade.moneytree2,Money tree,,seed,seed:Money tree
+io.handcash.wallet,Handycash,,seed,seed:Handycash
 com.gemsahay.perfios,,,rbi_list,rbi_dla_2026-10-08.csv
 com.one360.lending,,,rbi_list,rbi_dla_2026-10-08.csv
 com.fourfinfinance.b2c,,,rbi_list,rbi_dla_2026-10-08.csv
@@ -924,7 +1020,6 @@ com.circlepe.club,,,rbi_list,rbi_dla_2026-10-08.csv
 com.ctl.capitalgold,,,rbi_list,rbi_dla_2026-10-08.csv
 com.banksoft.client.cmcBank,,,rbi_list,rbi_dla_2026-10-08.csv
 com.vehicle.rto.vahan.status.information.register,,,rbi_list,rbi_dla_2026-10-08.csv
-com.creditsea.app,,,rbi_list,rbi_dla_2026-10-08.csv
 samridh.consumer,,,rbi_list,rbi_dla_2026-10-08.csv
 com.rapipay.nye,,,rbi_list,rbi_dla_2026-10-08.csv
 com.LendingKart,,,rbi_list,rbi_dla_2026-10-08.csv
@@ -1019,7 +1114,6 @@ com.amazon.mShop.android.shopping,,,rbi_list,rbi_dla_2026-10-08.csv
 com.digicredit,,,rbi_list,rbi_dla_2026-10-08.csv
 com.nobroker.app,,,rbi_list,rbi_dla_2026-10-08.csv
 com.ovunque.parkwheels,,,rbi_list,rbi_dla_2026-10-08.csv
-com.kisga.b4salary_app,,,rbi_list,rbi_dla_2026-10-08.csv
 com.capora.scoreloan,,,rbi_list,rbi_dla_2026-10-08.csv
 com.ifhl,,,rbi_list,rbi_dla_2026-10-08.csv
 com.kotak.bank.mobile,,,rbi_list,rbi_dla_2026-10-08.csv
@@ -1059,7 +1153,6 @@ com.finlop.loanzo,,,rbi_list,rbi_dla_2026-10-08.csv
 com.mash.emiclubdealer,,,rbi_list,rbi_dla_2026-10-08.csv
 com.ng_customer_app,,,rbi_list,rbi_dla_2026-10-08.csv
 com.finshell.fin,,,rbi_list,rbi_dla_2026-10-08.csv
-com.sunny.rupee.analytics.processor.service.app,,,rbi_list,rbi_dla_2026-10-08.csv
 com.northernarc.rlo,,,rbi_list,rbi_dla_2026-10-08.csv
 com.oricred.mobicred,,,rbi_list,rbi_dla_2026-10-08.csv
 com.instaclaus.app,,,rbi_list,rbi_dla_2026-10-08.csv

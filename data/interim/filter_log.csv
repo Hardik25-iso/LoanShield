@@ -280,6 +280,17 @@ com.fin.do,Fin.do: Instant Money Anywhere,Finance,drop,no_lending_terms
 in.okcredit.merchant,"OkCredit: Ledger, UPI, Billing",Finance,keep,keep
 com.finexmoney.wallet,Finex Money,Finance,keep,keep
 com.innofinsolutions.lendenclub.lender,LenDenClub Grow Your Portfolio,Finance,keep,keep
+com.fund.credit.obsidian.happy,Credit Obsidian,Finance,keep,keep
+com.creditsea.app,CreditSea: Personal Loan App,Finance,keep,keep
+com.prefr.credit,Prefr: Online Loan App India,Finance,keep,keep
+com.sunny.rupee.analytics.processor.service.app,Sunny Rupee - Personal Loan,Finance,keep,keep
+com.rupeeflo.app,Rupeeflo - NRI Wealth App,Finance,keep,keep
+com.sop.ravento.pro,Rupee Credit Access-Pro,Finance,keep,keep
+me.nowmoney.android,NOW Money: mobile bank account,Finance,drop,no_lending_terms
+com.sensei.alpharupee,AlphaRupee - Personal Loan App,Finance,keep,keep
+com.kisga.b4salary_app,B4SALARY: Insta Personal Loans,Finance,keep,keep
+com.gyantech.pagarbook,PagarBook:Attendance & Payroll,Business,drop,genre:Business
+com.paykey.paywage,PayWage,Finance,drop,no_lending_terms
 dev.hemanths.paisa,Spending Tracker - Paisa,Finance,keep,keep
 com.vibhunorby.totalpaisa,Total Paisa-Cash Denomination,Finance,keep,keep
 com.appmoneypay.appmoneypay,MONEYPAY,Business,drop,genre:Business
@@ -312,7 +323,6 @@ com.cashkaro,CashKaro - Cashback & Coupons,Shopping,drop,genre:Shopping
 com.pokkt.app.pocketmoney,Pocket Money: Rewards Everyday,Entertainment,drop,genre:Entertainment
 com.doublefun.moneyflow,Idle Bank - Money Games,Simulation,drop,genre:Simulation
 com.winning.jackpot.slots.casino.mania.slotmachines.free,Winning Jackpot Slots Casino,Casino,drop,genre:Casino
-com.prefr.credit,Prefr: Online Loan App India,Finance,keep,keep
 com.moneytap.bnpl.app,"Freo - UPI, Insurance, Loans",Finance,keep,keep
 com.hapiapps.lending_paisa,Lending Paisa,Finance,keep,keep
 app.paisa108.com,Paisa 108 : Personal Loan App,Finance,keep,keep
@@ -497,6 +507,9 @@ com.elmacentemobile,CenteMobile,Business,drop,genre:Business
 com.elmacentemobile.dentab,Dentab Centenary,Finance,drop,no_lending_terms
 com.little.littlepay,Tourist Tap,Travel & Local,drop,genre:Travel & Local
 ai.wizely.android,Wizely: Save in FDs & Gold,Finance,drop,no_lending_terms
+com.annauniv.stucor,STUCOR - For College Students,Education,drop,genre:Education
+com.reglobe.cashify,Cashify: Sell & Buy Old Phones,Shopping,drop,genre:Shopping
+com.zebu.mynt,MYNT,Finance,drop,no_lending_terms
 com.icici.digitalrupee,Digital Rupee By ICICI Bank,Finance,drop,no_lending_terms
 com.icicibank.careers,iUniverse by ICICI Bank,Business,drop,genre:Business
 com.icicibank.iMcanada,ICICI Bank Canada iMobile,Finance,drop,no_lending_terms
@@ -554,7 +567,6 @@ com.finnable.collection,Fincollect,Finance,drop,no_lending_terms
 com.finnable.operations,VeriFi,Finance,keep,keep
 com.aaritya.sahi_trade_app,SAHI : Options & Stock Trading,Finance,keep,keep
 app.mycountrydelight.in.countrydelight,Country Delight Milk & Grocery,Food & Drink,drop,genre:Food & Drink
-com.annauniv.stucor,STUCOR - For College Students,Education,drop,genre:Education
 com.bankofbaroda.mconnect,bob World:Banking & Experience,Finance,keep,keep
 com.udyam.flex.loans,Udyam Flex Loan,Finance,keep,keep
 com.google.android.apps.paidtasks,Google Opinion Rewards,Tools,drop,genre:Tools
@@ -685,7 +697,6 @@ com.mahindra.dhansamvaad,Dhan Samvaad,Education,drop,genre:Education
 com.mahindra.fos,M TEZZ,Finance,keep,keep
 com.moodle.mlearn,MMFSS MLearn,Education,drop,genre:Education
 com.quiklyz,Quiklyz,Auto & Vehicles,drop,genre:Auto & Vehicles
-com.zebu.mynt,MYNT,Finance,drop,no_lending_terms
 com.deltaexchangeindia,Delta Exchange: Crypto Options,Finance,keep,keep
 money.powerup.uni.invest.app,PowerUp Money: Mutual Funds,Finance,drop,no_lending_terms
 com.emsyne.muthootmfa,Muthoot MFA,Business,drop,genre:Business
@@ -739,6 +750,9 @@ com.boss.To_Do_List,To do list,Productivity,drop,genre:Productivity
 com.boss.class10allguidemanual2081,SEE All Books & Guides 2082,Education,drop,genre:Education
 com.boss.pustakbazzar,Pustak Bazzar- Buy/Sell Books,Business,drop,genre:Business
 net.cashinator.www,Cashinator – Split Bills,Finance,keep,keep
+co.tapcart.app.id_twdM1Csk1t,CMC Motorsports®,Shopping,drop,genre:Shopping
+com.swapcard.apps.android,Swapcard - Smart Event App,Business,drop,genre:Business
+com.workable.ats,Workable,Productivity,drop,genre:Productivity
 com.google.android.apps.photos,Google Photos,Photography,drop,genre:Photography
 com.whatsapp,WhatsApp Messenger,Communication,drop,genre:Communication
 com.whatsapp.w4b,WhatsApp Business,Communication,drop,genre:Communication
@@ -784,7 +798,6 @@ com.sfl.fip,SFL Deposit Partner,Finance,drop,no_lending_terms
 com.shriramone.businessandroid,Shriram one for business,Finance,keep,keep
 com.mercury.bank,Mercury,Finance,keep,keep
 com.safat.warbaib,Warba Bank,Finance,keep,keep
-com.swapcard.apps.android,Swapcard - Smart Event App,Business,drop,genre:Business
 io.pemo.app,Pemo,Finance,drop,no_lending_terms
 com.smallcase.partner,CASE Partner,Business,drop,genre:Business
 in.crowdware.one,FrontPage: Paper Trading App,Finance,keep,keep
@@ -805,6 +818,10 @@ com.rupenet.finx_gold_employee,FinxConnect,Business,drop,genre:Business
 com.rupenet.finxhrmx,FinxGo,Business,drop,genre:Business
 com.rupenet.payrupe,PayRupi,Finance,keep,keep
 com.rupenet.paywithus,PaywithUs,Finance,keep,keep
+com.pluto.easyconvert,Pluto Currency Converter,Productivity,drop,genre:Productivity
+com.pluto.fancycalcu,Pluto SciFi Calculator,Productivity,drop,genre:Productivity
+com.rel.lovequiz,Rel Love Quiz,Entertainment,drop,genre:Entertainment
+com.relroyal.weddingplanner,Rel: Wedding Expense Planner,Tools,drop,genre:Tools
 cn.zhihuiji.space.international,Ailit: inventory&invoice,Productivity,drop,genre:Productivity
 com.foodycraft.mobile,Nurish Life,Entertainment,drop,genre:Entertainment
 in.android.vyapar,Vyapar Invoice GST Billing App,Business,drop,genre:Business
@@ -856,13 +873,16 @@ com.chola.ssa,Chola Smart Sales,Finance,keep,keep
 com.cholaconnect,Chola Connect,Communication,drop,genre:Communication
 com.gb.gaadibazaar,Gaadi Bazaar-Buy&Sell vehicles,Finance,keep,keep
 com.lapcon.chola.murugappa.com,Chola Connector- Refer & Earn,Finance,keep,keep
+com.adib.mobile,ADIB Mobile Banking,Finance,keep,keep
+com.aircash.aircash,Aircash,Finance,keep,keep
+com.axonlogic.stocktrade,Musaffa: Halal Investing App,Finance,keep,keep
+com.emiratesnbd.android,ENBD X,Finance,keep,keep
 com.aadhaar.life,JeevanPramaan,Tools,drop,genre:Tools
 com.nic.mparivahan,NextGen mParivahan,Productivity,drop,genre:Productivity
 com.nic.onenationonecard,Mera Ration App,Productivity,drop,genre:Productivity
 com.nic.project.pmkisan,PMKISAN GoI,Tools,drop,genre:Tools
 in.gov.ecourts.eCourtsServices,eCourts Services,Tools,drop,genre:Tools
 in.gov.scholarships.nspotr,NSP OTR,Education,drop,genre:Education
-com.reglobe.cashify,Cashify: Sell & Buy Old Phones,Shopping,drop,genre:Shopping
 com.alkapps.subx,SubX - Subscription Manager,Finance,keep,keep
 com.sstech.driver007,Driver007 - Driver App,Maps & Navigation,drop,genre:Maps & Navigation
 com.sstech.driver007user,Driver007 Retailer,Maps & Navigation,drop,genre:Maps & Navigation
@@ -870,6 +890,82 @@ com.sstech.nutrilens,NutriLens AI: Calorie Counter,Health & Fitness,drop,genre:H
 com.sstech.quickchat,QuickChat,Communication,drop,genre:Communication
 com.sstechsystem.homefitpro,Workout for Women: HomeFitPro,Health & Fitness,drop,genre:Health & Fitness
 sstech.com.smartspend,SmartSpend - Expense Manager,Finance,keep,keep
+com.sbg.mobile.phone,Standard Bank / Stanbic Bank,Finance,keep,keep
+com.uphold.wallet,Uphold: Trade crypto & stocks,Finance,keep,keep
+za.co.fnb.connect.itt,FNB Banking App,Finance,drop,no_lending_terms
+com.digitalwalletcorp.app.smiles,Smiles Mobile Remittance,Finance,keep,keep
+com.ledger.live,Ledger Wallet™ crypto app,Finance,keep,keep
+com.paypal.merchant.client,PayPal Business,Business,drop,genre:Business
+com.wallet.crypto.trustapp,Trust: Crypto & Bitcoin Wallet,Finance,drop,no_lending_terms
+de.number26.android,N26 — Love your bank,Finance,keep,keep
+app.pefi,Pefi: Expense Tracker,Finance,drop,no_lending_terms
+com.app.theiptv,IPTV Xtream: M3U Stream Player,Video Players & Editors,drop,genre:Video Players & Editors
+com.app.turthordare,Truth Or Dare: Games For Party,Entertainment,drop,genre:Entertainment
+com.app.turthordarepro,Spicy Truth Or Dare: Offline,Entertainment,drop,genre:Entertainment
+com.asapp.imageconverter,Image Converter: PNG.JPG.HEIC,Tools,drop,genre:Tools
+com.atharva.notesu,"Notes.U: ColorNote taking, PDF",Productivity,drop,genre:Productivity
+com.atharva.textStory,Fake Chat - Text Story Maker,Books & Reference,drop,genre:Books & Reference
+com.monefy.app.lite,Monefy: Money & Budget App,Finance,keep,keep
+co.zoala.app,Zoala,Health & Fitness,drop,genre:Health & Fitness
+com.enphaseenergy.myenlighten,Enphase Enlighten,Business,drop,genre:Business
+com.pastest.v3.app,Pastest,Education,drop,genre:Education
+com.perfectstay,PerfectStay Holiday Rentals,Business,drop,genre:Business
+com.skycap.seekvisa,Australia Visa & Immigration |,Business,drop,genre:Business
+com.bankofbaroda.bobworlddmb,bob World New,Finance,keep,keep
+com.bankofbaroda.corporate,bob World Business,Finance,drop,no_lending_terms
+com.bankofbaroda.mconnectmar,M-Connect plus Mauritius,Finance,drop,no_lending_terms
+com.bankofbaroda.mpassbookke,Baroda mPassbook Kenya,Finance,keep,keep
+com.bankofbaroda.upi,bob इ Pay,Finance,drop,no_lending_terms
+org.npci.token.bob,bob World Digital Rupee,Finance,drop,no_lending_terms
+com.travelcounsellors.mytc,myTC,Travel & Local,drop,genre:Travel & Local
+com.apnacomplex,ANACITY IN,Productivity,drop,genre:Productivity
+bookipi.invoice.maker.estimate.billing,Invoice Maker & Estimate App,Business,drop,genre:Business
+com.bens.apps.ChampCalc.free,Champ Scientific Calculator,Tools,drop,genre:Tools
+com.finance.emi.calculate,EMI Calculator,Finance,keep,keep
+com.gmoneytrans,GmoneyTrans-Global Remittance,Finance,keep,keep
+com.trainerize.myaccountabilityplus,MyAccountability Plus,Health & Fitness,drop,genre:Health & Fitness
+com.app.Abhivriti,Abhivriti Credit Society,Finance,keep,keep
+com.grtech.pdftools,PDF Tools: Converter & Scanner,Productivity,drop,genre:Productivity
+com.redvision.advisorxapp,Advisor X By REDVision,Finance,drop,no_lending_terms
+com.fab.personalbanking,FAB Mobile,Finance,keep,keep
+com.uba.kayanhr,KayanHR,Business,drop,genre:Business
+parkin.ae.dev,Parkin,Productivity,drop,genre:Productivity
+sa.com.stcbank,STC Bank,Finance,drop,no_lending_terms
+com.kosh.greaves,Greaves,Finance,keep,keep
+com.ktwapps.altimeter,Altimeter : Elevation Meter,Tools,drop,genre:Tools
+com.ktwapps.digitalcompass,Digital Compass,Tools,drop,genre:Tools
+com.ktwapps.metronome,Metronome : Beat & Rhythm,Tools,drop,genre:Tools
+com.ktwapps.soundmeter,Sound meter : SPL & dB meter,Tools,drop,genre:Tools
+com.ktwapps.speedometer,GPS Speedometer : Odometer HUD,Maps & Navigation,drop,genre:Maps & Navigation
+com.ktwapps.waterreminder.drinkwater,Water Tracker : Drink Reminder,Health & Fitness,drop,genre:Health & Fitness
+in.usefulapp.timelybills,"Bill Payment Reminder, Budgets",Finance,keep,keep
+com.subsplashconsulting.s_KHWVKZ,RCCG The Eagles Ark,Lifestyle,drop,genre:Lifestyle
+com.manappuram.maduapp,MADU,Education,drop,genre:Education
+com.sbig.insurance,SBI General Insurance,Finance,keep,keep
+pos.rcmworld.com,RCM POS (New),Business,drop,genre:Business
+com.app.bookmyforex,BookMyForex Currency Exchange,Finance,drop,no_lending_terms
+com.butterflyinnovations.collpoll,Digiicampus,Education,drop,genre:Education
+com.cbo.moibile_reporting_new,CBO SFA,Productivity,drop,genre:Productivity
+com.getkart.android,Getkart - Buy & Sell Easily,Shopping,drop,genre:Shopping
+com.kisankonnect.in,KisanKonnect FarmFresh Produce,Shopping,drop,genre:Shopping
+com.milkbasket.app,Milkbasket: Grocery Delivery,Shopping,drop,genre:Shopping
+com.wotu.app,Hyperpure,Shopping,drop,genre:Shopping
+com.chaoran.memento,Memento: Life Moments,Lifestyle,drop,genre:Lifestyle
+com.fourdesire.fortunecity,Fortune City - A Finance App,Finance,drop,no_lending_terms
+com.xinran.iviki,iViKi,Finance,drop,no_lending_terms
+org.me.mobiexpensifyg,Expensify - Travel & Expense,Business,drop,genre:Business
+antivirus.anti.virus.applock.protection.vpn,Antivirus Virus cleaner + VPN,Tools,drop,genre:Tools
+antivirus.virus.cleaner.clean.vpn.booster,Cleaner Antivirus VPN Cleaner,Tools,drop,genre:Tools
+cleaner.antivirus.cleaner.virus.clean.vpn,Cleaner & Antivirus & fast VPN,Tools,drop,genre:Tools
+com.happy.money_manager,Money Manager ：Bills & Budget,Finance,keep,keep
+todo.list.tasks.planner.calendar.reminder,To-do list - tasks planner,Lifestyle,drop,genre:Lifestyle
+vpn.free.orange,AI VPN proxy server,Tools,drop,genre:Tools
+vpn.vpn.blue,VPN Blue - a convenient VPN,Tools,drop,genre:Tools
+com.treecash.easyearn,Tree Cash: Daily Rewards,Entertainment,drop,genre:Entertainment
+com.infinity.infinity,Infinity,Finance,keep,keep
+com.guvanch,Sunshine,Shopping,drop,genre:Shopping
+com.tapps.idle.clicker.upgrade.moneytree2,Money Tree 2: Money Game,Simulation,drop,genre:Simulation
+io.handcash.wallet,Handcash,Finance,drop,no_lending_terms
 com.gemsahay.perfios,GeM Sahay,Finance,keep,keep
 com.one360.lending,360 ONE Wealth - Lending,Finance,keep,keep
 com.fourfinfinance.b2c,4Fin,Finance,keep,keep
@@ -924,7 +1020,6 @@ com.circlepe.club,CirclePe,House & Home,drop,genre:House & Home
 com.ctl.capitalgold,Capital Gold Loans,Finance,keep,keep
 com.banksoft.client.cmcBank,"CMC Bank, Haveri",Finance,drop,no_lending_terms
 com.vehicle.rto.vahan.status.information.register,Vehicleinfo - RTO Information,Auto & Vehicles,drop,genre:Auto & Vehicles
-com.creditsea.app,CreditSea: Personal Loan App,Finance,keep,keep
 samridh.consumer,Samridhya - Personal Loan App,Finance,keep,keep
 com.rapipay.nye,NYE,Finance,keep,keep
 com.LendingKart,Lendingkart: Business Loan App,Finance,keep,keep
@@ -1019,7 +1114,6 @@ com.amazon.mShop.android.shopping,Amazon Shopping,Shopping,drop,genre:Shopping
 com.digicredit,DigiCredit: Instant Loan App,Finance,keep,keep
 com.nobroker.app,"NoBroker Rent, Buy, Sell Flats",House & Home,drop,genre:House & Home
 com.ovunque.parkwheels,Park+: FASTag & Challan App,Auto & Vehicles,drop,genre:Auto & Vehicles
-com.kisga.b4salary_app,B4SALARY: Insta Personal Loans,Finance,keep,keep
 com.capora.scoreloan,ScoreLoan- Your Growth Partner,Finance,keep,keep
 com.ifhl,IFHL,Finance,keep,keep
 com.kotak.bank.mobile,Kotak Bank,Finance,keep,keep
@@ -1059,7 +1153,6 @@ com.finlop.loanzo,LOANZO,Finance,keep,keep
 com.mash.emiclubdealer,,,drop,not_found_on_play
 com.ng_customer_app,NeoGrowth - Business Loans,Finance,keep,keep
 com.finshell.fin,Zenzy,Finance,keep,keep
-com.sunny.rupee.analytics.processor.service.app,Sunny Rupee - Personal Loan,Finance,keep,keep
 com.northernarc.rlo,NORTHERN ARC CAPITAL LIMITED,Finance,keep,keep
 com.oricred.mobicred,MobiCred - Personal Loan,Finance,keep,keep
 com.instaclaus.app,Instaclaus,Finance,keep,keep

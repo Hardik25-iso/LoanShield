@@ -40,24 +40,40 @@ MANUAL_LABELS = {"verified", "unverified", "not_lender"}
 
 
 def seed_hits(apps: pd.DataFrame) -> pd.Series:
+    """'strong' = package ID given by the source; 'weak' = name or search-resolved match; '' = none.
+
+    Weak hits go to manual review: flagged-app lists are often years old and many
+    names are generic ("Easy Loan", "Quick Cash"), so a same-named live app may
+    be a different app.
+    """
     f = path("interim", "seeds_resolved.csv")
     if not f.exists():
-        return pd.Series(False, index=apps.index)
+        return pd.Series("", index=apps.index)
     seeds = pd.read_csv(f, dtype=str)
-    pk = set(seeds["package_id"].dropna())
+    strong = set(seeds.loc[seeds["resolution"] == "given", "package_id"].dropna())
+    weak_pk = set(seeds.loc[seeds["resolution"] == "search", "package_id"].dropna())
     names = [normalise(n, legal=False) for n in seeds["name"].dropna()]
     by_name = apps["title"].map(lambda t: any(
         name_similarity(normalise(t, legal=False), n) >= cfg()["labels"]["verified_min"] for n in names))
-    return apps["app_id"].isin(pk) | by_name
+    out = pd.Series("", index=apps.index)
+    out[apps["app_id"].isin(weak_pk) | by_name] = "weak"
+    out[apps["app_id"].isin(strong)] = "strong"
+    return out
 
 
 def decide(r) -> tuple[str, str]:
     v, rv = cfg()["labels"]["verified_min"], cfg()["labels"]["review_min"]
     if r.seed_hit and r.pkg_match:
         return "review", "seed hit but package is RBI-listed"
-    if r.seed_hit:
+    if r.seed_hit == "strong":
         return "unverified", "seed"
+    if r.seed_hit == "weak":
+        return "review", "name matches a flagged-app list (check it is the same app)"
     if r.pkg_match:
+        return "verified", "rbi_match"
+    # exact listed name AND developer: a registered DLA even if its listing text reads like a
+    # banking app (label audit found "SIB Mirror+" excluded here); brand-only matches score 88
+    if r.name_score >= v and r.dev_score >= v and not STAFF_TITLE.search(str(r.title)):
         return "verified", "rbi_match"
     if r.offers_credit == "no":  # before name rules: a listed brand's broking/insurance app is not a DLA
         return "excluded", f"not a lender: {r.credit_reason}"
@@ -75,9 +91,21 @@ def decide(r) -> tuple[str, str]:
 
 
 def load_manual(queue: pd.DataFrame) -> tuple[pd.Series, dict]:
-    """Return final manual label per app_id (NaN if pending) and agreement stats."""
+    """Return final manual label per app_id (NaN if pending) and agreement stats.
+
+    Two annotator files -> agreement + Cohen's kappa, disagreements resolved separately.
+    Only annotator A -> single-annotator labels; no kappa is reported (status "single").
+    """
     fa, fb = path("interim", "label_review_A.csv"), path("interim", "label_review_B.csv")
     stats: dict = {"status": "pending"}
+    if fa.exists() and not fb.exists():
+        a = pd.read_csv(fa, dtype=str).set_index("app_id")["label"].str.strip().str.lower()
+        a = a.reindex(queue["app_id"]).dropna()
+        bad = set(a) - MANUAL_LABELS
+        if bad:
+            raise ValueError(f"unknown manual labels {bad}; use one of {MANUAL_LABELS}")
+        return a, {"status": "single", "n_single": len(a), "kappa": None, "agreement": None,
+                   "unlabelled": int(len(queue) - len(a))}
     if not (fa.exists() and fb.exists()):
         return pd.Series(dtype=object), stats
     a = pd.read_csv(fa, dtype=str).set_index("app_id")["label"].str.strip().str.lower()

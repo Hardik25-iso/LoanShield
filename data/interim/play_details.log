@@ -1,29 +1,31 @@
-23:05:21 INFO play_details: 50/1149 processed
-23:05:22 INFO play_details: 100/1149 processed
-23:05:23 INFO play_details: 150/1149 processed
-23:05:24 INFO play_details: 200/1149 processed
-23:05:25 INFO play_details: 250/1149 processed
-23:05:26 INFO play_details: 300/1149 processed
-23:05:27 INFO play_details: 350/1149 processed
-23:05:28 INFO play_details: 400/1149 processed
-23:05:28 INFO play_details: 450/1149 processed
-23:05:29 INFO play_details: 500/1149 processed
-23:05:30 INFO play_details: 550/1149 processed
-23:05:31 INFO play_details: 600/1149 processed
-23:05:32 INFO play_details: 650/1149 processed
-23:05:32 INFO play_details: 700/1149 processed
-23:05:33 INFO play_details: 750/1149 processed
-23:05:34 INFO play_details: 800/1149 processed
-23:05:35 INFO play_details: 850/1149 processed
-23:07:56 INFO play_details: 900/1149 processed
-23:11:23 INFO play_details: 950/1149 processed
-23:14:47 INFO play_details: 1000/1149 processed
-23:18:04 INFO play_details: 1050/1149 processed
-23:21:33 INFO play_details: 1100/1149 processed
-23:24:35 INFO play_details: filter reasons:
+22:46:07 INFO play_details: 50/1242 processed
+22:46:09 INFO play_details: 100/1242 processed
+22:46:10 INFO play_details: 150/1242 processed
+22:46:11 INFO play_details: 200/1242 processed
+22:46:13 INFO play_details: 250/1242 processed
+22:46:37 INFO play_details: 300/1242 processed
+22:46:38 INFO play_details: 350/1242 processed
+22:46:39 INFO play_details: 400/1242 processed
+22:46:40 INFO play_details: 450/1242 processed
+22:46:41 INFO play_details: 500/1242 processed
+22:46:42 INFO play_details: 550/1242 processed
+22:46:43 INFO play_details: 600/1242 processed
+22:46:44 INFO play_details: 650/1242 processed
+22:46:45 INFO play_details: 700/1242 processed
+22:46:46 INFO play_details: 750/1242 processed
+22:46:52 INFO play_details: 800/1242 processed
+22:47:02 INFO play_details: 850/1242 processed
+22:47:47 INFO play_details: 900/1242 processed
+22:50:08 INFO play_details: 950/1242 processed
+22:50:52 INFO play_details: 1000/1242 processed
+22:50:53 INFO play_details: 1050/1242 processed
+22:50:53 INFO play_details: 1100/1242 processed
+22:50:54 INFO play_details: 1150/1242 processed
+22:50:54 INFO play_details: 1200/1242 processed
+22:50:54 INFO play_details: filter reasons:
 reason
-keep                   627
-genre:<non-finance>    355
-no_lending_terms       109
+keep                   652
+genre:<non-finance>    408
+no_lending_terms       124
 not_found_on_play       58
-23:24:39 INFO play_details: kept 627 / 1149 apps -> data/interim/apps.csv
+22:50:56 INFO play_details: kept 652 / 1242 apps -> data/interim/apps.csv
