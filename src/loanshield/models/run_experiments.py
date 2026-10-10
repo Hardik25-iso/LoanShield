@@ -9,7 +9,10 @@
 
 Every result is reported twice: on all labelled apps, and on "organic" apps only
 (found by search/similar, not via the RBI list's Play links), because every
-RBI-list app is verified by construction (Checkpoint 2 discovery bias).
+RBI-list app is verified by construction (Checkpoint 2 discovery bias). The
+headline subset (config evaluation.headline_subset, default organic) drives
+model selection, the headline PR curve and confusion matrices, and is listed
+first in every table.
 
 Run: python -m loanshield.models.run_experiments [--exp main,temporal,...] [--n-iter 30]
      --n-iter 5 is a quick smoke test.
@@ -22,7 +25,7 @@ import json
 
 import pandas as pd
 
-from loanshield.common import get_logger, path
+from loanshield.common import cfg, get_logger, path
 from loanshield.models import fusion, tabular, text_models
 from loanshield.models.evaluate import (fold_metrics, fmt, log_run, metrics, plot_confusion,
                                         plot_pr_curves, summarise)
@@ -31,6 +34,8 @@ from loanshield.models.splits import (Dataset, grouped_folds, load_dataset, rand
 
 log = get_logger("experiments")
 ALL_EXPS = ["main", "temporal", "ablation", "early", "smote", "leakage"]
+HEADLINE = cfg().get("evaluation", {}).get("headline_subset", "organic")
+OTHER = "all" if HEADLINE == "organic" else "organic"
 SHOW = ["pr_auc", "roc_auc", "recall_at_5fpr", "precision", "recall", "f1", "macro_f1"]
 
 
@@ -66,6 +71,8 @@ def score_rows(name: str, family: str, ds: Dataset, oof: pd.Series, fold_of: pd.
 
 def write_table(rows: list[dict], fname: str) -> pd.DataFrame:
     df = pd.DataFrame(rows)
+    if "subset" in df:  # headline subset first, original model order within it
+        df = df.assign(_h=(df["subset"] != HEADLINE).astype(int)).sort_values("_h", kind="stable").drop(columns="_h")
     df.to_csv(tables_dir() / fname, index=False)
     view = df[["model", "subset"] + [c for c in ["family", "n_pos_total", "base_rate"] if c in df] + SHOW]
     if "base_rate" in view:
@@ -97,7 +104,7 @@ def exp_main(ds: Dataset, n_iter: int) -> pd.DataFrame:
         rows += score_rows("muril", "text", ds, oofs["muril"], fold_of, "main", "grouped")
 
     df = pd.DataFrame(rows)
-    best = lambda fam: (df[(df.family == fam) & (df.subset == "all")]  # noqa: E731
+    best = lambda fam: (df[(df.family == fam) & (df.subset == HEADLINE)]  # noqa: E731
                         .sort_values("pr_auc_mean", ascending=False).iloc[0]["model"])
     bt, bx = best("tabular"), best("text")
     fused = fusion.oof_fuse(ds.y, oofs[bt], oofs[bx], fold_of)
@@ -107,14 +114,16 @@ def exp_main(ds: Dataset, n_iter: int) -> pd.DataFrame:
                        {"tabular": bt, "text": bx})
     out = write_table(rows, "main_comparison.csv")
 
-    curves = {m: (ds.y, s) for m, s in oofs.items()}
-    plot_pr_curves(curves, "pr_curves_grouped.png",
-                   f"Precision-recall, developer-grouped CV ({int(ds.y.sum())} unverified / {len(ds.y)})")
     org = ds.organic_mask
-    plot_pr_curves({m: (ds.y[org], s[org]) for m, s in oofs.items()}, "pr_curves_grouped_organic.png",
-                   f"Precision-recall, organic apps only ({int(ds.y[org].sum())} unverified / {org.sum()})")
-    cms = {r["model"]: r for r in rows if r["subset"] == "all"}
-    plot_confusion(cms, "confusion_grouped.png", "Confusion matrices, grouped CV (summed over folds, threshold 0.5)")
+    views = {"organic": (org, "organic apps (search / similar)"),
+             "all": (pd.Series(True, index=ds.y.index).to_numpy(), "all labelled apps")}
+    for subset, fname in [(HEADLINE, "pr_curves_grouped.png"), (OTHER, f"pr_curves_grouped_{OTHER}.png")]:
+        m, desc = views[subset]
+        plot_pr_curves({k: (ds.y[m], s[m]) for k, s in oofs.items()}, fname,
+                       f"Precision-recall, grouped CV, {desc} ({int(ds.y[m].sum())} unverified / {int(m.sum())})")
+    cms = {r["model"]: r for r in rows if r["subset"] == HEADLINE}
+    plot_confusion(cms, "confusion_grouped.png",
+                   f"Confusion matrices, grouped CV, {views[HEADLINE][1]} (summed over folds, cross-fitted threshold)")
     (tables_dir() / "_main_meta.json").write_text(json.dumps(
         {"labels": labels_hash(), "best_tabular": bt, "best_text": bx}), encoding="utf-8")
     return out
@@ -132,7 +141,7 @@ def main_meta() -> dict:
 
 def exp_temporal(ds: Dataset, n_iter: int) -> pd.DataFrame:
     main = pd.read_csv(tables_dir() / "main_comparison.csv")
-    top = (main[(main.subset == "all") & (main.family != "fusion")]
+    top = (main[(main.subset == HEADLINE) & (main.family != "fusion")]
            .sort_values("pr_auc_mean", ascending=False)["model"].head(3).tolist())
     tr, te, cutoff = temporal_split(ds)
     rv = text_models.load_reviews(ds)
@@ -174,7 +183,7 @@ def _plot_ablation(df: pd.DataFrame, model: str) -> None:
     import matplotlib.pyplot as plt
 
     from loanshield.models.evaluate import GRID, INK, MUTED, SERIES, SURFACE
-    d = df[df.subset == "all"].set_index("dropped_group")
+    d = df[df.subset == HEADLINE].set_index("dropped_group")
     full = d.loc["none", "pr_auc_mean"]
     d = d.drop("none").assign(delta=lambda x: x.pr_auc_mean - full).sort_values("delta")
     fig, ax = plt.subplots(figsize=(7, 3.6), facecolor=SURFACE)
@@ -185,7 +194,7 @@ def _plot_ablation(df: pd.DataFrame, model: str) -> None:
     for i, v in enumerate(d["delta"]):
         ax.text(v, i, f" {v:+.3f} ", va="center", ha="left" if v >= 0 else "right", fontsize=8, color=INK)
     ax.set_xlabel(f"Change in PR-AUC when the group is removed (full model {full:.3f})", color=INK)
-    ax.set_title(f"Ablation: {model}, developer-grouped CV", color=INK, loc="left", fontsize=11)
+    ax.set_title(f"Ablation: {model}, developer-grouped CV, {HEADLINE} apps", color=INK, loc="left", fontsize=11)
     for s in ["top", "right"]:
         ax.spines[s].set_visible(False)
     ax.tick_params(colors=MUTED, length=0)
@@ -226,7 +235,7 @@ def exp_leakage(ds: Dataset, n_iter: int) -> pd.DataFrame:
             oof, fo, _ = tabular.oof_predict(m, ds, folds, "weights", n_iter)
             rows += [{"split": split, **r} for r in score_rows(f"{m}-{split}", "tabular", ds, oof, fo, "leakage", split)]
     df = write_table(rows, "leakage_random_vs_grouped.csv")
-    a = df[df.subset == "all"].pivot_table(index=df["model"].str.rsplit("-", n=1).str[0],
+    a = df[df.subset == HEADLINE].pivot_table(index=df["model"].str.rsplit("-", n=1).str[0],
                                           columns="split", values="pr_auc_mean")
     print("\nPR-AUC gap (random - grouped):\n" + (a["random"] - a["grouped"]).round(3).to_string())
     return df

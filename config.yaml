@@ -85,6 +85,12 @@ labels:
   verified_min: 92
   review_min: 80
 
+evaluation:
+  # Headline subset (team decision 2026-10-10). "organic" = apps found by Play search /
+  # similar-apps, not via the RBI list's own Play links (those are verified by
+  # construction). Models still train on all labelled apps; both subsets are reported.
+  headline_subset: organic
+
 splits:
   n_folds: 5
   temporal_cutoff: null   # set in Phase 4 to give ~75/25

@@ -39,9 +39,9 @@ Current counts (preliminary): verified 351, unverified 27, review 130, excluded 
 
 ## Known noise and biases
 
-- **"Unverified" means "not in the RBI DLA list", not "illegal".** It includes apps of regulated lenders whose apps simply aren't listed (e.g. some housing-finance and gold-loan apps). Housing finance companies are nearly absent from the list (4 rows).
+- **"Unverified" means "not in the RBI DLA list", not "illegal"** (team decision 2026-10-10 to keep this definition). It includes apps of regulated lenders whose apps simply aren't listed (e.g. some housing-finance and gold-loan apps). Housing finance companies are nearly absent from the list (4 rows).
 - **The RBI list is self-reported.** REs upload it through the CIMS portal and RBI publishes it "as is" without validation. It changes over time; this is a single snapshot.
-- **Discovery bias.** All 188 apps found via the RBI list's Play links are verified by construction. Models are therefore also evaluated on *organic* apps (search/similar only).
+- **Discovery bias.** All 188 apps found via the RBI list's Play links are verified by construction. **Headline results are therefore reported on organic apps** (search/similar only; team decision 2026-10-10). Models still train on all labelled apps.
 - **Survivorship after Play's January 2026 purge.** Play removed loan apps missing from the RBI list from 28 Jan 2026, so surviving unverified apps are mostly new (15 of 27 released in 2026). Signals like app age partly reflect which apps survived, not risk in general.
 - **Matching errors.** Fuzzy matching can miss listed apps whose Play title differs from the RBI name, or join sibling apps of large groups. Brand-level matches go to manual review rather than auto-labelling.
 - **Review window.** Only the newest 200 reviews per app (383 apps hit the cap), so review features describe recent sentiment. Only 60 apps have any review from their first 14 days. Reviews are effectively English/Hinglish (Play's Hindi filter returned 18 extra).

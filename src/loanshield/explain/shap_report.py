@@ -53,9 +53,10 @@ def pick_model() -> str:
     if not t.exists():
         raise SystemExit("run `python -m loanshield.models.run_experiments --exp main` first")
     df = pd.read_csv(t)
-    df = df[(df.subset == "all") & df.model.isin(TREE_MODELS)]
+    headline = cfg().get("evaluation", {}).get("headline_subset", "organic")
+    df = df[(df.subset == headline) & df.model.isin(TREE_MODELS)]
     best = df.sort_values("pr_auc_mean", ascending=False).iloc[0]["model"]
-    log.info("explaining best tree model by grouped-CV PR-AUC: %s", best)
+    log.info("explaining best tree model by grouped-CV PR-AUC on %s apps: %s", headline, best)
     return best
 
 

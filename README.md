@@ -63,6 +63,8 @@ Run them in order with the `LoanShield (.venv)` kernel. Set `LOANSHIELD_N_ITER=3
 
 ## Results
 
+Headline numbers are on **organic apps**: apps found by Play search or similar-apps, not via the RBI list's own Play links, which are verified by construction. Models train on all labelled apps, and every table also reports all apps.
+
 **Pending final labels.** The pipeline has run end to end, but the unverified class currently has 27 apps (plan target 100) because the manual review queue and the flagged-app seed list are not done yet. Final tables will be in `results/tables/` and summarised here after:
 
 1. `python -m loanshield.label.build_labels` (with both annotators' files and the seed list)
@@ -74,7 +76,7 @@ Early patterns to confirm with the final labels: unverified apps less often name
 
 - "Unverified" means "not in RBI's DLA list on 2026-10-08", not "illegal". The list is self-reported by regulated entities and changes over time.
 - Google Play removed unlisted loan apps from January 2026, so the unverified apps still live are mostly new. App-age signals partly reflect that survivorship.
-- Apps found through the RBI list's own Play links are all verified, so results are also reported on organically discovered apps.
+- Apps found through the RBI list's own Play links are all verified, so headline results use organically discovered apps only.
 - Reviews cover only each app's newest 200, so early-detection results are limited to recently released apps.
 - The review-text model partly learns app and product names, not just risk language (see `03_explainability`).
 
