@@ -50,4 +50,36 @@ streamlit run app/streamlit_app.py
 
 Needs the saved models in `results/models/` (written by `shap_report`). Paste a Play Store link or package ID, or switch the sidebar to **Offline** to pick any collected app without a network (viva fallback). The page shows the calibrated risk estimate and verdict, a direct lookup in the RBI DLA snapshot, the model's top reasons in each direction, a permission checklist, flagged recent reviews, and a disclaimer that this is not a legal determination.
 
-_Results, limitations and later phases are filled in as they are completed._
+## Notebooks
+
+| Notebook | What it reproduces |
+|---|---|
+| `notebooks/01_eda.ipynb` | Collection funnel, label counts, discovery-bias table, class differences (`eda_*.png`) |
+| `notebooks/02_models.ipynb` | All six Phase 4 experiments, tables, PR curves, confusion matrices, ablation chart |
+| `notebooks/03_explainability.ipynb` | SHAP figures, per-app explanations, text-model terms; saves the demo models |
+| `notebooks/muril_finetune.ipynb` | MuRIL review classifier on a Colab/Kaggle GPU, same folds |
+
+Run them in order with the `LoanShield (.venv)` kernel. Set `LOANSHIELD_N_ITER=30` (the default) for final numbers; small values are only for smoke tests.
+
+## Results
+
+**Pending final labels.** The pipeline has run end to end, but the unverified class currently has 27 apps (plan target 100) because the manual review queue and the flagged-app seed list are not done yet. Final tables will be in `results/tables/` and summarised here after:
+
+1. `python -m loanshield.label.build_labels` (with both annotators' files and the seed list)
+2. `notebooks/02_models.ipynb` and `notebooks/03_explainability.ipynb` with `N_ITER=30`
+
+Early patterns to confirm with the final labels: unverified apps less often name an NBFC/bank partner or state the loan tenure, use free email addresses more often, request call-log access more often, and are much newer. RBI-listed lenders request SMS access *more* often than unverified apps.
+
+## Limitations
+
+- "Unverified" means "not in RBI's DLA list on 2026-10-08", not "illegal". The list is self-reported by regulated entities and changes over time.
+- Google Play removed unlisted loan apps from January 2026, so the unverified apps still live are mostly new. App-age signals partly reflect that survivorship.
+- Apps found through the RBI list's own Play links are all verified, so results are also reported on organically discovered apps.
+- Reviews cover only each app's newest 200, so early-detection results are limited to recently released apps.
+- The review-text model partly learns app and product names, not just risk language (see `03_explainability`).
+
+Full details: [docs/data_card.md](docs/data_card.md) and [docs/deviations.md](docs/deviations.md).
+
+## Team
+
+Hardik Gulati, Ashwin Vyas, Bhavya Tanna, Dakshesh Chauhan. SIT Pune, Division A, TE7483.
