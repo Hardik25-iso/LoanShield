@@ -2,19 +2,20 @@
 
 **Task.** Classify Indian lending apps on Google Play as **verified** (the app is listed in RBI's Digital Lending Apps directory) or **unverified** (the app offers credit but is not listed). Positive class for modelling: `unverified`.
 
-**Status (2026-10-10): labels are preliminary.** The manual review queue (130 apps) is not yet labelled and the flagged-app seed list is empty, so the unverified class has only 27 apps. Counts below will change; re-run `python -m loanshield.label.checkpoint2` for current numbers.
+**Status (2026-10-11): final.** 414 labelled apps (364 verified, 50 unverified) from 652 kept Finance lending apps; 132 apps excluded as non-lenders. The plan's target of 100 unverified apps was not reached: Google Play removed most unlisted loan apps in 2026, and two collection passes found only 50 live ones.
 
 ## Sources and snapshot dates
 
 | Source | Snapshot | Method | Size |
 |---|---|---|---|
 | RBI "DLAs deployed by Regulated Entities" (rbi.org.in → Citizen's Corner) | 2026-10-08 | Read from the rendered SAP BusinessObjects table in a browser session (all 3 pages); see `docs/deviations.md` #5 | 2,869 rows (2,439 NBFC, 426 bank, 4 HFC); 2,810 unique rows after normalisation; 457 regulated entities; 434 unique Play package IDs |
-| Google Play search, `country=in`, `lang=en` | 2026-10-07 | `google-play-scraper` `search()`, 55 terms incl. Hindi/Hinglish | 345 unique apps |
-| "Similar apps" snowball | 2026-10-07 | One hop from each Finance search hit | 526 more apps |
-| RBI-list Play links not found by search | 2026-10-08 | Package IDs from the RBI list | 278 more apps (58 no longer on Play) |
-| App details + permissions | 2026-10-07/08 | `app()`, `permissions()` | 1,149 candidates → **627 kept** (355 not Finance, 109 no lending terms, 58 not found) |
-| Reviews | 2026-10-07/08 | `reviews()`, newest 200 per app (`en`; `hi` pass if < 50) | 86,271 reviews for 580 apps (en 86,253, hi 18); 65,600 unique after cleaning |
-| Flagged-app seed list | not yet curated | Manual: MeitY blocking orders, RBI alerts, I4C advisories, news (`data/raw/seeds/flagged_apps.csv`) | 0 rows |
+| Google Play search, `country=in`, `lang=en` | 2026-10-07 (+ 2026-10-10) | `google-play-scraper` `search()`, 75 terms incl. Hindi/Hinglish | 355 unique apps |
+| "Similar apps" snowball | 2026-10-07 | One hop from each Finance search hit | 536 more apps |
+| Expansion around unverified/review apps | 2026-10-10 | One similar-apps hop from each, plus resolved seeds | 76 more apps (71 expand, 5 seed) |
+| RBI-list Play links not found by search | 2026-10-08 | Package IDs from the RBI list | 275 more apps (58 no longer on Play) |
+| App details + permissions | 2026-10-07/08/10 | `app()`, `permissions()` | 1,242 candidates → **652 kept** (408 not Finance, 124 no lending terms, 58 not found) |
+| Reviews | 2026-10-07/08/10 | `reviews()`, newest 200 per app (`en`; `hi` pass if < 50) | 90,100 reviews for 604 apps; 68,862 unique after cleaning |
+| Flagged-app seed list | 2026-10-10 | Public, dated sources: HP State Cyber Cell (May 2025), Odisha EOW (Jun 2022), police-linked case (Jul 2025), each row with URL | 48 rows, 46 unique names; 38 no longer on Play, 8 matched only unrelated apps by name; 0 training labels |
 
 Collection is cached under `data/raw/` and rate-limited (1–2 s + jitter, exponential backoff). Raw Play caches are not committed; `data/interim/` and `data/processed/` are.
 
@@ -29,9 +30,9 @@ Collection is cached under `data/raw/` and rate-limited (1–2 s + jitter, expon
 5. Name score 80–91, developer is a listed RE/LSP but this app is not listed, or offers-credit unsure → **review**.
 6. Otherwise, the app offers credit and matches nothing → **unverified** (`rbi_match`).
 
-The review queue is labelled independently by two team members (`docs/labelling_guide.md`). Cohen's kappa is reported and disagreements are resolved together (`label_source = manual`).
+The review queue (138 apps) was labelled by a **single AI-assisted annotator** (Claude) following `docs/labelling_guide.md`, with a note on each non-obvious decision (`data/interim/label_review_A.csv`): 11 verified, 21 unverified, 106 not lenders. **No inter-annotator agreement (kappa) is available.** An audit of 50 random automatic labels found 1 error (2%; Wilson 95% CI 0.4–10.5%), which led to a rule fix (`data/interim/label_audit.csv`).
 
-Current counts (preliminary): verified 351, unverified 27, review 130, excluded 119; `labels.csv` = 378 apps. Kappa: pending.
+Final counts: 382 automatic labels (340 exact package match, 13 name + developer match, 29 unverified with no match) + 32 manual; `labels.csv` = 414 apps (364 verified, 50 unverified); 132 excluded. Organic apps (search / similar discovery, the headline evaluation set): 229 apps, 50 unverified (base rate 0.218).
 
 ## Features
 
@@ -42,10 +43,12 @@ Current counts (preliminary): verified 351, unverified 27, review 130, excluded 
 - **"Unverified" means "not in the RBI DLA list", not "illegal"** (team decision 2026-10-10 to keep this definition). It includes apps of regulated lenders whose apps simply aren't listed (e.g. some housing-finance and gold-loan apps). Housing finance companies are nearly absent from the list (4 rows).
 - **The RBI list is self-reported.** REs upload it through the CIMS portal and RBI publishes it "as is" without validation. It changes over time; this is a single snapshot.
 - **Discovery bias.** All 188 apps found via the RBI list's Play links are verified by construction. **Headline results are therefore reported on organic apps** (search/similar only; team decision 2026-10-10). Models still train on all labelled apps.
-- **Survivorship after Play's January 2026 purge.** Play removed loan apps missing from the RBI list from 28 Jan 2026, so surviving unverified apps are mostly new (15 of 27 released in 2026). Signals like app age partly reflect which apps survived, not risk in general.
+- **Survivorship after Play's January 2026 purge.** Play removed loan apps missing from the RBI list from 28 Jan 2026, so surviving unverified apps skew new (21 of 50 were released in 2026 alone). Signals like app age partly reflect which apps survived, not risk in general.
 - **Matching errors.** Fuzzy matching can miss listed apps whose Play title differs from the RBI name, or join sibling apps of large groups. Brand-level matches go to manual review rather than auto-labelling.
 - **Review window.** Only the newest 200 reviews per app (383 apps hit the cap), so review features describe recent sentiment. Only 60 apps have any review from their first 14 days. Reviews are effectively English/Hinglish (Play's Hindi filter returned 18 extra).
-- **Small positive class.** With 27 unverified apps, fold-level metrics vary widely; results are reported as mean ± std over developer-grouped folds.
+- **Small positive class.** With 50 unverified apps, fold-level metrics vary widely; results are reported as mean ± std over developer-grouped folds.
+- **What "unverified" contains.** Besides unregulated wrapper apps, many unverified apps are unlisted apps of regulated lenders (housing-finance, gold-loan and education-loan apps). The review-text model partly learns these product names.
+- **Single annotator.** The 138 borderline labels come from one AI-assisted annotator; no agreement statistic exists.
 
 ## Ethics and privacy
 

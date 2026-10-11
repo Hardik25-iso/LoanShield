@@ -66,14 +66,22 @@ Run them in order with the `LoanShield (.venv)` kernel. Set `LOANSHIELD_N_ITER=3
 
 ## Results
 
-Headline numbers are on **organic apps**: apps found by Play search or similar-apps, not via the RBI list's own Play links, which are verified by construction. Models train on all labelled apps, and every table also reports all apps.
+Headline numbers are on **organic apps**: apps found by Play search or similar-apps, not via the RBI list's own Play links, which are verified by construction. There are 229 organic apps, 50 unverified, base rate 0.218. Models train on all 414 labelled apps. Developer-grouped 5-fold CV, mean ± std over folds; full tables are in `results/tables/` and the Word Results section is `report/results_section.docx`.
 
-**Pending final labels.** The pipeline has run end to end, but the unverified class currently has 27 apps (plan target 100) because the manual review queue and the flagged-app seed list are not done yet. Final tables will be in `results/tables/` and summarised here after:
+| Model | PR-AUC | ROC-AUC |
+|---|---|---|
+| Logistic regression (best single) | 0.65 ± 0.04 | 0.85 ± 0.03 |
+| Random forest / XGBoost / LightGBM | 0.58 / 0.55 / 0.57 | 0.80 / 0.79 / 0.78 |
+| TF-IDF + LR on reviews | 0.49 ± 0.19 | 0.66 ± 0.18 |
+| MuRIL (frozen embeddings, CPU) | 0.26 ± 0.15 | 0.49 ± 0.14 |
+| Fusion: logistic regression + TF-IDF | **0.67 ± 0.06** | 0.85 ± 0.05 |
 
-1. `python -m loanshield.label.build_labels` (with both annotators' files and the seed list)
-2. `notebooks/02_models.ipynb` and `notebooks/03_explainability.ipynb` with `N_ITER=30`
-
-Early patterns to confirm with the final labels: unverified apps less often name an NBFC/bank partner or state the loan tenure, use free email addresses more often, request call-log access more often, and are much newer. RBI-listed lenders request SMS access *more* often than unverified apps.
+- **Newer apps:** on apps released after 2025-11-20, the random forest reaches ROC-AUC 0.88.
+- **Early detection:** with first-14-day information, PR-AUC is 0.62 vs 0.65 with full features.
+- **Ablation:** permissions are the most informative group (−0.08 PR-AUC when removed), then review text (−0.05).
+- **Leakage:** random splits overstate PR-AUC by 0.04–0.08 for every model.
+- **SMOTE:** no consistent gain over class weights.
+- **Strongest signal:** whether the listing names its NBFC or bank lending partner. Stating the tenure and APR, and app age, follow.
 
 ## Limitations
 
@@ -82,6 +90,8 @@ Early patterns to confirm with the final labels: unverified apps less often name
 - Apps found through the RBI list's own Play links are all verified, so headline results use organically discovered apps only.
 - Reviews cover only each app's newest 200, so early-detection results are limited to recently released apps.
 - The review-text model partly learns app and product names, not just risk language (see `03_explainability`).
+- 50 unverified apps (plan target 100), and the 138 borderline labels come from a single AI-assisted annotator, so no kappa is reported. A 50-label audit found a 2% error rate in the automatic labels.
+- MuRIL was used frozen on CPU (no GPU) and did not beat chance. Fine-tuning (`notebooks/muril_finetune.ipynb`) is untested.
 
 Full details: [docs/data_card.md](docs/data_card.md) and [docs/deviations.md](docs/deviations.md).
 

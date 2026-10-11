@@ -289,15 +289,20 @@ Hover a word for its coefficient. Generated {datetime.now():%Y-%m-%d}.</p>
     path("results", "figures", "text_examples.html").write_text(page, encoding="utf-8")
 
 
+def run(n_iter: int = 30) -> dict:
+    """Full report + demo models + model card (used by main() and notebook 03)."""
+    card = {"created": datetime.now().isoformat(timespec="seconds"), **tabular_report(n_iter), **text_report(),
+            "labels_md5": __import__("hashlib").md5(path("processed", "labels.csv").read_bytes()).hexdigest()[:10],
+            "positive_class": "unverified"}
+    path("results", "models", "model_card.json").write_text(json.dumps(card, indent=1), encoding="utf-8")
+    return card
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--n-iter", type=int, default=30)
     a = ap.parse_args()
-    card = {"created": datetime.now().isoformat(timespec="seconds"), **tabular_report(a.n_iter), **text_report(),
-            "labels_md5": __import__("hashlib").md5(path("processed", "labels.csv").read_bytes()).hexdigest()[:10],
-            "positive_class": "unverified"}
-    path("results", "models", "model_card.json").write_text(json.dumps(card, indent=1), encoding="utf-8")
-    print(json.dumps(card, indent=1))
+    print(json.dumps(run(a.n_iter), indent=1))
 
 
 if __name__ == "__main__":

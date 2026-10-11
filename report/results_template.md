@@ -56,10 +56,10 @@ caption: Developer-grouped 5-fold CV on organic apps (base rate <<data.base_rate
 | Fusion | <<main.fusion_name>> | <<main.organic.fusion.pr_auc>> | <<main.organic.fusion.roc_auc>> | <<main.organic.fusion.recall_at_5fpr>> | <<main.organic.fusion.precision>> | <<main.organic.fusion.recall>> | <<main.all.fusion.pr_auc>> |
 :::
 
-[[AUTHOR: Compare the best model with the logistic-regression baseline and with the base rate; say whether tree models, text models or fusion help, and whether the fold standard deviations make the differences meaningful.]]
+Logistic regression was the strongest single model (PR-AUC <<main.organic.logreg.pr_auc>>, ROC-AUC <<main.organic.logreg.roc_auc>>), roughly three times the organic base rate of <<data.base_rate_organic>>. The tree ensembles did not improve on it (random forest <<main.organic.rf.pr_auc>>, LightGBM <<main.organic.lgbm.pr_auc>>, XGBoost <<main.organic.xgb.pr_auc>>) and varied more across folds: with 50 unverified apps, their extra flexibility does not pay off. The review-text models were weaker (TF-IDF + LR <<main.organic.tfidf_lr.pr_auc>>). Frozen MuRIL embeddings were no better than chance (ROC-AUC <<main.organic.muril.roc_auc>>), which indicates that MuRIL needs task fine-tuning rather than off-the-shelf sentence vectors. Stacking logistic regression with the TF-IDF model gave the highest PR-AUC (<<main.organic.fusion.pr_auc>>), but the gain over logistic regression alone is within one fold standard deviation. On all apps, including those found through the RBI directory's links, absolute PR-AUC is lower because the base rate is lower (<<data.base_rate_all>>).
 
 ::: figure {#fig:pr}
-caption: Precision–recall curves on organic apps (out-of-fold scores; dashed line = base rate).
+caption: Precision–recall curves on organic apps (out-of-fold scores pooled across folds, so the legend's average precision differs from the per-fold means in @tab:main; dashed line = base rate).
 image: pr_curves_grouped.png 0.62
 :::
 
@@ -80,7 +80,7 @@ caption: Temporal hold-out on organic apps released on or after <<temporal.cutof
 | <<temporal.3.model>> | <<temporal.3.pr_auc>> | <<temporal.3.roc_auc>> | <<temporal.3.recall_at_5fpr>> |
 :::
 
-[[AUTHOR: Compare with the grouped-CV results. If performance drops, relate it to the change in the unverified population after the January 2026 Play removal (older and newer unverified apps differ).]]
+The random forest ranked later releases well (PR-AUC <<temporal.2.pr_auc>>, ROC-AUC <<temporal.2.roc_auc>>), and logistic regression less so (ROC-AUC <<temporal.1.roc_auc>>). The test period is dominated by unverified apps (base rate <<temporal.base_rate>>): most unverified apps still live were released after Google Play's January 2026 removal of unlisted loan apps, so the higher PR-AUC partly reflects the base rate. ROC-AUC, which does not depend on the base rate, is comparable to grouped cross-validation, which suggests the learned signals carry over to newer apps.
 
 ## Feature-group ablation
 
@@ -95,7 +95,7 @@ image: ablation.png 0.75
 
 Using only information available in an app's first 14 days (no install counts, ratings or age, and reviews from the first two weeks only), <<early.model>> reached a PR-AUC of <<early.early14.pr_auc>> (ROC-AUC <<early.early14.roc_auc>>), against <<early.full.pr_auc>> (ROC-AUC <<early.full.roc_auc>>) with full snapshot features. Only <<early.n_with_reviews>> labelled apps had any review in their first 14 days, because reviews were collected newest-first, so the early setting relies mainly on listing text and permissions.
 
-[[AUTHOR: State whether early detection is practical and which signals carry it.]]
+Early detection is practical. With only first-fortnight information, ranking performance is close to the full model, so the signals that matter (the listing's disclosures and the permission profile) are available at release rather than accumulating with installs and reviews. Because few apps have early reviews, this result says more about listing and permission signals than about early review text.
 
 ## Class imbalance and leakage checks
 
@@ -110,7 +110,7 @@ caption: PR-AUC on organic apps: class weights vs SMOTE, and random vs developer
 | LightGBM | <<smote.lgbm.weights>> | <<smote.lgbm.smote>> | <<leakage.lgbm.grouped>> | <<leakage.lgbm.random>> | <<leakage.lgbm.gap>> |
 :::
 
-[[AUTHOR: One sentence on each comparison: does SMOTE help, and how large is the leakage effect?]]
+SMOTE did not help consistently: it raised the random forest's PR-AUC but slightly lowered logistic regression's, and all differences are within fold variability, so class weighting is kept. Random splits overstated PR-AUC for every model (gaps from <<leakage.xgb.gap>> to <<leakage.rf.gap>>), confirming that near-identical apps from the same developer inflate naively split evaluations. All other results therefore use developer-grouped folds.
 
 ## Explanations
 
@@ -121,7 +121,7 @@ caption: SHAP summary for <<shap.model>>. Points to the right push the predictio
 image: shap_summary_beeswarm.png 0.7
 :::
 
-[[AUTHOR: Interpret the top features. Expected from EDA: unverified apps less often name an NBFC/bank partner or state the tenure, use free email addresses more often, and are newer; RBI-listed lenders request SMS access more often. Note that app age may partly reflect survivorship after the Play removal.]]
+Whether the listing names an NBFC or bank lending partner dominates. Apps that do are pushed strongly toward *verified*, consistent with RBI's requirement that digital lending apps disclose the regulated entity they lend for. Stating the loan tenure and the APR act the same way. Newer apps are pushed toward *unverified*, which partly reflects survivorship after the 2026 Play removal rather than an inherent property of risky apps. Larger, more-reviewed apps lean verified. Two signals run against intuition. Requesting microphone access leans verified, as large regulated lenders use it for video KYC. Complaints about hidden fees also lean verified, because complaint volume scales with the user base. Permissions therefore matter through their pattern, not as simple red flags.
 
 For the review-text model, the n-grams most associated with unverified apps included <<text.top_unverified>>, and those most associated with verified apps included <<text.top_verified>> (@fig:text).
 
@@ -130,8 +130,8 @@ caption: Review n-grams with the largest logistic-regression weights toward each
 image: shap_text_top_terms.png 0.7
 :::
 
-[[AUTHOR: Comment on whether these are risk terms or app/product names (the preliminary run showed app names such as "kuhoo", which means the text model partly memorises apps).]]
+The strongest "unverified" terms are largely product and app names (e.g. "kuhoo", "moneyfy", "home loan", "housing"). This reflects that many unverified apps are unlisted home-finance and education-loan apps of regulated lenders. Generic complaint phrases such as "totally fake" lean *verified*, because popular listed apps attract more complaints. The text model therefore partly recognises apps and products rather than risk language, which is consistent with its weaker grouped cross-validation performance.
 
 ## Summary
 
-[[AUTHOR: Three or four sentences: best model and its organic PR-AUC versus the base rate; what the temporal and early-detection results say about flagging new apps; the most informative signals; the main caveat (labels mean "not in the RBI list", not "illegal").]]
+On organically discovered apps, logistic regression on listing, permission and review features identifies apps missing from RBI's Digital Lending Apps directory with PR-AUC <<main.organic.logreg.pr_auc>> against a base rate of <<data.base_rate_organic>>, and stacking review text raises this to <<main.organic.fusion.pr_auc>>. Performance holds on newer releases and with first-fortnight information, so screening apps at release is feasible. The most informative evidence is whether a listing names its regulated lending partner and states its loan terms, together with its permission profile. *Unverified* here means "not in the RBI directory snapshot of <<data.rbi_snapshot>>", a class that includes unlisted apps of regulated lenders, and the borderline labels come from a single AI-assisted annotator. The model is therefore a screening aid, not a legal determination.

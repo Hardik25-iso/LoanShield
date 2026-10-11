@@ -476,7 +476,7 @@ def column_widths(filled, total_cm: float, size_pt: float) -> list[float]:
             for j in range(ncol)]
     word = [max((len(w) for row in filled[1:] for st, t in row[j] if st != "missing" for w in t.split()),
                 default=0) * char_cm + pad_cm for j in range(ncol)]  # longest unbreakable word in the body
-    widths = [0.0 if j in text else max(body[j], head[j]) for j in range(ncol)]
+    widths = [0.0 if j in text else max(body[j], head[j], 1.6) for j in range(ncol)]  # >= 1.6 cm: never wrap a number
     rest = total_cm - sum(widths)
     if text:
         want = {j: max(body[j], head[j]) for j in text}
@@ -586,7 +586,7 @@ def main() -> None:
     print(f"filled {len(keys) - len(miss_keys)}/{len(keys)} placeholders -> {OUT.relative_to(ROOT)}")
     print(f"missing by section: {groups or 'none'}")
     print(f"figures not produced yet: {miss_figs or 'none'}")
-    print(f"author prompts to write: {template.count('[[AUTHOR:')}")
+    print(f"author prompts to write: {re.sub(r'<!--.*?-->', '', template, flags=re.S).count('[[AUTHOR:')}")
     (ROOT / "report" / "_placeholders_missing.json").write_text(json.dumps(miss_keys, indent=1), encoding="utf-8")
 
 
