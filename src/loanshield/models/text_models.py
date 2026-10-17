@@ -12,6 +12,8 @@ Apps with no reviews get NaN (fusion falls back to the tabular score).
 """
 from __future__ import annotations
 
+import re
+
 import numpy as np
 import pandas as pd
 from scipy.special import expit
@@ -24,7 +26,34 @@ from loanshield.common import cfg, get_logger, path
 from loanshield.models.splits import Dataset
 
 log = get_logger("text_models")
-MODELS = ["tfidf_lr", "tfidf_svm"]
+# *_masked variants replace each app's own brand words in its reviews with "[app]",
+# so the model must learn risk language rather than which app a review is about
+MODELS = ["tfidf_lr", "tfidf_svm", "tfidf_lr_masked", "tfidf_svm_masked"]
+PKG_NOISE = {"com", "in", "co", "app", "apps", "android", "mobile", "org", "net", "www", "io", "ai",
+             "prod", "release", "live", "official", "main"}
+
+
+def brand_tokens(apps: pd.DataFrame) -> dict[str, set[str]]:
+    """Per app: distinctive words of its title, developer and package ID (>= 3 letters)."""
+    from loanshield.label.match import GENERIC, distinctive, normalise
+    out = {}
+    for r in apps.itertuples():
+        words = set(distinctive(normalise(r.title, legal=False)).split())
+        words |= set(distinctive(normalise(r.developer)).split())
+        words |= {t for t in re.split(r"[._]", str(r.app_id).lower()) if t not in PKG_NOISE and t not in GENERIC}
+        out[r.app_id] = {w for w in words if len(w) >= 3 and w.isalpha()}
+    return out
+
+
+def mask_reviews(rv: pd.DataFrame) -> pd.DataFrame:
+    """Copy of `rv` with each app's own brand words in its reviews replaced by "[app]"."""
+    apps = pd.read_csv(path("interim", "apps.csv"), usecols=["app_id", "title", "developer"])
+    brands = brand_tokens(apps)
+    pats = {a: re.compile(r"\b(" + "|".join(map(re.escape, sorted(w, key=len, reverse=True))) + r")\b")
+            for a, w in brands.items() if w}
+    out = rv.copy()
+    out["text"] = [pats[a].sub("[app]", t) if a in pats else t for a, t in zip(out["app_id"], out["text"])]
+    return out
 
 
 def vectorizer() -> FeatureUnion:
@@ -37,6 +66,7 @@ def vectorizer() -> FeatureUnion:
 
 
 def make_pipeline(name: str) -> Pipeline:
+    name = name.removesuffix("_masked")
     seed = cfg()["seed"]
     clf = {"tfidf_lr": LogisticRegression(C=1.0, class_weight="balanced", max_iter=3000,
                                           random_state=seed),
@@ -52,7 +82,7 @@ def load_reviews(ds: Dataset) -> pd.DataFrame:
 def _app_scores(pipe: Pipeline, name: str, rv: pd.DataFrame) -> pd.Series:
     if rv.empty:
         return pd.Series(dtype=float)
-    if name == "tfidf_svm":
+    if name.removesuffix("_masked") == "tfidf_svm":
         s = pd.Series(pipe.decision_function(rv["text"]), index=rv.index)
         return expit(s.groupby(rv["app_id"]).mean())
     s = pd.Series(pipe.predict_proba(rv["text"])[:, 1], index=rv.index)
@@ -67,6 +97,7 @@ def fit_score(name: str, ds: Dataset, rv: pd.DataFrame, train_ids, test_ids) -> 
 
 def oof_predict(name: str, ds: Dataset, folds, rv: pd.DataFrame | None = None):
     rv = load_reviews(ds) if rv is None else rv
+    rv = mask_reviews(rv) if name.endswith("_masked") else rv
     oof = pd.Series(np.nan, index=ds.X.index, name=name)
     fold_of = pd.Series(-1, index=ds.X.index, name="fold")
     for k, (tr, te) in enumerate(folds):
@@ -79,6 +110,7 @@ def oof_predict(name: str, ds: Dataset, folds, rv: pd.DataFrame | None = None):
 
 def fit_holdout(name: str, ds: Dataset, tr, te, rv: pd.DataFrame | None = None) -> pd.Series:
     rv = load_reviews(ds) if rv is None else rv
+    rv = mask_reviews(rv) if name.endswith("_masked") else rv
     _, s = fit_score(name, ds, rv, ds.X.index[tr], ds.X.index[te])
     return s.reindex(ds.X.index[te]).rename(name)
 

@@ -53,3 +53,8 @@ def test_render_produces_docx_text():
     cells = [c.text for c in doc.tables[0]._cells]
     assert cells == ["Model", "PR-AUC", "RF", "0.61 ± 0.18", "LR", "0.50 ± 0.10"]
     assert "data.kappa" in missing and "figure:does_not_exist.png" in missing
+
+
+def test_bold_and_italic_runs():
+    segs = segments("**Head.** body *it* end", {}, {}, [])
+    assert ("bold", "Head.") in segs and ("italic", "it") in segs and not any("*" in t for _, t in segs)

@@ -90,40 +90,46 @@ def decide(r) -> tuple[str, str]:
             "no": ("excluded", f"not a lender: {r.credit_reason}")}[r.offers_credit]
 
 
-def load_manual(queue: pd.DataFrame) -> tuple[pd.Series, dict]:
-    """Return final manual label per app_id (NaN if pending) and agreement stats.
-
-    Two annotator files -> agreement + Cohen's kappa, disagreements resolved separately.
-    Only annotator A -> single-annotator labels; no kappa is reported (status "single").
-    """
-    fa, fb = path("interim", "label_review_A.csv"), path("interim", "label_review_B.csv")
-    stats: dict = {"status": "pending"}
-    if fa.exists() and not fb.exists():
-        a = pd.read_csv(fa, dtype=str).set_index("app_id")["label"].str.strip().str.lower()
-        a = a.reindex(queue["app_id"]).dropna()
-        bad = set(a) - MANUAL_LABELS
-        if bad:
-            raise ValueError(f"unknown manual labels {bad}; use one of {MANUAL_LABELS}")
-        return a, {"status": "single", "n_single": len(a), "kappa": None, "agreement": None,
-                   "unlabelled": int(len(queue) - len(a))}
-    if not (fa.exists() and fb.exists()):
-        return pd.Series(dtype=object), stats
-    a = pd.read_csv(fa, dtype=str).set_index("app_id")["label"].str.strip().str.lower()
-    b = pd.read_csv(fb, dtype=str).set_index("app_id")["label"].str.strip().str.lower()
-    both = pd.concat([a, b], axis=1, keys=["A", "B"]).reindex(queue["app_id"]).dropna()
-    bad = set(both.stack()) - MANUAL_LABELS
+def _read_labels(f) -> pd.Series:
+    if not f.exists():
+        return pd.Series(dtype=object)
+    lab = pd.read_csv(f, dtype=str).set_index("app_id")["label"].str.strip().str.lower()
+    lab = lab[lab.notna() & (lab != "")]
+    bad = set(lab) - MANUAL_LABELS
     if bad:
-        raise ValueError(f"unknown manual labels {bad}; use one of {MANUAL_LABELS}")
-    stats = {"status": "done" if len(both) == len(queue) else "partial", "n_double": len(both),
+        raise ValueError(f"unknown manual labels {bad} in {f.name}; use one of {MANUAL_LABELS}")
+    return lab
+
+
+def load_manual(queue: pd.DataFrame) -> tuple[pd.Series, dict]:
+    """Final manual label per app_id and agreement stats.
+
+    Annotator A labels the whole queue (label_review_A.csv). Annotator B may label all
+    of it or only a subset (label_review_B.csv, e.g. the 50-app double-annotation
+    sample). Kappa and raw agreement are computed on the apps both labelled. The final
+    label is A's, except that a disagreement takes the value from
+    label_review_resolved.csv when present (otherwise it is counted as unresolved and
+    A's label is kept).
+    """
+    ids = queue["app_id"]
+    a = _read_labels(path("interim", "label_review_A.csv")).reindex(ids).dropna()
+    b = _read_labels(path("interim", "label_review_B.csv")).reindex(ids).dropna()
+    if a.empty and b.empty:
+        return pd.Series(dtype=object), {"status": "pending"}
+    final = a.combine_first(b)
+    both = pd.concat([a, b], axis=1, keys=["A", "B"]).dropna()
+    stats = {"status": "single" if both.empty else ("double" if len(both) == len(ids) else "double_subset"),
+             "n_a": len(a), "n_b": len(b), "n_double": len(both), "unlabelled": int(len(ids) - len(final)),
              "agreement": float((both.A == both.B).mean()) if len(both) else None,
-             "kappa": float(cohen_kappa_score(both.A, both.B)) if both.A.nunique() + both.B.nunique() > 2 else None}
-    final = both.A.where(both.A == both.B)
-    fr = path("interim", "label_review_resolved.csv")
-    if fr.exists():
-        res = pd.read_csv(fr, dtype=str).set_index("app_id")["label"].str.strip().str.lower()
-        final = final.fillna(res.reindex(final.index))
-    stats["unresolved"] = int(final.isna().sum())
-    return final.dropna(), stats
+             "kappa": (float(cohen_kappa_score(both.A, both.B))
+                       if len(both) and both.A.nunique() + both.B.nunique() > 2 else None)}
+    disagree = both.index[both.A != both.B]
+    res = _read_labels(path("interim", "label_review_resolved.csv"))
+    resolved = res.reindex(disagree).dropna()
+    final.loc[resolved.index] = resolved
+    stats["disagreements"] = len(disagree)
+    stats["unresolved"] = int(len(disagree) - len(resolved))
+    return final, stats
 
 
 def main() -> None:

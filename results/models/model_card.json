@@ -1,0 +1,20 @@
+{
+ "created": "2026-10-17T13:21:58",
+ "calibration": "platt_on_oof",
+ "verdict_threshold": 0.16768925831700743,
+ "oof_pr_auc": 0.31175065687156267,
+ "tabular_model": "rf",
+ "tabular_params": {
+  "n_estimators": "400",
+  "min_samples_leaf": "4",
+  "max_features": "0.3",
+  "max_depth": "None"
+ },
+ "tabular_inner_ap": 0.4134808473041593,
+ "n_apps": 414,
+ "n_unverified": 50,
+ "text_model": "tfidf_lr",
+ "n_reviews": 47177,
+ "labels_md5": "f215f0cf2b",
+ "positive_class": "unverified"
+}

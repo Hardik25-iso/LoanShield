@@ -11,6 +11,6 @@ data/raw/play_permissions/
 data/raw/play_search/
 data/raw/play_similar/
 data/interim/*.parquet
-results/models/
+# results/models/ is committed: the demo (incl. the cloud deployment) loads it
 report/_placeholders_missing.json
 data/interim/*.npz

@@ -1,0 +1,3 @@
+model,brier,brier_base_rate,ece
+rf,0.1567,0.1707,0.1064
+logreg,0.1481,0.1707,0.1103

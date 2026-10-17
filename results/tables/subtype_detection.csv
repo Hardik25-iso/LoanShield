@@ -1,0 +1,11 @@
+model,subtype,n_pos,n_verified,base_rate,pr_auc,roc_auc,median_score
+logreg,no_regulated_entity,22,179,0.1095,0.5031,0.8306,0.6015
+logreg,regulated_unlisted,28,179,0.1353,0.4054,0.823,0.4513
+rf,no_regulated_entity,22,179,0.1095,0.5769,0.8429,0.3075
+rf,regulated_unlisted,28,179,0.1353,0.2663,0.7412,0.1596
+fusion,no_regulated_entity,22,179,0.1095,0.4549,0.8007,0.1779
+fusion,regulated_unlisted,28,179,0.1353,0.4222,0.8248,0.15
+tfidf_lr,no_regulated_entity,20,177,0.1015,0.1549,0.5715,0.3852
+tfidf_lr,regulated_unlisted,27,177,0.1324,0.4208,0.7194,0.416
+tfidf_lr_masked,no_regulated_entity,20,177,0.1015,0.1619,0.5712,0.3891
+tfidf_lr_masked,regulated_unlisted,27,177,0.1324,0.4014,0.7123,0.419

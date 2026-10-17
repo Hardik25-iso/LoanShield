@@ -30,3 +30,20 @@ def test_demo_features_match_training_features():
         a, b = X.iloc[0].to_numpy(float), train.loc[aid].to_numpy(float)
         bad = ~np.isclose(a, b, equal_nan=True)
         assert not bad.any(), f"{aid}: {dict(zip(train.columns[bad], zip(a[bad], b[bad])))}"
+
+
+@pytest.mark.skipif(not (path("processed", "features.parquet").exists()
+                         and (path("raw").parent / "demo" / "offline_bundle.json.gz").exists()),
+                    reason="features or offline bundle not built")
+def test_offline_bundle_gives_training_features(monkeypatch):
+    """Fresh clone / cloud: raw caches absent, the committed bundle must reproduce the features."""
+    import loanshield.demo as demo
+    real_path = demo.path
+    monkeypatch.setattr(demo, "path", lambda key, *p: (real_path(key, *p).with_name("__absent__")
+                                                       if key == "raw" else real_path(key, *p)))
+    train = pd.read_parquet(real_path("processed", "features.parquet")).set_index("app_id")
+    context = pd.read_csv(real_path("interim", "apps.csv"))
+    for aid in train.sample(10, random_state=7).index:
+        a = demo.load_cached(aid)
+        X, _ = build_features(a, context, list(train.columns))
+        assert np.allclose(X.iloc[0].to_numpy(float), train.loc[aid].to_numpy(float), equal_nan=True), aid

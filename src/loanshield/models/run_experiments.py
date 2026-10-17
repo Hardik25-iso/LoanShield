@@ -98,10 +98,12 @@ def exp_main(ds: Dataset, n_iter: int) -> pd.DataFrame:
         oofs[m] = oof
         save_oof(m, "grouped", oof, fo)
         rows += score_rows(m, "text", ds, oof, fo, "main", "grouped")
-    ext = text_models.load_external_oof("muril", "grouped")
-    if ext is not None:
-        oofs["muril"] = ext.reindex(ds.X.index)
-        rows += score_rows("muril", "text", ds, oofs["muril"], fold_of, "main", "grouped")
+    # frozen-encoder scores computed by models/muril_frozen.py on the same exported folds
+    for ext_name in ["muril", "muril_masked", "minilm", "minilm_masked", "llm"]:
+        ext = text_models.load_external_oof(ext_name, "grouped")
+        if ext is not None:
+            oofs[ext_name] = ext.reindex(ds.X.index)
+            rows += score_rows(ext_name, "text", ds, oofs[ext_name], fold_of, "main", "grouped")
 
     df = pd.DataFrame(rows)
     best = lambda fam: (df[(df.family == fam) & (df.subset == HEADLINE)]  # noqa: E731
@@ -141,7 +143,8 @@ def main_meta() -> dict:
 
 def exp_temporal(ds: Dataset, n_iter: int) -> pd.DataFrame:
     main = pd.read_csv(tables_dir() / "main_comparison.csv")
-    top = (main[(main.subset == HEADLINE) & (main.family != "fusion")]
+    refittable = set(tabular.MODELS) | set(text_models.MODELS)  # frozen encoders are scored externally
+    top = (main[(main.subset == HEADLINE) & main.model.isin(refittable)]
            .sort_values("pr_auc_mean", ascending=False)["model"].head(3).tolist())
     tr, te, cutoff = temporal_split(ds)
     rv = text_models.load_reviews(ds)

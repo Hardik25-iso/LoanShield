@@ -5,9 +5,14 @@ Run:  streamlit run app/streamlit_app.py
 from __future__ import annotations
 
 import html
+import sys
+from pathlib import Path
 
 import pandas as pd
 import streamlit as st
+
+# Streamlit Community Cloud installs app/requirements.txt but not the package itself
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from loanshield.demo import (RBI_DLA_URL, RBI_HOME_URL, SACHET_URL, Predictor, cached_apps,
                              fetch_live, load_cached, parse_app_id, risk_band)

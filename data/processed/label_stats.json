@@ -16,9 +16,13 @@
  "review_queue": 138,
  "manual": {
   "status": "single",
-  "n_single": 138,
-  "kappa": null,
+  "n_a": 138,
+  "n_b": 0,
+  "n_double": 0,
+  "unlabelled": 0,
   "agreement": null,
-  "unlabelled": 0
+  "kappa": null,
+  "disagreements": 0,
+  "unresolved": 0
  }
 }

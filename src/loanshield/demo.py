@@ -13,12 +13,14 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass
+from functools import cache as cached_property_module
 from functools import cached_property
 
 import joblib
 import pandas as pd
 
 from loanshield.collect.play_details import details_row
+from loanshield.common import ROOT as ROOT_DIR
 from loanshield.common import cfg, path, read_json, safe_name
 from loanshield.explain.plain_language import PERMISSION_TEXT, top_signals
 from loanshield.features import metadata, permissions, text
@@ -89,9 +91,53 @@ def fetch_live(app_id: str) -> AppData:
     return AppData(app_id, d, p, _reviews_df(app_id, {"en": rv}), "live")
 
 
-def load_cached(app_id: str) -> AppData:
+BUNDLE = ("demo", "offline_bundle.json.gz")
+
+
+def build_offline_bundle() -> None:
+    """Pack the raw Play caches of all kept apps into one compressed file for deployment.
+
+    data/raw/play_* is not committed (26 MB); the bundle (details, permissions and the
+    cached reviews of every kept app) lets the demo's offline mode work on a fresh clone
+    or on Streamlit Community Cloud.
+    """
+    import gzip
+    import json
+    ids = pd.read_csv(path("interim", "apps.csv"), usecols=["app_id"])["app_id"]
+    bundle = {}
+    for aid in ids:
+        a = load_cached(aid, use_bundle=False)
+        bundle[aid] = {"details": a.details, "perms": a.perms,
+                       "reviews": a.reviews.assign(at=a.reviews["at"].astype(str)).drop(columns=["app_id"]).to_dict("records")}
+    out = ROOT_DIR / "data" / BUNDLE[0] / BUNDLE[1]
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with gzip.open(out, "wt", encoding="utf-8") as fh:
+        json.dump(bundle, fh, ensure_ascii=False, default=str)
+    print(f"{len(bundle)} apps -> {out} ({out.stat().st_size / 1e6:.1f} MB)")
+
+
+@cached_property_module
+def _bundle() -> dict:
+    import gzip
+    import json
+    f = ROOT_DIR / "data" / BUNDLE[0] / BUNDLE[1]
+    if not f.exists():
+        return {}
+    with gzip.open(f, "rt", encoding="utf-8") as fh:
+        return json.load(fh)
+
+
+def load_cached(app_id: str, use_bundle: bool = True) -> AppData:
     sid = safe_name(app_id)
-    d = read_json(path("raw", "play_apps", f"{sid}.json"))
+    raw = path("raw", "play_apps", f"{sid}.json")
+    if not raw.exists() and use_bundle:  # fresh clone / cloud: fall back to the committed bundle
+        b = _bundle().get(app_id)
+        if b is None:
+            raise ValueError(f"{app_id} is not in the offline data")
+        rv = pd.DataFrame(b["reviews"], columns=["lang"] + REVIEW_COLS).assign(app_id=app_id)
+        rv["at"] = pd.to_datetime(rv["at"])
+        return AppData(app_id, b["details"], b["perms"], rv[["app_id", "lang"] + REVIEW_COLS], "cache")
+    d = read_json(raw)
     pf = path("raw", "play_permissions", f"{sid}.json")
     p = read_json(pf) if pf.exists() else {"_missing": True}
     by_lang = {}
@@ -235,3 +281,9 @@ def risk_band(p: float, thr: float) -> str:
         return "moderate"
     return "low"
 
+
+
+if __name__ == "__main__":
+    import sys
+    if "--build-offline-bundle" in sys.argv:
+        build_offline_bundle()

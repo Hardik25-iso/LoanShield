@@ -47,6 +47,7 @@ Final counts: 382 automatic labels (340 exact package match, 13 name + developer
 - **Matching errors.** Fuzzy matching can miss listed apps whose Play title differs from the RBI name, or join sibling apps of large groups. Brand-level matches go to manual review rather than auto-labelling.
 - **Review window.** Only the newest 200 reviews per app (383 apps hit the cap), so review features describe recent sentiment. Only 60 apps have any review from their first 14 days. Reviews are effectively English/Hinglish (Play's Hindi filter returned 18 extra).
 - **Small positive class.** With 50 unverified apps, fold-level metrics vary widely; results are reported as mean ± std over developer-grouped folds.
+- **Two kinds of unverified app** (`data/interim/unverified_subtypes.csv`, AI-assisted tags with evidence): 28 are apps of regulated lenders or listed lending service providers that are missing from the directory, and 22 have no identifiable regulated entity. Three of the regulated tags rest on company identity rather than a check against RBI's NBFC register.
 - **What "unverified" contains.** Besides unregulated wrapper apps, many unverified apps are unlisted apps of regulated lenders (housing-finance, gold-loan and education-loan apps). The review-text model partly learns these product names.
 - **Single annotator.** The 138 borderline labels come from one AI-assisted annotator; no agreement statistic exists.
 

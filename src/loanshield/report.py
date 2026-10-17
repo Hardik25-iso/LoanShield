@@ -33,7 +33,10 @@ TEMPLATE = ROOT / "report" / "results_template.md"
 OUT = ROOT / "report" / "results_section.docx"
 
 MODEL_NAMES = {"logreg": "Logistic regression", "rf": "Random forest", "xgb": "XGBoost", "lgbm": "LightGBM",
-               "tfidf_lr": "TF-IDF + LR", "tfidf_svm": "TF-IDF + SVM", "muril": "MuRIL"}
+               "tfidf_lr": "TF-IDF + LR", "tfidf_svm": "TF-IDF + SVM", "muril": "MuRIL",
+               "tfidf_lr_masked": "TF-IDF + LR (brand-masked)", "tfidf_svm_masked": "TF-IDF + SVM (brand-masked)",
+               "muril_masked": "MuRIL (brand-masked)", "minilm": "MiniLM", "minilm_masked": "MiniLM (brand-masked)",
+               "llm": "LLM zero-shot (Claude)", "fusion": "Fusion"}
 GROUP_NAMES = {"metadata": "metadata", "developer": "developer", "permissions": "permissions",
                "listing_text": "listing text", "review_text": "review text"}
 MINUS = "−"
@@ -146,6 +149,14 @@ def data_values() -> dict:
             v["data.kappa"] = num(m["kappa"])
         if m.get("agreement") is not None:
             v["data.agreement"] = f"{100 * m['agreement']:.0f}%"
+        if m.get("kappa") is not None and m.get("n_double"):
+            v["data.annotation_sentence"] = (
+                f"The queue was labelled by one annotator, and a second annotator independently labelled a random "
+                f"sample of {m['n_double']} apps: Cohen's κ = {num(m['kappa'])} ({100 * m['agreement']:.0f}% raw "
+                f"agreement), with {m.get('disagreements', 0)} disagreements resolved jointly.")
+        else:
+            v["data.annotation_sentence"] = ("This was done by a single AI-assisted annotator, so no "
+                                             "inter-annotator agreement is available.")
     return v
 
 
@@ -280,9 +291,43 @@ def shap_values() -> dict:
     return v
 
 
+def analysis_values() -> dict:
+    """Bootstrap CIs, paired tests, calibration and subtype detection (models/analysis.py)."""
+    v = {}
+    ci = _csv("results", "tables", "bootstrap_ci.csv")
+    if ci is not None:
+        for r in ci.itertuples():
+            for m in ["pr_auc", "roc_auc"]:
+                v[f"ci.{r.model}.{m}"] = f"{num(getattr(r, m))} [{num(getattr(r, m + '_lo'))}, {num(getattr(r, m + '_hi'))}]"
+    pt = _csv("results", "tables", "paired_tests.csv")
+    if pt is not None:
+        for r in pt.itertuples():
+            k = f"paired.{r.model}.vs.{r.baseline}"
+            v[f"{k}.pr_auc"] = f"{signed(r.pr_auc_diff, 3)} [{signed(r.pr_auc_diff_lo, 3)}, {signed(r.pr_auc_diff_hi, 3)}]"
+            v[f"{k}.roc_auc"] = f"{signed(r.roc_auc_diff, 3)} [{signed(r.roc_auc_diff_lo, 3)}, {signed(r.roc_auc_diff_hi, 3)}]"
+    cal = _csv("results", "tables", "calibration.csv")
+    if cal is not None:
+        for r in cal.itertuples():
+            v[f"cal.{r.model}.brier"] = num(r.brier, 3)
+            v[f"cal.{r.model}.brier_base"] = num(r.brier_base_rate, 3)
+            v[f"cal.{r.model}.ece"] = num(r.ece, 3)
+    sd = _csv("results", "tables", "subtype_detection.csv")
+    if sd is not None:
+        for r in sd.itertuples():
+            k = f"sub.{r.model}.{r.subtype}"
+            v[f"{k}.pr_auc"], v[f"{k}.roc_auc"] = num(r.pr_auc), num(r.roc_auc)
+            v[f"{k}.base_rate"], v[f"{k}.n"] = num(r.base_rate, 3), str(int(r.n_pos))
+    st = path("interim", "unverified_subtypes.csv")
+    if st.exists():
+        c = pd.read_csv(st)["subtype"].value_counts()
+        v["sub.n_regulated"], v["sub.n_unregistered"] = str(int(c.get("regulated_unlisted", 0))), str(int(c.get("no_regulated_entity", 0)))
+    return v
+
+
 def collect() -> dict:
     v = {}
-    for fn in [data_values, main_values, temporal_values, ablation_values, early_values, check_values, shap_values]:
+    for fn in [data_values, main_values, temporal_values, ablation_values, early_values, check_values, shap_values,
+               analysis_values]:
         try:
             v.update(fn())
         except Exception as e:  # noqa: BLE001 - a broken source must not block the rest
@@ -354,7 +399,7 @@ def numbering(blocks: list[Block]) -> dict[str, str]:
     return refs
 
 
-TOKEN = re.compile(r"(<<[\w.]+>>|\[\[AUTHOR:.*?\]\]|\*[^*]+\*|@(?:tab|fig):[\w-]+)")
+TOKEN = re.compile(r"(<<[\w.]+>>|\[\[AUTHOR:.*?\]\]|\*\*[^*]+\*\*|\*[^*]+\*|@(?:tab|fig):[\w-]+)")
 
 
 def segments(text: str, values: dict, refs: dict, missing: list,
@@ -377,6 +422,8 @@ def segments(text: str, values: dict, refs: dict, missing: list,
                 out.append(("missing", "[TBD]" if short_missing else f"[{key}]"))
         elif part.startswith("[[AUTHOR:"):
             out.append(("author", "[AUTHOR: " + part[9:-2].strip() + "]"))
+        elif part.startswith("**") and part.endswith("**") and len(part) > 4:
+            out.append(("bold", part[2:-2]))
         elif part.startswith("*") and part.endswith("*"):
             out.append(("italic", part[1:-1]))
         elif part.startswith("@"):
@@ -393,7 +440,9 @@ def add_runs(p, segs, size: float | None = None, bold: bool = False) -> None:
         r.bold = bold or None
         if size:
             r.font.size = Pt(size)
-        if style == "italic":
+        if style == "bold":
+            r.bold = True
+        elif style == "italic":
             r.italic = True
         elif style in ("missing", "author"):
             r.font.color.rgb = RED
@@ -500,8 +549,12 @@ def render_table(doc, b: Block, values, refs, missing) -> None:
     for r in b.rows:
         if all(re.fullmatch(r"-{3,}", c) for c in r if c):
             rule_before.add(len(rows))
-        else:
-            rows.append(r)
+            continue
+        if r and r[0].startswith("?"):  # optional row: keep only when every value exists
+            r = [r[0][1:].strip(), *r[1:]]
+            if any(k not in values for c in r for k in re.findall(r"<<([\w.]+)>>", c)):
+                continue
+        rows.append(r)
     ncol = max(len(r) for r in rows)
     filled = [[segments(r[j] if j < len(r) else "", values, refs, missing, short_missing=True)
                for j in range(ncol)] for r in rows]
@@ -573,21 +626,31 @@ def render(template: str, values: dict) -> tuple[Document, list[str]]:
     return doc, missing
 
 
-def main() -> None:
-    template = TEMPLATE.read_text(encoding="utf-8")
-    values = collect()
-    doc, missing = render(template, values)
-    doc.save(OUT)
+SECTIONS = [("results_template.md", "results_section.docx"), ("related_work_template.md", "related_work.docx")]
 
-    keys = set(re.findall(r"<<([\w.]+)>>", re.sub(r"<!--.*?-->", "", template, flags=re.S)))
-    miss_keys = sorted({m for m in missing if not m.startswith("figure:")})
-    miss_figs = sorted({m.removeprefix("figure:") for m in missing if m.startswith("figure:")})
-    groups = pd.Series([k.split(".")[0] for k in miss_keys]).value_counts().to_dict() if miss_keys else {}
-    print(f"filled {len(keys) - len(miss_keys)}/{len(keys)} placeholders -> {OUT.relative_to(ROOT)}")
-    print(f"missing by section: {groups or 'none'}")
-    print(f"figures not produced yet: {miss_figs or 'none'}")
-    print(f"author prompts to write: {re.sub(r'<!--.*?-->', '', template, flags=re.S).count('[[AUTHOR:')}")
-    (ROOT / "report" / "_placeholders_missing.json").write_text(json.dumps(miss_keys, indent=1), encoding="utf-8")
+
+def main() -> None:
+    values = collect()
+    all_missing = []
+    for tpl_name, out_name in SECTIONS:
+        tpl = ROOT / "report" / tpl_name
+        if not tpl.exists():
+            continue
+        template = tpl.read_text(encoding="utf-8")
+        doc, missing = render(template, values)
+        out = ROOT / "report" / out_name
+        doc.save(out)
+        body = re.sub(r"<!--.*?-->", "", template, flags=re.S)
+        keys = set(re.findall(r"<<([\w.]+)>>", body))
+        miss_keys = sorted({m for m in missing if not m.startswith("figure:")})
+        miss_figs = sorted({m.removeprefix("figure:") for m in missing if m.startswith("figure:")})
+        groups = pd.Series([k.split(".")[0] for k in miss_keys]).value_counts().to_dict() if miss_keys else {}
+        print(f"{out_name}: filled {len(keys) - len(miss_keys)}/{len(keys)} placeholders "
+              f"(missing by section: {groups or 'none'}; figures not produced: {miss_figs or 'none'}; "
+              f"author prompts: {body.count('[[AUTHOR:')})")
+        all_missing += miss_keys
+    (ROOT / "report" / "_placeholders_missing.json").write_text(json.dumps(sorted(set(all_missing)), indent=1),
+                                                                 encoding="utf-8")
 
 
 if __name__ == "__main__":
