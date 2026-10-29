@@ -129,7 +129,7 @@ def main() -> None:
     log.info("bootstrap CIs:\n%s", ci.round(3).to_string(index=False))
 
     # 2. paired tests against the logistic-regression baseline
-    pairs = [(a, "logreg") for a in ["fusion", "rf", "lgbm", "xgb", "tfidf_lr", "tfidf_lr_masked", "minilm_masked", "llm"] if a in oofs]
+    pairs = [(a, "logreg") for a in ["fusion", "rf", "lgbm", "xgb", "tfidf_lr", "tfidf_lr_masked", "minilm_masked", "muril_ft", "llm"] if a in oofs]
     pairs += [("tfidf_lr", "tfidf_lr_masked")] if {"tfidf_lr", "tfidf_lr_masked"} <= set(oofs) else []
     prow = []
     for a, b in pairs:

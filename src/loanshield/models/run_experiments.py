@@ -34,6 +34,8 @@ from loanshield.models.splits import (Dataset, grouped_folds, load_dataset, rand
 
 log = get_logger("experiments")
 ALL_EXPS = ["main", "temporal", "ablation", "early", "smote", "leakage"]
+# at most 8 series (the categorical palette has 8 hues); full results are in the tables
+PR_PLOT_MODELS = ["logreg", "rf", "xgb", "lgbm", "tfidf_lr", "tfidf_lr_masked", "minilm_masked", "fusion"]
 HEADLINE = cfg().get("evaluation", {}).get("headline_subset", "organic")
 OTHER = "all" if HEADLINE == "organic" else "organic"
 SHOW = ["pr_auc", "roc_auc", "recall_at_5fpr", "precision", "recall", "f1", "macro_f1"]
@@ -99,7 +101,7 @@ def exp_main(ds: Dataset, n_iter: int) -> pd.DataFrame:
         save_oof(m, "grouped", oof, fo)
         rows += score_rows(m, "text", ds, oof, fo, "main", "grouped")
     # frozen-encoder scores computed by models/muril_frozen.py on the same exported folds
-    for ext_name in ["muril", "muril_masked", "minilm", "minilm_masked", "llm"]:
+    for ext_name in ["muril", "muril_masked", "minilm", "minilm_masked", "muril_ft", "llm"]:
         ext = text_models.load_external_oof(ext_name, "grouped")
         if ext is not None:
             oofs[ext_name] = ext.reindex(ds.X.index)
@@ -121,7 +123,7 @@ def exp_main(ds: Dataset, n_iter: int) -> pd.DataFrame:
              "all": (pd.Series(True, index=ds.y.index).to_numpy(), "all labelled apps")}
     for subset, fname in [(HEADLINE, "pr_curves_grouped.png"), (OTHER, f"pr_curves_grouped_{OTHER}.png")]:
         m, desc = views[subset]
-        plot_pr_curves({k: (ds.y[m], s[m]) for k, s in oofs.items()}, fname,
+        plot_pr_curves({k: (ds.y[m], oofs[k][m]) for k in PR_PLOT_MODELS if k in oofs}, fname,
                        f"Precision-recall, grouped CV, {desc} ({int(ds.y[m].sum())} unverified / {int(m.sum())})")
     cms = {r["model"]: r for r in rows if r["subset"] == HEADLINE}
     plot_confusion(cms, "confusion_grouped.png",

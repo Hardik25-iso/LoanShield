@@ -36,7 +36,7 @@ MODEL_NAMES = {"logreg": "Logistic regression", "rf": "Random forest", "xgb": "X
                "tfidf_lr": "TF-IDF + LR", "tfidf_svm": "TF-IDF + SVM", "muril": "MuRIL",
                "tfidf_lr_masked": "TF-IDF + LR (brand-masked)", "tfidf_svm_masked": "TF-IDF + SVM (brand-masked)",
                "muril_masked": "MuRIL (brand-masked)", "minilm": "MiniLM", "minilm_masked": "MiniLM (brand-masked)",
-               "llm": "LLM zero-shot (Claude)", "fusion": "Fusion"}
+               "llm": "LLM zero-shot (Claude)", "muril_ft": "MuRIL (fine-tuned)", "fusion": "Fusion"}
 GROUP_NAMES = {"metadata": "metadata", "developer": "developer", "permissions": "permissions",
                "listing_text": "listing text", "review_text": "review text"}
 MINUS = "−"
@@ -98,6 +98,7 @@ def data_values() -> dict:
     for name, d in [("", labels), ("organic_", org)]:
         v[f"data.n_{name}verified"] = f"{int((d.label == 'verified').sum()):,}"
         v[f"data.n_{name}unverified"] = f"{int((d.label == 'unverified').sum()):,}"
+    v["data.n_labelled"] = f"{len(labels):,}"
     v["data.base_rate_all"] = num((labels.label == "unverified").mean(), 3)
     v["data.base_rate_organic"] = num((org.label == "unverified").mean(), 3)
     v["data.n_developers"] = f"{labels.dev.nunique():,}"
@@ -346,8 +347,16 @@ class Block:
     images: list[tuple[str, float]] = field(default_factory=list)
 
 
+def expand_includes(template: str) -> str:
+    """Replace "!include name.md" lines with that template (comments and its first H1 removed)."""
+    def sub(m):
+        body = re.sub(r"<!--.*?-->", "", (ROOT / "report" / m.group(1)).read_text(encoding="utf-8"), flags=re.S)
+        return re.sub(r"^# .*$\n?", "", body, count=1, flags=re.M)
+    return re.sub(r"^!include (\S+)$", sub, template, flags=re.M)
+
+
 def parse(template: str) -> list[Block]:
-    template = re.sub(r"<!--.*?-->", "", template, flags=re.S)
+    template = re.sub(r"<!--.*?-->", "", expand_includes(template), flags=re.S)
     blocks, lines, i = [], template.splitlines(), 0
     para: list[str] = []
 
@@ -375,6 +384,9 @@ def parse(template: str) -> list[Block]:
                     b.rows.append([c.strip() for c in body.strip("|").split("|")])
                 i += 1
             blocks.append(b)
+        elif line.startswith(">> "):
+            flush()
+            blocks.append(Block("center", line[3:].strip()))
         elif line.startswith("## "):
             flush()
             blocks.append(Block("heading2", line[3:].strip()))
@@ -606,15 +618,29 @@ def render_figure(doc, b: Block, values, refs, missing) -> None:
     caption(doc, refs[b.id], segments(b.caption, values, refs, missing), before=False)
 
 
-def render(template: str, values: dict) -> tuple[Document, list[str]]:
+def render(template: str, values: dict, number_headings: bool = False) -> tuple[Document, list[str]]:
     blocks = parse(template)
     refs = numbering(blocks)
     doc = Document()
     setup(doc)
     missing: list[str] = []
+    h1 = h2 = 0
     for b in blocks:
         if b.kind in ("heading1", "heading2"):
-            doc.add_heading(b.text, level=1 if b.kind == "heading1" else 2)
+            text = b.text
+            if text.startswith("!"):
+                text = text[1:].strip()
+            elif number_headings and b.kind == "heading1":
+                h1, h2 = h1 + 1, 0
+                text = f"{h1}  {text}"
+            elif number_headings:
+                h2 += 1
+                text = f"{h1}.{h2}  {text}"
+            doc.add_heading(text, level=1 if b.kind == "heading1" else 2)
+        elif b.kind == "center":
+            p = doc.add_paragraph()
+            p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            add_runs(p, segments(b.text, values, refs, missing))
         elif b.kind in ("para", "author"):
             p = doc.add_paragraph()
             p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
@@ -626,18 +652,20 @@ def render(template: str, values: dict) -> tuple[Document, list[str]]:
     return doc, missing
 
 
-SECTIONS = [("results_template.md", "results_section.docx"), ("related_work_template.md", "related_work.docx")]
+SECTIONS = [("results_template.md", "results_section.docx", False),
+            ("related_work_template.md", "related_work.docx", False),
+            ("full_report_template.md", "LoanShield_Case_Study_Report.docx", True)]
 
 
 def main() -> None:
     values = collect()
     all_missing = []
-    for tpl_name, out_name in SECTIONS:
+    for tpl_name, out_name, numbered in SECTIONS:
         tpl = ROOT / "report" / tpl_name
         if not tpl.exists():
             continue
-        template = tpl.read_text(encoding="utf-8")
-        doc, missing = render(template, values)
+        template = expand_includes(tpl.read_text(encoding="utf-8"))
+        doc, missing = render(template, values, number_headings=numbered)
         out = ROOT / "report" / out_name
         doc.save(out)
         body = re.sub(r"<!--.*?-->", "", template, flags=re.S)
